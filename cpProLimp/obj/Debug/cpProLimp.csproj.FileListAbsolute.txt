@@ -1,0 +1,9 @@
+E:\Daniel dou\Mio\SIS 457 fundamentos\Visual repositorio\ProLimp\cpProLimp\bin\Debug\cpProLimp.exe.config
+E:\Daniel dou\Mio\SIS 457 fundamentos\Visual repositorio\ProLimp\cpProLimp\bin\Debug\cpProLimp.exe
+E:\Daniel dou\Mio\SIS 457 fundamentos\Visual repositorio\ProLimp\cpProLimp\bin\Debug\cpProLimp.pdb
+E:\Daniel dou\Mio\SIS 457 fundamentos\Visual repositorio\ProLimp\cpProLimp\obj\Debug\cpProLimp.csproj.AssemblyReference.cache
+E:\Daniel dou\Mio\SIS 457 fundamentos\Visual repositorio\ProLimp\cpProLimp\obj\Debug\cpProLimp.Properties.Resources.resources
+E:\Daniel dou\Mio\SIS 457 fundamentos\Visual repositorio\ProLimp\cpProLimp\obj\Debug\cpProLimp.csproj.GenerateResource.cache
+E:\Daniel dou\Mio\SIS 457 fundamentos\Visual repositorio\ProLimp\cpProLimp\obj\Debug\cpProLimp.csproj.CoreCompileInputs.cache
+E:\Daniel dou\Mio\SIS 457 fundamentos\Visual repositorio\ProLimp\cpProLimp\obj\Debug\cpProLimp.exe
+E:\Daniel dou\Mio\SIS 457 fundamentos\Visual repositorio\ProLimp\cpProLimp\obj\Debug\cpProLimp.pdb
