@@ -1,22 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Daniel dou\\Mio\\SIS 457 fundamentos\\Visual repositorio\\ProLimp\\",
+  "WorkspaceRootPath": "C:\\Users\\TERABYTE10\\Desktop\\ProLimp\\sis457_Tienda_Productos_De_Limpieza\\labSIS457\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Daniel dou\\Mio\\SIS 457 fundamentos\\Visual repositorio\\ProLimp\\LabProLimp.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TERABYTE10\\Desktop\\ProLimp\\sis457_Tienda_Productos_De_Limpieza\\labSIS457\\LabProLimp.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LabProLimp.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFF5C5C0-F385-4040-A1DC-FDD2577BE896}|CadProLimp\\CadProLimp.csproj|e:\\daniel dou\\mio\\sis 457 fundamentos\\visual repositorio\\prolimp\\cadprolimp\\modelo.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
-      "RelativeMoniker": "D:0:0:{BFF5C5C0-F385-4040-A1DC-FDD2577BE896}|CadProLimp\\CadProLimp.csproj|solutionrelative:cadprolimp\\modelo.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Daniel dou\\Mio\\SIS 457 fundamentos\\Visual repositorio\\ProLimp\\LabProLimp.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\TERABYTE10\\Desktop\\ProLimp\\sis457_Tienda_Productos_De_Limpieza\\labSIS457\\LabProLimp.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LabProLimp.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Daniel dou\\Mio\\SIS 457 fundamentos\\Visual repositorio\\ProLimp\\LabProLimp.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LabProLimp.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,29 +18,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Modelo.edmx [Diagram1]",
-              "DocumentMoniker": "E:\\Daniel dou\\Mio\\SIS 457 fundamentos\\Visual repositorio\\ProLimp\\CadProLimp\\Modelo.edmx",
-              "RelativeDocumentMoniker": "CadProLimp\\Modelo.edmx",
-              "ToolTip": "E:\\Daniel dou\\Mio\\SIS 457 fundamentos\\Visual repositorio\\ProLimp\\CadProLimp\\Modelo.edmx [Diagram1]",
-              "RelativeToolTip": "CadProLimp\\Modelo.edmx [Diagram1]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
-              "WhenOpened": "2025-10-14T06:31:04.372Z",
-              "EditorCaption": " [Diagram1]"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "LabProLimp.sql ",
-              "DocumentMoniker": "E:\\Daniel dou\\Mio\\SIS 457 fundamentos\\Visual repositorio\\ProLimp\\LabProLimp.sql",
+              "DocumentMoniker": "C:\\Users\\TERABYTE10\\Desktop\\ProLimp\\sis457_Tienda_Productos_De_Limpieza\\labSIS457\\LabProLimp.sql",
               "RelativeDocumentMoniker": "LabProLimp.sql",
               "ToolTip": "LabProLimp.sql ",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-10-14T04:15:04.591Z",
+              "WhenOpened": "2025-10-20T14:50:12.832Z",
               "EditorCaption": ""
             }
           ]
