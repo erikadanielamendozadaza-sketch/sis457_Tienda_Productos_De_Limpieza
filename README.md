@@ -3,7 +3,6 @@ Tienda de Productos de Limpieza "ProLimp"
 Esta es una tienda que vende productos de limpieza de la linea Unilever, Muvel, Colgate y demás, esta tiene una amplia variedad de productos.
 Entidades finales:
 1. UnidadMedida
-
 Propósito: definir cómo se mide cada producto.
 
 - id
@@ -14,7 +13,6 @@ Relación:
 •	UnidadMedida puede aplicarse a muchos Productos (1–N)
  
 2. Proveedor
-
 Propósito: registrar los datos de quienes venden productos a la tienda.
 
 id
