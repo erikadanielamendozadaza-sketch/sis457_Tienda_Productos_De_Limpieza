@@ -5,25 +5,19 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6504a0faf6e746a395344687974133c6" Name="Diagram1">
-        <EntityTypeShape EntityType="LabProLimpModel.Cliente" Width="1.5" PointX="6.75" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabProLimpModel.Compra" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabProLimpModel.DetalleCompra" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabProLimpModel.DetalleVenta" Width="1.5" PointX="11.25" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabProLimpModel.Empleado" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabProLimpModel.Producto" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabProLimpModel.Proveedor" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabProLimpModel.UnidadMedida" Width="1.5" PointX="3.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="LabProLimpModel.Venta" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="LabProLimpModel.fk_Venta_Cliente" ManuallyRouted="false" />
-        <AssociationConnector Association="LabProLimpModel.fk_Compra_Empleado" ManuallyRouted="false" />
-        <AssociationConnector Association="LabProLimpModel.fk_Compra_Proveedor" ManuallyRouted="false" />
-        <AssociationConnector Association="LabProLimpModel.fk_DetalleCompra_Compra" ManuallyRouted="false" />
-        <AssociationConnector Association="LabProLimpModel.fk_DetalleCompra_Producto" ManuallyRouted="false" />
-        <AssociationConnector Association="LabProLimpModel.fk_DetalleVenta_Producto" ManuallyRouted="false" />
-        <AssociationConnector Association="LabProLimpModel.fk_DetalleVenta_Venta" ManuallyRouted="false" />
-        <AssociationConnector Association="LabProLimpModel.fk_Venta_Empleado" ManuallyRouted="false" />
-        <AssociationConnector Association="LabProLimpModel.fk_Producto_Proveedor" ManuallyRouted="false" />
-        <AssociationConnector Association="LabProLimpModel.fk_Producto_UnidadMedida" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LabProLimpModel.Cliente" Width="1.5" PointX="6.625" PointY="0.875" />
+        <EntityTypeShape EntityType="LabProLimpModel.DetalleVenta" Width="1.5" PointX="9.625" PointY="1.25" />
+        <EntityTypeShape EntityType="LabProLimpModel.Empleado" Width="1.5" PointX="1.875" PointY="0.625" />
+        <EntityTypeShape EntityType="LabProLimpModel.Producto" Width="1.5" PointX="12.25" PointY="4" />
+        <EntityTypeShape EntityType="LabProLimpModel.Proveedor" Width="1.5" PointX="6.75" PointY="4.5" />
+        <EntityTypeShape EntityType="LabProLimpModel.UnidadMedida" Width="1.5" PointX="9.375" PointY="5.125" />
+        <EntityTypeShape EntityType="LabProLimpModel.Venta" Width="1.5" PointX="4.25" PointY="0.875" />
+        <AssociationConnector Association="LabProLimpModel.fk_Venta_Cliente" />
+        <AssociationConnector Association="LabProLimpModel.fk_DetalleVenta_Producto" />
+        <AssociationConnector Association="LabProLimpModel.fk_DetalleVenta_Venta" />
+        <AssociationConnector Association="LabProLimpModel.fk_Venta_Empleado" />
+        <AssociationConnector Association="LabProLimpModel.fk_Producto_Proveedor" />
+        <AssociationConnector Association="LabProLimpModel.fk_Producto_UnidadMedida" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

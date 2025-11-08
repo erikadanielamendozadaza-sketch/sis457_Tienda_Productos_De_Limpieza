@@ -13,35 +13,27 @@ namespace CadProLimp
 {
 
 using System;
-    using System.Collections.Generic;
     
-public partial class UnidadMedida
+public partial class paDetalleVentaListar_Result
 {
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public UnidadMedida()
-    {
-
-        this.Producto = new HashSet<Producto>();
-
-    }
-
 
     public int id { get; set; }
 
-    public string descripcion { get; set; }
+    public int idventa { get; set; }
+
+    public int idproducto { get; set; }
+
+    public decimal cantidad { get; set; }
+
+    public decimal precioUnitario { get; set; }
+
+    public decimal subtotal { get; set; }
 
     public string usuarioRegistro { get; set; }
 
     public System.DateTime fechaRegistro { get; set; }
 
     public short estado { get; set; }
-
-
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<Producto> Producto { get; set; }
 
 }
 
