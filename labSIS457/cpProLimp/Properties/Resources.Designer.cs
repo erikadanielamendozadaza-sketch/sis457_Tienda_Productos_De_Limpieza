@@ -143,6 +143,16 @@ namespace cpProLimp.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fondo__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("fondo (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_buscar_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-buscar-100", resourceCulture);
@@ -173,6 +183,26 @@ namespace cpProLimp.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_limpieza_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-limpieza-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap limpieza__1_ {
+            get {
+                object obj = ResourceManager.GetObject("limpieza (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lupa__1_ {
             get {
                 object obj = ResourceManager.GetObject("lupa (1)", resourceCulture);
@@ -196,6 +226,16 @@ namespace cpProLimp.Properties {
         internal static System.Drawing.Bitmap productos {
             get {
                 object obj = ResourceManager.GetObject("productos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap provider {
+            get {
+                object obj = ResourceManager.GetObject("provider", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +276,16 @@ namespace cpProLimp.Properties {
         internal static System.Drawing.Bitmap usuario__1_ {
             get {
                 object obj = ResourceManager.GetObject("usuario (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ventas {
+            get {
+                object obj = ResourceManager.GetObject("ventas", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

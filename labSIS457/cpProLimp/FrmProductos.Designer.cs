@@ -60,13 +60,6 @@
             this.lblPrecioCompra = new System.Windows.Forms.Label();
             this.lblFechaUltimaCompra = new System.Windows.Forms.Label();
             this.lblCategoria = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCanelar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnBorrar = new System.Windows.Forms.Button();
-            this.btnCrear = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.erpCodigo = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpDescripcion = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpUnidadMedida = new System.Windows.Forms.ErrorProvider(this.components);
@@ -78,6 +71,13 @@
             this.erpFechaUltimaCompra = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpPrecioCompra = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpCantidadMinimaStock = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCanelar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnCrear = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.pnlAcciones.SuspendLayout();
@@ -397,6 +397,50 @@
             this.lblCategoria.TabIndex = 14;
             this.lblCategoria.Text = "Categoria: ";
             // 
+            // erpCodigo
+            // 
+            this.erpCodigo.ContainerControl = this;
+            // 
+            // erpDescripcion
+            // 
+            this.erpDescripcion.ContainerControl = this;
+            // 
+            // erpUnidadMedida
+            // 
+            this.erpUnidadMedida.ContainerControl = this;
+            // 
+            // erpStock
+            // 
+            this.erpStock.ContainerControl = this;
+            // 
+            // erpPrecioUnitario
+            // 
+            this.erpPrecioUnitario.ContainerControl = this;
+            // 
+            // erpFechaVencimiento
+            // 
+            this.erpFechaVencimiento.ContainerControl = this;
+            // 
+            // erpProveedor
+            // 
+            this.erpProveedor.ContainerControl = this;
+            // 
+            // erpCategoria
+            // 
+            this.erpCategoria.ContainerControl = this;
+            // 
+            // erpFechaUltimaCompra
+            // 
+            this.erpFechaUltimaCompra.ContainerControl = this;
+            // 
+            // erpPrecioCompra
+            // 
+            this.erpPrecioCompra.ContainerControl = this;
+            // 
+            // erpCantidadMinimaStock
+            // 
+            this.erpCantidadMinimaStock.ContainerControl = this;
+            // 
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -494,50 +538,6 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // erpCodigo
-            // 
-            this.erpCodigo.ContainerControl = this;
-            // 
-            // erpDescripcion
-            // 
-            this.erpDescripcion.ContainerControl = this;
-            // 
-            // erpUnidadMedida
-            // 
-            this.erpUnidadMedida.ContainerControl = this;
-            // 
-            // erpStock
-            // 
-            this.erpStock.ContainerControl = this;
-            // 
-            // erpPrecioUnitario
-            // 
-            this.erpPrecioUnitario.ContainerControl = this;
-            // 
-            // erpFechaVencimiento
-            // 
-            this.erpFechaVencimiento.ContainerControl = this;
-            // 
-            // erpProveedor
-            // 
-            this.erpProveedor.ContainerControl = this;
-            // 
-            // erpCategoria
-            // 
-            this.erpCategoria.ContainerControl = this;
-            // 
-            // erpFechaUltimaCompra
-            // 
-            this.erpFechaUltimaCompra.ContainerControl = this;
-            // 
-            // erpPrecioCompra
-            // 
-            this.erpPrecioCompra.ContainerControl = this;
-            // 
-            // erpCantidadMinimaStock
-            // 
-            this.erpCantidadMinimaStock.ContainerControl = this;
             // 
             // FrmProductos
             // 
