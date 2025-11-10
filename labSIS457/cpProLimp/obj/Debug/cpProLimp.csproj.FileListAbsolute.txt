@@ -67,3 +67,5 @@ C:\Users\TERABYTE10\Desktop\Labsis457\sis457_Tienda_Productos_De_Limpieza\labSIS
 C:\Users\TERABYTE10\Desktop\Labsis457\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\CpProLimp.csproj.Up2Date
 C:\Users\TERABYTE10\Desktop\Labsis457\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.exe
 C:\Users\TERABYTE10\Desktop\Labsis457\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.pdb
+C:\Users\TERABYTE10\Desktop\Labsis457\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmEmpleados.resources
+C:\Users\TERABYTE10\Desktop\Labsis457\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmVentas.resources

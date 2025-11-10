@@ -96,6 +96,11 @@
     <Compile Include="FrmVentas.Designer.cs">
       <DependentUpon>FrmVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="LabProLimpDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LabProLimpDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAutenticacion.resx">
@@ -127,6 +132,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="LabProLimpDataSet.xsc">
+      <DependentUpon>LabProLimpDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LabProLimpDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LabProLimpDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LabProLimpDataSet.xss">
+      <DependentUpon>LabProLimpDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -219,6 +235,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\provider.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\escoba.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caja-registradora.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
