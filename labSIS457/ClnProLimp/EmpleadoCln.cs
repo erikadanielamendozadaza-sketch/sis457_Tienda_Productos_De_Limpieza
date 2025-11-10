@@ -29,7 +29,7 @@ namespace ClnProLimp
                 existe.segundoApellido = empleado.segundoApellido;
                 existe.cedulaIdentidad = empleado.cedulaIdentidad;
                 existe.usuario = empleado.usuario;
-                existe.contraseña = empleado.contraseña;
+                existe.clave = empleado.clave;
                 existe.telefono = empleado.telefono;
                 return context.SaveChanges();
             }
@@ -43,6 +43,16 @@ namespace ClnProLimp
                 existe.estado = -1;
                 existe.usuarioRegistro = usuarioRegistro;
                 return context.SaveChanges();
+            }
+        }
+
+        public static Empleado validar(string usuario, string clave)
+        {
+            using (var context = new LabProLimpEntities())
+            {
+                return context.Empleado
+                    .Where(e => e.usuario == usuario && e.clave == clave)
+                    .FirstOrDefault();
             }
         }
 

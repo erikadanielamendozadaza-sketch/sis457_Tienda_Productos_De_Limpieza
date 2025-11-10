@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6504a0faf6e746a395344687974133c6" Name="Diagram1">
-        <EntityTypeShape EntityType="LabProLimpModel.Cliente" Width="1.5" PointX="6.625" PointY="0.875" />
-        <EntityTypeShape EntityType="LabProLimpModel.DetalleVenta" Width="1.5" PointX="9.625" PointY="1.25" />
-        <EntityTypeShape EntityType="LabProLimpModel.Empleado" Width="1.5" PointX="1.875" PointY="0.625" />
-        <EntityTypeShape EntityType="LabProLimpModel.Producto" Width="1.5" PointX="12.25" PointY="4" />
-        <EntityTypeShape EntityType="LabProLimpModel.Proveedor" Width="1.5" PointX="6.75" PointY="4.5" />
-        <EntityTypeShape EntityType="LabProLimpModel.UnidadMedida" Width="1.5" PointX="9.375" PointY="5.125" />
-        <EntityTypeShape EntityType="LabProLimpModel.Venta" Width="1.5" PointX="4.25" PointY="0.875" />
+        <EntityTypeShape EntityType="LabProLimpModel.Cliente" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="LabProLimpModel.DetalleVenta" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="LabProLimpModel.Empleado" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="LabProLimpModel.Producto" Width="1.5" PointX="3" PointY="10.375" />
+        <EntityTypeShape EntityType="LabProLimpModel.Proveedor" Width="1.5" PointX="3.25" PointY="7.25" />
+        <EntityTypeShape EntityType="LabProLimpModel.UnidadMedida" Width="1.5" PointX="0.75" PointY="13.25" />
+        <EntityTypeShape EntityType="LabProLimpModel.Venta" Width="1.5" PointX="3" PointY="1" />
         <AssociationConnector Association="LabProLimpModel.fk_Venta_Cliente" />
         <AssociationConnector Association="LabProLimpModel.fk_DetalleVenta_Producto" />
         <AssociationConnector Association="LabProLimpModel.fk_DetalleVenta_Venta" />

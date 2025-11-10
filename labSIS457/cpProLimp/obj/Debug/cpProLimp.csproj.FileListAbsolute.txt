@@ -69,3 +69,34 @@ C:\Users\TERABYTE10\Desktop\Labsis457\sis457_Tienda_Productos_De_Limpieza\labSIS
 C:\Users\TERABYTE10\Desktop\Labsis457\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.pdb
 C:\Users\TERABYTE10\Desktop\Labsis457\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmEmpleados.resources
 C:\Users\TERABYTE10\Desktop\Labsis457\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmVentas.resources
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\CpProLimp.csproj.AssemblyReference.cache
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmAutenticacion.resources
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmClientes.resources
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmEmpleados.resources
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmPrincipal.resources
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmProductos.resources
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmVentas.resources
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.Properties.Resources.resources
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\CpProLimp.csproj.GenerateResource.cache
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.exe.licenses
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\CpProLimp.csproj.CoreCompileInputs.cache
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.exe
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.pdb
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\cpProLimp.exe.config
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\cpProLimp.exe
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\cpProLimp.pdb
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\C1.Win.4.5.2.dll
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\C1.Win.C1Ribbon.4.5.2.dll
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\CadProLimp.dll
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\ClnProLimp.dll
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\EntityFramework.dll
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\EntityFramework.SqlServer.dll
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\CadProLimp.pdb
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\CadProLimp.dll.config
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\ClnProLimp.pdb
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\ClnProLimp.dll.config
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\C1.Win.4.5.2.xml
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\C1.Win.C1Ribbon.4.5.2.xml
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\EntityFramework.xml
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\EntityFramework.SqlServer.xml
+E:\Daniel dou\Mio\SIS 457 fundamentos\Clon Lab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\CpProLimp.csproj.Up2Date

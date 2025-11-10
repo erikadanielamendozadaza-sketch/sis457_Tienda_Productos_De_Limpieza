@@ -55,7 +55,7 @@ CREATE TABLE Proveedor(
 	segundoApellido VARCHAR (30) NULL,
 	cedulaIdentidad VARCHAR (10) NOT NULL,
 	usuario VARCHAR(50) NOT NULL UNIQUE,
-	contraseña VARCHAR (100) NOT NULL,
+	clave VARCHAR (100) NOT NULL,
 	telefono BIGINT NOT NULL
  );
 
@@ -250,4 +250,8 @@ END;
 GO
 
 EXEC paDetalleVentaListar '';
+
+
+INSERT INTO Empleado(nombres,primerApellido,segundoApellido,cedulaIdentidad,usuario,clave,telefono)
+VALUES ('Jorge','Romero','Perez','345678','admin','i0hcoO/nssY6WOs9pOp5Xw==','67629000'); --contra hola123 
 

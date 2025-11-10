@@ -12,9 +12,12 @@ namespace cpProLimp
 {
     public partial class FrmPrincipal : Form
     {
-        public FrmPrincipal()
+        private FrmAutenticacion frmAutenticacion;
+        public FrmPrincipal(FrmAutenticacion frmAutenticacion)
         {
             InitializeComponent();
+            this.frmAutenticacion = frmAutenticacion;
+
         }
     }
 }

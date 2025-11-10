@@ -43,7 +43,7 @@
           <Property Name="segundoApellido" Type="varchar" MaxLength="30" />
           <Property Name="cedulaIdentidad" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="usuario" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="contraseña" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="clave" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="telefono" Type="bigint" Nullable="false" />
           <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
@@ -303,7 +303,7 @@
             <End Role="UnidadMedida" EntitySet="UnidadMedida" />
             <End Role="Producto" EntitySet="Producto" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="paClienteListar_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
@@ -417,7 +417,7 @@
           <Property Name="segundoApellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="cedulaIdentidad" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="contraseña" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="clave" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="telefono" Type="Int64" Nullable="false" />
           <Property Name="usuarioRegistro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
@@ -560,7 +560,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -721,7 +721,7 @@
                 <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
                 <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
                 <ScalarProperty Name="telefono" ColumnName="telefono" />
-                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
                 <ScalarProperty Name="usuario" ColumnName="usuario" />
                 <ScalarProperty Name="cedulaIdentidad" ColumnName="cedulaIdentidad" />
                 <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
@@ -791,7 +791,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
