@@ -28,15 +28,19 @@ namespace cpProLimp
             if (string.IsNullOrWhiteSpace(txtUsuario.Text))
             {
                 erpUsuario.SetError(txtUsuario, "El usuario es obligatorio");
-                esValido = false;
+                esValido = true;
             }
             if (string.IsNullOrWhiteSpace(txtClave.Text))
             {
                 erpClave.SetError(txtClave, "La contraseña es obligatoria");
-                esValido = false;
+                esValido = true;
             }
 
             return esValido;
+        }
+        private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) btnIngresar.PerformClick();
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -44,28 +48,26 @@ namespace cpProLimp
             if (validar())
             {
                 var empleado = EmpleadoCln.validar(txtUsuario.Text, Util.Encrypt(txtClave.Text));
-                Util.empleado = empleado;
-                txtClave.Clear();
-                txtUsuario.Focus();
-                txtUsuario.SelectAll();
-                Hide();
-                new FrmPrincipal(this).ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Usuario y/o contraseña incorrectos :v", "::: Mensaje - ProLimp :) :::",
-                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (empleado != null)
+                {
+                    Util.empleado = empleado;
+                    txtClave.Clear();
+                    txtUsuario.Focus();
+                    txtUsuario.SelectAll();
+                    Hide();
+                    new FrmPrincipal(this).ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario y/o contraseña incorrectos :v", "::: Mensaje - ProLimp :) :::",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter) btnIngresar.PerformClick();
         }
     }
 }
