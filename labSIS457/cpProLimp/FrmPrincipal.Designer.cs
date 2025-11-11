@@ -31,28 +31,28 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.c1Ribbon1 = new C1.Win.C1Ribbon.C1Ribbon();
             this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
-            this.ribbonQat1 = new C1.Win.C1Ribbon.RibbonQat();
-            this.ribbonConfigToolBar1 = new C1.Win.C1Ribbon.RibbonConfigToolBar();
-            this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
             this.ribbonBottomToolBar1 = new C1.Win.C1Ribbon.RibbonBottomToolBar();
+            this.ribbonConfigToolBar1 = new C1.Win.C1Ribbon.RibbonConfigToolBar();
+            this.ribbonQat1 = new C1.Win.C1Ribbon.RibbonQat();
             this.ribbonTab1 = new C1.Win.C1Ribbon.RibbonTab();
             this.ribbonGroup1 = new C1.Win.C1Ribbon.RibbonGroup();
-            this.ribbonTab2 = new C1.Win.C1Ribbon.RibbonTab();
+            this.btnCaVenta = new C1.Win.C1Ribbon.RibbonTab();
             this.ribbonGroup2 = new C1.Win.C1Ribbon.RibbonGroup();
             this.ribbonTab3 = new C1.Win.C1Ribbon.RibbonTab();
             this.ribbonGroup3 = new C1.Win.C1Ribbon.RibbonGroup();
             this.ribbonTab4 = new C1.Win.C1Ribbon.RibbonTab();
             this.ribbonGroup4 = new C1.Win.C1Ribbon.RibbonGroup();
+            this.ribbonTopToolBar1 = new C1.Win.C1Ribbon.RibbonTopToolBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCaEmpleados = new C1.Win.C1Ribbon.RibbonButton();
             this.btnCaProductos = new C1.Win.C1Ribbon.RibbonButton();
             this.btnCaClientes = new C1.Win.C1Ribbon.RibbonButton();
-            this.ribbonButton1 = new C1.Win.C1Ribbon.RibbonButton();
-            this.ribbonButton2 = new C1.Win.C1Ribbon.RibbonButton();
-            this.ribbonButton3 = new C1.Win.C1Ribbon.RibbonButton();
-            this.ribbonButton4 = new C1.Win.C1Ribbon.RibbonButton();
-            this.ribbonButton5 = new C1.Win.C1Ribbon.RibbonButton();
-            this.ribbonButton6 = new C1.Win.C1Ribbon.RibbonButton();
+            this.btnOpVenta = new C1.Win.C1Ribbon.RibbonButton();
+            this.btnReProveedores = new C1.Win.C1Ribbon.RibbonButton();
+            this.btnReClientes = new C1.Win.C1Ribbon.RibbonButton();
+            this.btnReProductos = new C1.Win.C1Ribbon.RibbonButton();
+            this.btnReVentas = new C1.Win.C1Ribbon.RibbonButton();
+            this.btnAdEmpleados = new C1.Win.C1Ribbon.RibbonButton();
             ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -68,7 +68,7 @@
             this.c1Ribbon1.QatHolder = this.ribbonQat1;
             this.c1Ribbon1.Size = new System.Drawing.Size(797, 154);
             this.c1Ribbon1.Tabs.Add(this.ribbonTab1);
-            this.c1Ribbon1.Tabs.Add(this.ribbonTab2);
+            this.c1Ribbon1.Tabs.Add(this.btnCaVenta);
             this.c1Ribbon1.Tabs.Add(this.ribbonTab3);
             this.c1Ribbon1.Tabs.Add(this.ribbonTab4);
             this.c1Ribbon1.TopToolBarHolder = this.ribbonTopToolBar1;
@@ -78,21 +78,17 @@
             // 
             this.ribbonApplicationMenu1.Name = "ribbonApplicationMenu1";
             // 
-            // ribbonQat1
+            // ribbonBottomToolBar1
             // 
-            this.ribbonQat1.Name = "ribbonQat1";
+            this.ribbonBottomToolBar1.Name = "ribbonBottomToolBar1";
             // 
             // ribbonConfigToolBar1
             // 
             this.ribbonConfigToolBar1.Name = "ribbonConfigToolBar1";
             // 
-            // ribbonTopToolBar1
+            // ribbonQat1
             // 
-            this.ribbonTopToolBar1.Name = "ribbonTopToolBar1";
-            // 
-            // ribbonBottomToolBar1
-            // 
-            this.ribbonBottomToolBar1.Name = "ribbonBottomToolBar1";
+            this.ribbonQat1.Name = "ribbonQat1";
             // 
             // ribbonTab1
             // 
@@ -108,15 +104,15 @@
             this.ribbonGroup1.Name = "ribbonGroup1";
             this.ribbonGroup1.Text = "Administración de catálogos";
             // 
-            // ribbonTab2
+            // btnCaVenta
             // 
-            this.ribbonTab2.Groups.Add(this.ribbonGroup2);
-            this.ribbonTab2.Name = "ribbonTab2";
-            this.ribbonTab2.Text = "Operaciones";
+            this.btnCaVenta.Groups.Add(this.ribbonGroup2);
+            this.btnCaVenta.Name = "btnCaVenta";
+            this.btnCaVenta.Text = "Operaciones";
             // 
             // ribbonGroup2
             // 
-            this.ribbonGroup2.Items.Add(this.ribbonButton1);
+            this.ribbonGroup2.Items.Add(this.btnOpVenta);
             this.ribbonGroup2.Name = "ribbonGroup2";
             this.ribbonGroup2.Text = "Registro de ventas";
             // 
@@ -128,10 +124,10 @@
             // 
             // ribbonGroup3
             // 
-            this.ribbonGroup3.Items.Add(this.ribbonButton2);
-            this.ribbonGroup3.Items.Add(this.ribbonButton3);
-            this.ribbonGroup3.Items.Add(this.ribbonButton4);
-            this.ribbonGroup3.Items.Add(this.ribbonButton5);
+            this.ribbonGroup3.Items.Add(this.btnReProveedores);
+            this.ribbonGroup3.Items.Add(this.btnReClientes);
+            this.ribbonGroup3.Items.Add(this.btnReProductos);
+            this.ribbonGroup3.Items.Add(this.btnReVentas);
             this.ribbonGroup3.Name = "ribbonGroup3";
             this.ribbonGroup3.Text = "Visualización de Reportes";
             // 
@@ -143,9 +139,13 @@
             // 
             // ribbonGroup4
             // 
-            this.ribbonGroup4.Items.Add(this.ribbonButton6);
+            this.ribbonGroup4.Items.Add(this.btnAdEmpleados);
             this.ribbonGroup4.Name = "ribbonGroup4";
             this.ribbonGroup4.Text = "Gestión de Administración";
+            // 
+            // ribbonTopToolBar1
+            // 
+            this.ribbonTopToolBar1.Name = "ribbonTopToolBar1";
             // 
             // pictureBox1
             // 
@@ -164,6 +164,8 @@
             this.btnCaEmpleados.Name = "btnCaEmpleados";
             this.btnCaEmpleados.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCaEmpleados.SmallImage")));
             this.btnCaEmpleados.Text = "Empleados";
+            this.btnCaEmpleados.ToolTip = "Registra empleados";
+            this.btnCaEmpleados.Click += new System.EventHandler(this.btnCaEmpleados_Click);
             // 
             // btnCaProductos
             // 
@@ -171,6 +173,8 @@
             this.btnCaProductos.Name = "btnCaProductos";
             this.btnCaProductos.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCaProductos.SmallImage")));
             this.btnCaProductos.Text = "Productos";
+            this.btnCaProductos.ToolTip = "Registra productos";
+            this.btnCaProductos.Click += new System.EventHandler(this.btnCaProductos_Click);
             // 
             // btnCaClientes
             // 
@@ -178,48 +182,62 @@
             this.btnCaClientes.Name = "btnCaClientes";
             this.btnCaClientes.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnCaClientes.SmallImage")));
             this.btnCaClientes.Text = "Clientes";
+            this.btnCaClientes.ToolTip = "Registra clientes";
+            this.btnCaClientes.Click += new System.EventHandler(this.btnCaClientes_Click);
             // 
-            // ribbonButton1
+            // btnOpVenta
             // 
-            this.ribbonButton1.LargeImage = global::cpProLimp.Properties.Resources.ventas;
-            this.ribbonButton1.Name = "ribbonButton1";
-            this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
-            this.ribbonButton1.Text = "Venta";
+            this.btnOpVenta.LargeImage = global::cpProLimp.Properties.Resources.ventas;
+            this.btnOpVenta.Name = "btnOpVenta";
+            this.btnOpVenta.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnOpVenta.SmallImage")));
+            this.btnOpVenta.Text = "Venta";
+            this.btnOpVenta.ToolTip = "Registra Venta";
+            this.btnOpVenta.Click += new System.EventHandler(this.btnOpVenta_Click);
             // 
-            // ribbonButton2
+            // btnReProveedores
             // 
-            this.ribbonButton2.LargeImage = global::cpProLimp.Properties.Resources.provider;
-            this.ribbonButton2.Name = "ribbonButton2";
-            this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
-            this.ribbonButton2.Text = "Proveedores";
+            this.btnReProveedores.LargeImage = global::cpProLimp.Properties.Resources.provider;
+            this.btnReProveedores.Name = "btnReProveedores";
+            this.btnReProveedores.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnReProveedores.SmallImage")));
+            this.btnReProveedores.Text = "Proveedores";
+            this.btnReProveedores.ToolTip = "Lista proveedores";
+            this.btnReProveedores.Click += new System.EventHandler(this.btnReProveedores_Click);
             // 
-            // ribbonButton3
+            // btnReClientes
             // 
-            this.ribbonButton3.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.LargeImage")));
-            this.ribbonButton3.Name = "ribbonButton3";
-            this.ribbonButton3.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.SmallImage")));
-            this.ribbonButton3.Text = "Clientes";
+            this.btnReClientes.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReClientes.LargeImage")));
+            this.btnReClientes.Name = "btnReClientes";
+            this.btnReClientes.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnReClientes.SmallImage")));
+            this.btnReClientes.Text = "Clientes";
+            this.btnReClientes.ToolTip = "Lista clientes";
+            this.btnReClientes.Click += new System.EventHandler(this.btnReClientes_Click);
             // 
-            // ribbonButton4
+            // btnReProductos
             // 
-            this.ribbonButton4.LargeImage = global::cpProLimp.Properties.Resources.limpieza__1_;
-            this.ribbonButton4.Name = "ribbonButton4";
-            this.ribbonButton4.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.SmallImage")));
-            this.ribbonButton4.Text = "Productos";
+            this.btnReProductos.LargeImage = global::cpProLimp.Properties.Resources.limpieza__1_;
+            this.btnReProductos.Name = "btnReProductos";
+            this.btnReProductos.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnReProductos.SmallImage")));
+            this.btnReProductos.Text = "Productos";
+            this.btnReProductos.ToolTip = "Lista productos";
+            this.btnReProductos.Click += new System.EventHandler(this.btnReProductos_Click);
             // 
-            // ribbonButton5
+            // btnReVentas
             // 
-            this.ribbonButton5.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.LargeImage")));
-            this.ribbonButton5.Name = "ribbonButton5";
-            this.ribbonButton5.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton5.SmallImage")));
-            this.ribbonButton5.Text = "Ventas";
+            this.btnReVentas.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReVentas.LargeImage")));
+            this.btnReVentas.Name = "btnReVentas";
+            this.btnReVentas.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnReVentas.SmallImage")));
+            this.btnReVentas.Text = "Ventas";
+            this.btnReVentas.ToolTip = "Lista venta";
+            this.btnReVentas.Click += new System.EventHandler(this.btnReVentas_Click);
             // 
-            // ribbonButton6
+            // btnAdEmpleados
             // 
-            this.ribbonButton6.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.LargeImage")));
-            this.ribbonButton6.Name = "ribbonButton6";
-            this.ribbonButton6.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.SmallImage")));
-            this.ribbonButton6.Text = "Empleados";
+            this.btnAdEmpleados.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAdEmpleados.LargeImage")));
+            this.btnAdEmpleados.Name = "btnAdEmpleados";
+            this.btnAdEmpleados.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnAdEmpleados.SmallImage")));
+            this.btnAdEmpleados.Text = "Empleados";
+            this.btnAdEmpleados.ToolTip = "Lista empleados";
+            this.btnAdEmpleados.Click += new System.EventHandler(this.btnAdEmpleados_Click);
             // 
             // FrmPrincipal
             // 
@@ -230,10 +248,11 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.c1Ribbon1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPrincipal";
             this.Text = "FrmPrincipal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrincipal_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -255,17 +274,17 @@
         private C1.Win.C1Ribbon.RibbonButton btnCaProductos;
         private C1.Win.C1Ribbon.RibbonButton btnCaClientes;
         private C1.Win.C1Ribbon.RibbonButton btnCaEmpleados;
-        private C1.Win.C1Ribbon.RibbonTab ribbonTab2;
+        private C1.Win.C1Ribbon.RibbonTab btnCaVenta;
         private C1.Win.C1Ribbon.RibbonGroup ribbonGroup2;
         private C1.Win.C1Ribbon.RibbonTab ribbonTab3;
         private C1.Win.C1Ribbon.RibbonGroup ribbonGroup3;
         private C1.Win.C1Ribbon.RibbonTab ribbonTab4;
         private C1.Win.C1Ribbon.RibbonGroup ribbonGroup4;
-        private C1.Win.C1Ribbon.RibbonButton ribbonButton1;
-        private C1.Win.C1Ribbon.RibbonButton ribbonButton2;
-        private C1.Win.C1Ribbon.RibbonButton ribbonButton3;
-        private C1.Win.C1Ribbon.RibbonButton ribbonButton4;
-        private C1.Win.C1Ribbon.RibbonButton ribbonButton5;
-        private C1.Win.C1Ribbon.RibbonButton ribbonButton6;
+        private C1.Win.C1Ribbon.RibbonButton btnOpVenta;
+        private C1.Win.C1Ribbon.RibbonButton btnReProveedores;
+        private C1.Win.C1Ribbon.RibbonButton btnReClientes;
+        private C1.Win.C1Ribbon.RibbonButton btnReProductos;
+        private C1.Win.C1Ribbon.RibbonButton btnReVentas;
+        private C1.Win.C1Ribbon.RibbonButton btnAdEmpleados;
     }
 }
