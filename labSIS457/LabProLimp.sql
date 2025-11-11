@@ -255,3 +255,8 @@ EXEC paDetalleVentaListar '';
 INSERT INTO Empleado(nombres,primerApellido,segundoApellido,cedulaIdentidad,usuario,clave,telefono)
 VALUES ('Jorge','Romero','Perez','345678','admin','i0hcoO/nssY6WOs9pOp5Xw==','67629000'); --contra hola123 
 
+INSERT INTO Cliente(nombres,primerApellido,segundoApellido,cedulaIdentidad,telefono)
+VALUES ('Carlos','Lopez','Dávalos','45671345','72856910')
+
+SELECT * FROM Cliente
+
