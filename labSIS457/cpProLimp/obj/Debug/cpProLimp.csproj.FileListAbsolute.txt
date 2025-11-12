@@ -201,3 +201,8 @@ C:\Users\TERABYTE10\Desktop\labo\sis457_Tienda_Productos_De_Limpieza\labSIS457\c
 C:\Users\TERABYTE10\Desktop\labo\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmReProductos.resources
 C:\Users\TERABYTE10\Desktop\labo\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmReProveedores.resources
 C:\Users\TERABYTE10\Desktop\labo\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmReVentas.resources
+E:\Daniel dou\Mio\SIS 457 fundamentos\Colo lab v2\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmReClientes.resources
+E:\Daniel dou\Mio\SIS 457 fundamentos\Colo lab v2\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmReEmpleados.resources
+E:\Daniel dou\Mio\SIS 457 fundamentos\Colo lab v2\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmReProductos.resources
+E:\Daniel dou\Mio\SIS 457 fundamentos\Colo lab v2\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmReProveedores.resources
+E:\Daniel dou\Mio\SIS 457 fundamentos\Colo lab v2\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmReVentas.resources

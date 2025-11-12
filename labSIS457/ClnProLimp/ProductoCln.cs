@@ -26,6 +26,7 @@ namespace ClnProLimp
                 var existe = context.Producto.Find(producto.id);
                 existe.idunidadMedida = producto.idunidadMedida;
                 existe.idproveedor = producto.idproveedor;
+                existe.codigo = producto.codigo;
                 existe.nombre = producto.nombre;
                 existe.categoria = producto.categoria;
                 existe.precioUnitario = producto.precioUnitario;

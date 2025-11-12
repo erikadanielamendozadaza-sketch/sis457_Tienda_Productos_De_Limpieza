@@ -59,6 +59,7 @@
     <Compile Include="EmpleadoCln.cs" />
     <Compile Include="ProductoCln.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProveedorCln.cs" />
     <Compile Include="UnidadMedidaCln.cs" />
     <Compile Include="VentaCln.cs" />
   </ItemGroup>

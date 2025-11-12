@@ -36,13 +36,19 @@
             this.gbxListado = new System.Windows.Forms.GroupBox();
             this.dgvLista = new System.Windows.Forms.DataGridView();
             this.pnlAcciones = new System.Windows.Forms.Panel();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnCrear = new System.Windows.Forms.Button();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCanelar = new System.Windows.Forms.Button();
             this.cbxProveedor = new System.Windows.Forms.ComboBox();
             this.dtpFechaVencimiento = new System.Windows.Forms.DateTimePicker();
             this.nudPrecioUnitario = new System.Windows.Forms.NumericUpDown();
-            this.nudStockTextBox = new System.Windows.Forms.NumericUpDown();
+            this.nudStock = new System.Windows.Forms.NumericUpDown();
             this.cbxUnidadMedida = new System.Windows.Forms.ComboBox();
-            this.txtDescripción = new System.Windows.Forms.TextBox();
+            this.txtNombreProducto = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblProveedor = new System.Windows.Forms.Label();
             this.lblFechaVencimiento = new System.Windows.Forms.Label();
@@ -54,7 +60,7 @@
             this.gbxEditar = new System.Windows.Forms.GroupBox();
             this.nudCantidadMinimaStock = new System.Windows.Forms.NumericUpDown();
             this.nudPrecioCompra = new System.Windows.Forms.NumericUpDown();
-            this.dtpFehcaUltimaCompra = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaUltimaCompra = new System.Windows.Forms.DateTimePicker();
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.lblCantidadMinimaStock = new System.Windows.Forms.Label();
             this.lblPrecioCompra = new System.Windows.Forms.Label();
@@ -71,19 +77,13 @@
             this.erpFechaUltimaCompra = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpPrecioCompra = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpCantidadMinimaStock = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCanelar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnBorrar = new System.Windows.Forms.Button();
-            this.btnCrear = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.pnlAcciones.SuspendLayout();
             this.gbxDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioUnitario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudStockTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
             this.gbxEditar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadMinimaStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCompra)).BeginInit();
@@ -129,6 +129,7 @@
             this.txtParametro.Name = "txtParametro";
             this.txtParametro.Size = new System.Drawing.Size(247, 27);
             this.txtParametro.TabIndex = 2;
+            this.txtParametro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametro_KeyPress);
             // 
             // gbxListado
             // 
@@ -157,7 +158,7 @@
             // 
             // pnlAcciones
             // 
-            this.pnlAcciones.Controls.Add(this.btnCancelar);
+            this.pnlAcciones.Controls.Add(this.btnCerrar);
             this.pnlAcciones.Controls.Add(this.btnEditar);
             this.pnlAcciones.Controls.Add(this.btnBorrar);
             this.pnlAcciones.Controls.Add(this.btnCrear);
@@ -166,6 +167,66 @@
             this.pnlAcciones.Size = new System.Drawing.Size(876, 51);
             this.pnlAcciones.TabIndex = 5;
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Image = global::cpProLimp.Properties.Resources.close;
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrar.Location = new System.Drawing.Point(601, 3);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCerrar.Size = new System.Drawing.Size(100, 45);
+            this.btnCerrar.TabIndex = 9;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Image = global::cpProLimp.Properties.Resources.editar;
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(319, 3);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnEditar.Size = new System.Drawing.Size(97, 45);
+            this.btnEditar.TabIndex = 8;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.Image = global::cpProLimp.Properties.Resources.borrar;
+            this.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBorrar.Location = new System.Drawing.Point(467, 3);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnBorrar.Size = new System.Drawing.Size(98, 45);
+            this.btnBorrar.TabIndex = 7;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnCrear
+            // 
+            this.btnCrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrear.Image = global::cpProLimp.Properties.Resources.agregar;
+            this.btnCrear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCrear.Location = new System.Drawing.Point(201, 3);
+            this.btnCrear.Name = "btnCrear";
+            this.btnCrear.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCrear.Size = new System.Drawing.Size(89, 45);
+            this.btnCrear.TabIndex = 6;
+            this.btnCrear.Text = "Crear";
+            this.btnCrear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
+            // 
             // gbxDatos
             // 
             this.gbxDatos.Controls.Add(this.btnGuardar);
@@ -173,9 +234,9 @@
             this.gbxDatos.Controls.Add(this.cbxProveedor);
             this.gbxDatos.Controls.Add(this.dtpFechaVencimiento);
             this.gbxDatos.Controls.Add(this.nudPrecioUnitario);
-            this.gbxDatos.Controls.Add(this.nudStockTextBox);
+            this.gbxDatos.Controls.Add(this.nudStock);
             this.gbxDatos.Controls.Add(this.cbxUnidadMedida);
-            this.gbxDatos.Controls.Add(this.txtDescripción);
+            this.gbxDatos.Controls.Add(this.txtNombreProducto);
             this.gbxDatos.Controls.Add(this.txtCodigo);
             this.gbxDatos.Controls.Add(this.lblProveedor);
             this.gbxDatos.Controls.Add(this.lblFechaVencimiento);
@@ -187,10 +248,40 @@
             this.gbxDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxDatos.Location = new System.Drawing.Point(27, 328);
             this.gbxDatos.Name = "gbxDatos";
-            this.gbxDatos.Size = new System.Drawing.Size(876, 160);
+            this.gbxDatos.Size = new System.Drawing.Size(876, 155);
             this.gbxDatos.TabIndex = 6;
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Agregar / Modificar datos:";
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::cpProLimp.Properties.Resources.salvar;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGuardar.Location = new System.Drawing.Point(798, 15);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnGuardar.Size = new System.Drawing.Size(74, 62);
+            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnCanelar
+            // 
+            this.btnCanelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCanelar.Image = global::cpProLimp.Properties.Resources.cancel;
+            this.btnCanelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCanelar.Location = new System.Drawing.Point(798, 86);
+            this.btnCanelar.Name = "btnCanelar";
+            this.btnCanelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCanelar.Size = new System.Drawing.Size(74, 62);
+            this.btnCanelar.TabIndex = 8;
+            this.btnCanelar.Text = "Cancelar";
+            this.btnCanelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCanelar.UseVisualStyleBackColor = true;
+            this.btnCanelar.Click += new System.EventHandler(this.btnCanelar_Click);
             // 
             // cbxProveedor
             // 
@@ -212,16 +303,26 @@
             // nudPrecioUnitario
             // 
             this.nudPrecioUnitario.Location = new System.Drawing.Point(589, 24);
+            this.nudPrecioUnitario.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudPrecioUnitario.Name = "nudPrecioUnitario";
             this.nudPrecioUnitario.Size = new System.Drawing.Size(183, 26);
             this.nudPrecioUnitario.TabIndex = 11;
             // 
-            // nudStockTextBox
+            // nudStock
             // 
-            this.nudStockTextBox.Location = new System.Drawing.Point(191, 120);
-            this.nudStockTextBox.Name = "nudStockTextBox";
-            this.nudStockTextBox.Size = new System.Drawing.Size(183, 26);
-            this.nudStockTextBox.TabIndex = 10;
+            this.nudStock.Location = new System.Drawing.Point(191, 120);
+            this.nudStock.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudStock.Name = "nudStock";
+            this.nudStock.Size = new System.Drawing.Size(183, 26);
+            this.nudStock.TabIndex = 10;
             // 
             // cbxUnidadMedida
             // 
@@ -232,16 +333,18 @@
             this.cbxUnidadMedida.Size = new System.Drawing.Size(183, 28);
             this.cbxUnidadMedida.TabIndex = 9;
             // 
-            // txtDescripción
+            // txtNombreProducto
             // 
-            this.txtDescripción.Location = new System.Drawing.Point(191, 54);
-            this.txtDescripción.Name = "txtDescripción";
-            this.txtDescripción.Size = new System.Drawing.Size(183, 26);
-            this.txtDescripción.TabIndex = 8;
+            this.txtNombreProducto.Location = new System.Drawing.Point(191, 54);
+            this.txtNombreProducto.MaxLength = 100;
+            this.txtNombreProducto.Name = "txtNombreProducto";
+            this.txtNombreProducto.Size = new System.Drawing.Size(183, 26);
+            this.txtNombreProducto.TabIndex = 8;
             // 
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(191, 24);
+            this.txtCodigo.MaxLength = 20;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(183, 26);
             this.txtCodigo.TabIndex = 7;
@@ -314,7 +417,7 @@
             // 
             this.gbxEditar.Controls.Add(this.nudCantidadMinimaStock);
             this.gbxEditar.Controls.Add(this.nudPrecioCompra);
-            this.gbxEditar.Controls.Add(this.dtpFehcaUltimaCompra);
+            this.gbxEditar.Controls.Add(this.dtpFechaUltimaCompra);
             this.gbxEditar.Controls.Add(this.txtCategoria);
             this.gbxEditar.Controls.Add(this.lblCantidadMinimaStock);
             this.gbxEditar.Controls.Add(this.lblPrecioCompra);
@@ -331,6 +434,11 @@
             // nudCantidadMinimaStock
             // 
             this.nudCantidadMinimaStock.Location = new System.Drawing.Point(589, 60);
+            this.nudCantidadMinimaStock.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudCantidadMinimaStock.Name = "nudCantidadMinimaStock";
             this.nudCantidadMinimaStock.Size = new System.Drawing.Size(183, 26);
             this.nudCantidadMinimaStock.TabIndex = 18;
@@ -338,21 +446,27 @@
             // nudPrecioCompra
             // 
             this.nudPrecioCompra.Location = new System.Drawing.Point(589, 25);
+            this.nudPrecioCompra.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudPrecioCompra.Name = "nudPrecioCompra";
             this.nudPrecioCompra.Size = new System.Drawing.Size(183, 26);
             this.nudPrecioCompra.TabIndex = 14;
             // 
-            // dtpFehcaUltimaCompra
+            // dtpFechaUltimaCompra
             // 
-            this.dtpFehcaUltimaCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFehcaUltimaCompra.Location = new System.Drawing.Point(191, 57);
-            this.dtpFehcaUltimaCompra.Name = "dtpFehcaUltimaCompra";
-            this.dtpFehcaUltimaCompra.Size = new System.Drawing.Size(183, 26);
-            this.dtpFehcaUltimaCompra.TabIndex = 14;
+            this.dtpFechaUltimaCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaUltimaCompra.Location = new System.Drawing.Point(191, 57);
+            this.dtpFechaUltimaCompra.Name = "dtpFechaUltimaCompra";
+            this.dtpFechaUltimaCompra.Size = new System.Drawing.Size(183, 26);
+            this.dtpFechaUltimaCompra.TabIndex = 14;
             // 
             // txtCategoria
             // 
             this.txtCategoria.Location = new System.Drawing.Point(191, 25);
+            this.txtCategoria.MaxLength = 20;
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(183, 26);
             this.txtCategoria.TabIndex = 14;
@@ -441,90 +555,6 @@
             // 
             this.erpCantidadMinimaStock.ContainerControl = this;
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Image = global::cpProLimp.Properties.Resources.salvar;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(798, 15);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnGuardar.Size = new System.Drawing.Size(74, 62);
-            this.btnGuardar.TabIndex = 7;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnCanelar
-            // 
-            this.btnCanelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCanelar.Image = global::cpProLimp.Properties.Resources.cancel;
-            this.btnCanelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCanelar.Location = new System.Drawing.Point(798, 86);
-            this.btnCanelar.Name = "btnCanelar";
-            this.btnCanelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCanelar.Size = new System.Drawing.Size(74, 62);
-            this.btnCanelar.TabIndex = 8;
-            this.btnCanelar.Text = "Cancelar";
-            this.btnCanelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCanelar.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Image = global::cpProLimp.Properties.Resources.close;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(601, 3);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCancelar.Size = new System.Drawing.Size(120, 45);
-            this.btnCancelar.TabIndex = 9;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Image = global::cpProLimp.Properties.Resources.editar;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(319, 3);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnEditar.Size = new System.Drawing.Size(97, 45);
-            this.btnEditar.TabIndex = 8;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar.UseVisualStyleBackColor = true;
-            // 
-            // btnBorrar
-            // 
-            this.btnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrar.Image = global::cpProLimp.Properties.Resources.borrar;
-            this.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBorrar.Location = new System.Drawing.Point(467, 3);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnBorrar.Size = new System.Drawing.Size(98, 45);
-            this.btnBorrar.TabIndex = 7;
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBorrar.UseVisualStyleBackColor = true;
-            // 
-            // btnCrear
-            // 
-            this.btnCrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrear.Image = global::cpProLimp.Properties.Resources.agregar;
-            this.btnCrear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrear.Location = new System.Drawing.Point(201, 3);
-            this.btnCrear.Name = "btnCrear";
-            this.btnCrear.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCrear.Size = new System.Drawing.Size(89, 45);
-            this.btnCrear.TabIndex = 6;
-            this.btnCrear.Text = "Crear";
-            this.btnCrear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCrear.UseVisualStyleBackColor = true;
-            // 
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -538,13 +568,14 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(917, 600);
+            this.ClientSize = new System.Drawing.Size(917, 596);
             this.Controls.Add(this.gbxEditar);
             this.Controls.Add(this.gbxDatos);
             this.Controls.Add(this.pnlAcciones);
@@ -561,13 +592,14 @@
             this.Name = "FrmProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "::: Productos - ProLimp :::";
+            this.Load += new System.EventHandler(this.FrmProductos_Load);
             this.gbxListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.pnlAcciones.ResumeLayout(false);
             this.gbxDatos.ResumeLayout(false);
             this.gbxDatos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioUnitario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudStockTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudStock)).EndInit();
             this.gbxEditar.ResumeLayout(false);
             this.gbxEditar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadMinimaStock)).EndInit();
@@ -605,9 +637,9 @@
         private System.Windows.Forms.Label lblStock;
         private System.Windows.Forms.Label lblUnidadMedida;
         private System.Windows.Forms.ComboBox cbxUnidadMedida;
-        private System.Windows.Forms.TextBox txtDescripción;
+        private System.Windows.Forms.TextBox txtNombreProducto;
         private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.NumericUpDown nudStockTextBox;
+        private System.Windows.Forms.NumericUpDown nudStock;
         private System.Windows.Forms.ComboBox cbxProveedor;
         private System.Windows.Forms.DateTimePicker dtpFechaVencimiento;
         private System.Windows.Forms.NumericUpDown nudPrecioUnitario;
@@ -616,11 +648,11 @@
         private System.Windows.Forms.Label lblPrecioCompra;
         private System.Windows.Forms.Label lblFechaUltimaCompra;
         private System.Windows.Forms.Label lblCantidadMinimaStock;
-        private System.Windows.Forms.DateTimePicker dtpFehcaUltimaCompra;
+        private System.Windows.Forms.DateTimePicker dtpFechaUltimaCompra;
         private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.NumericUpDown nudCantidadMinimaStock;
         private System.Windows.Forms.NumericUpDown nudPrecioCompra;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnCrear;

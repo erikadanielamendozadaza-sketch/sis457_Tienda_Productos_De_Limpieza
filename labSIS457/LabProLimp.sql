@@ -69,8 +69,8 @@ CREATE TABLE Proveedor(
 	precioUnitario DECIMAL NOT NULL CHECK (precioUnitario>0),
 	stock INT NOT NULL,
 	fechaVencimiento DATE NOT NULL,
-	fechaUltimaCompra DATE NULL,
-	precioCompra DECIMAL NULL CHECK (precioCompra >= 0),
+	fechaUltimaCompra DATE NOT NULL,
+	precioCompra DECIMAL NOT NULL CHECK (precioCompra >= 0),
 	cantidadMinimaStock INT NOT NULL DEFAULT 5,
 	CONSTRAINT fk_Producto_UnidadMedida FOREIGN KEY (idunidadMedida) REFERENCES UnidadMedida(id),
 	CONSTRAINT fk_Producto_Proveedor FOREIGN KEY (idProveedor) REFERENCES Proveedor(id)
@@ -202,7 +202,7 @@ CREATE PROC paProductoListar @parametro VARCHAR(50)
 AS
 BEGIN
     SELECT 
-        p.id, p.idunidadMedida,P.idproveedor, p.codigo, p.nombre, p.categoria, um.descripcion AS unidadMedida, p.stock AS saldo,  
+        p.id, p.idunidadMedida, p.idproveedor, p.codigo, p.nombre, p.categoria, um.descripcion AS unidadMedida, p.stock,  
         p.precioUnitario AS precioVenta, p.fechaVencimiento,p.fechaUltimaCompra, p.precioCompra, p.cantidadMinimaStock, pr.nombreEmpresa AS proveedor, p.usuarioRegistro, p.fechaRegistro, p.estado
     FROM Producto p
     INNER JOIN UnidadMedida um ON um.id = p.idunidadMedida
@@ -262,3 +262,18 @@ VALUES ('Carlos','Lopez','Dávalos','45671345','72856910')
 
 SELECT * FROM Cliente
 
+INSERT INTO UnidadMedida(descripcion)
+VALUES ('Litro')
+
+SELECT * FROM UnidadMedida
+
+INSERT INTO Proveedor(nombreEmpresa,telefono,direccion,email)
+VALUES ('Distribuidora Limpieza Total SRL', '76451234', 'Av. Blanco Galindo', 'contacto@limpiezatotal.com')
+
+SELECT * FROM Proveedor
+
+
+INSERT INTO Producto(idunidadMedida,idproveedor,codigo,nombre,categoria,precioUnitario,stock,fechaVencimiento,fechaUltimaCompra,precioCompra,cantidadMinimaStock)
+VALUES ('1','1','PROD001','Detergente','Limpieza','25.50','100','2026-05-10','2025-10-30','15.00','10')
+
+SELECT * FROM Producto
