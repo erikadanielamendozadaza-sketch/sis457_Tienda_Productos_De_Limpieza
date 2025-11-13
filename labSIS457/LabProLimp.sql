@@ -14,9 +14,6 @@ GO
 ALTER ROLE db_owner ADD MEMBER usrprolimp
 GO
 
-
-
-
 DROP TABLE IF EXISTS DetalleVenta;
 DROP TABLE IF EXISTS Venta;
 DROP TABLE IF EXISTS Producto;
@@ -38,7 +35,7 @@ CREATE TABLE Cliente(
 	segundoApellido VARCHAR (50) NOT NULL,
 	cedulaIdentidad VARCHAR (10) NOT NULL,
 	telefono BIGINT NOT NULL
-	);
+);
 
 CREATE TABLE Proveedor(
 	id INT NOT NULL PRIMARY KEY IDENTITY(1, 1),

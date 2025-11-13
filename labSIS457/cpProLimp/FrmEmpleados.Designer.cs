@@ -42,9 +42,8 @@
             this.btnCrear = new System.Windows.Forms.Button();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.txtClave = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtCedulaIdentidad = new System.Windows.Forms.TextBox();
             this.txtSegundoApellido = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCanelar = new System.Windows.Forms.Button();
@@ -53,14 +52,12 @@
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblContraseña = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.lblCedulaIdentidad = new System.Windows.Forms.Label();
             this.lblSegundoApellido = new System.Windows.Forms.Label();
             this.lblPrimerApellido = new System.Windows.Forms.Label();
             this.lblNombres = new System.Windows.Forms.Label();
             this.erpNombres = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpPrimerApellido = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpSegundoApellido = new System.Windows.Forms.ErrorProvider(this.components);
-            this.erpCedulaIdentidad = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpUsuario = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpContraseña = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpTelefono = new System.Windows.Forms.ErrorProvider(this.components);
@@ -71,7 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpNombres)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpPrimerApellido)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpSegundoApellido)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erpCedulaIdentidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpContraseña)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpTelefono)).BeginInit();
@@ -90,6 +86,7 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtParametro
             // 
@@ -98,6 +95,7 @@
             this.txtParametro.Name = "txtParametro";
             this.txtParametro.Size = new System.Drawing.Size(247, 27);
             this.txtParametro.TabIndex = 6;
+            this.txtParametro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametro_KeyPress);
             // 
             // label2
             // 
@@ -170,6 +168,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEditar
             // 
@@ -184,6 +183,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnBorrar
             // 
@@ -198,6 +198,7 @@
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnCrear
             // 
@@ -212,13 +213,13 @@
             this.btnCrear.Text = "Crear";
             this.btnCrear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // gbxDatos
             // 
             this.gbxDatos.Controls.Add(this.txtTelefono);
-            this.gbxDatos.Controls.Add(this.txtContraseña);
+            this.gbxDatos.Controls.Add(this.txtClave);
             this.gbxDatos.Controls.Add(this.txtUsuario);
-            this.gbxDatos.Controls.Add(this.txtCedulaIdentidad);
             this.gbxDatos.Controls.Add(this.txtSegundoApellido);
             this.gbxDatos.Controls.Add(this.btnGuardar);
             this.gbxDatos.Controls.Add(this.btnCanelar);
@@ -227,7 +228,6 @@
             this.gbxDatos.Controls.Add(this.lblTelefono);
             this.gbxDatos.Controls.Add(this.lblContraseña);
             this.gbxDatos.Controls.Add(this.lblUsuario);
-            this.gbxDatos.Controls.Add(this.lblCedulaIdentidad);
             this.gbxDatos.Controls.Add(this.lblSegundoApellido);
             this.gbxDatos.Controls.Add(this.lblPrimerApellido);
             this.gbxDatos.Controls.Add(this.lblNombres);
@@ -246,12 +246,12 @@
             this.txtTelefono.Size = new System.Drawing.Size(183, 26);
             this.txtTelefono.TabIndex = 13;
             // 
-            // txtContraseña
+            // txtClave
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(538, 54);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(183, 26);
-            this.txtContraseña.TabIndex = 12;
+            this.txtClave.Location = new System.Drawing.Point(538, 54);
+            this.txtClave.Name = "txtClave";
+            this.txtClave.Size = new System.Drawing.Size(183, 26);
+            this.txtClave.TabIndex = 12;
             // 
             // txtUsuario
             // 
@@ -259,13 +259,6 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(183, 26);
             this.txtUsuario.TabIndex = 11;
-            // 
-            // txtCedulaIdentidad
-            // 
-            this.txtCedulaIdentidad.Location = new System.Drawing.Point(191, 116);
-            this.txtCedulaIdentidad.Name = "txtCedulaIdentidad";
-            this.txtCedulaIdentidad.Size = new System.Drawing.Size(183, 26);
-            this.txtCedulaIdentidad.TabIndex = 10;
             // 
             // txtSegundoApellido
             // 
@@ -287,6 +280,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCanelar
             // 
@@ -301,6 +295,7 @@
             this.btnCanelar.Text = "Cancelar";
             this.btnCanelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCanelar.UseVisualStyleBackColor = true;
+            this.btnCanelar.Click += new System.EventHandler(this.btnCanelar_Click);
             // 
             // txtPrimerApellido
             // 
@@ -343,15 +338,6 @@
             this.lblUsuario.TabIndex = 4;
             this.lblUsuario.Text = "Usuario:";
             // 
-            // lblCedulaIdentidad
-            // 
-            this.lblCedulaIdentidad.AutoSize = true;
-            this.lblCedulaIdentidad.Location = new System.Drawing.Point(3, 119);
-            this.lblCedulaIdentidad.Name = "lblCedulaIdentidad";
-            this.lblCedulaIdentidad.Size = new System.Drawing.Size(176, 20);
-            this.lblCedulaIdentidad.TabIndex = 3;
-            this.lblCedulaIdentidad.Text = "Cédula de Identidad:";
-            // 
             // lblSegundoApellido
             // 
             this.lblSegundoApellido.AutoSize = true;
@@ -392,10 +378,6 @@
             // 
             this.erpSegundoApellido.ContainerControl = this;
             // 
-            // erpCedulaIdentidad
-            // 
-            this.erpCedulaIdentidad.ContainerControl = this;
-            // 
             // erpUsuario
             // 
             this.erpUsuario.ContainerControl = this;
@@ -427,6 +409,7 @@
             this.Name = "FrmEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "::: Empleados - ProLimp :::";
+            this.Load += new System.EventHandler(this.FrmEmpleados_Load);
             this.gbxListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.pnlAcciones.ResumeLayout(false);
@@ -435,7 +418,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpNombres)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpPrimerApellido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpSegundoApellido)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erpCedulaIdentidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpContraseña)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpTelefono)).EndInit();
@@ -465,19 +447,16 @@
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Label lblContraseña;
         private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.Label lblCedulaIdentidad;
         private System.Windows.Forms.Label lblSegundoApellido;
         private System.Windows.Forms.Label lblPrimerApellido;
         private System.Windows.Forms.Label lblNombres;
-        private System.Windows.Forms.TextBox txtCedulaIdentidad;
         private System.Windows.Forms.TextBox txtSegundoApellido;
         private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.TextBox txtContraseña;
+        private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.ErrorProvider erpNombres;
         private System.Windows.Forms.ErrorProvider erpPrimerApellido;
         private System.Windows.Forms.ErrorProvider erpSegundoApellido;
-        private System.Windows.Forms.ErrorProvider erpCedulaIdentidad;
         private System.Windows.Forms.ErrorProvider erpUsuario;
         private System.Windows.Forms.ErrorProvider erpContraseña;
         private System.Windows.Forms.ErrorProvider erpTelefono;

@@ -1,4 +1,4 @@
-﻿// La generación de código T4 está habilitada para el modelo 'E:\Daniel dou\Mio\SIS 457 fundamentos\Colo lab v2\sis457_Tienda_Productos_De_Limpieza\labSIS457\CadProLimp\Modelo.edmx'. 
+﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\CadProLimp\Modelo.edmx'. 
 // Para habilitar la generación de código heredada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
 // por 'ObjectContext heredado'. Esta propiedad está disponible en la ventana Propiedades cuando se abre
 // el modelo en el diseñador.

@@ -28,13 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtParametro = new System.Windows.Forms.TextBox();
             this.gbxListado = new System.Windows.Forms.GroupBox();
             this.dgvLista = new System.Windows.Forms.DataGridView();
             this.pnlAcciones = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnCrear = new System.Windows.Forms.Button();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtCedulaIdentidad = new System.Windows.Forms.TextBox();
+            this.txtSegundoApellido = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCanelar = new System.Windows.Forms.Button();
             this.txtPrimerApellido = new System.Windows.Forms.TextBox();
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.lblTelefono = new System.Windows.Forms.Label();
@@ -42,20 +52,21 @@
             this.lblSegundoApellido = new System.Windows.Forms.Label();
             this.lblPrimerApellido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
-            this.txtSegundoApellido = new System.Windows.Forms.TextBox();
-            this.txtCedulaIdentidad = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCanelar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnBorrar = new System.Windows.Forms.Button();
-            this.btnCrear = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.erpNombres = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpPrimerApellido = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpSegundoApellido = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpCedulaIdentidad = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpTelefono = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.pnlAcciones.SuspendLayout();
             this.gbxDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erpNombres)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpPrimerApellido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpSegundoApellido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpCedulaIdentidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpTelefono)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -87,6 +98,7 @@
             this.txtParametro.Name = "txtParametro";
             this.txtParametro.Size = new System.Drawing.Size(202, 27);
             this.txtParametro.TabIndex = 3;
+            this.txtParametro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametro_KeyPress);
             // 
             // gbxListado
             // 
@@ -123,6 +135,66 @@
             this.pnlAcciones.Size = new System.Drawing.Size(836, 51);
             this.pnlAcciones.TabIndex = 6;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::cpProLimp.Properties.Resources.close;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(603, 3);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCancelar.Size = new System.Drawing.Size(115, 45);
+            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Image = global::cpProLimp.Properties.Resources.editar;
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(312, 3);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnEditar.Size = new System.Drawing.Size(100, 45);
+            this.btnEditar.TabIndex = 8;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.Image = global::cpProLimp.Properties.Resources.borrar;
+            this.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBorrar.Location = new System.Drawing.Point(466, 3);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnBorrar.Size = new System.Drawing.Size(100, 45);
+            this.btnBorrar.TabIndex = 7;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnCrear
+            // 
+            this.btnCrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrear.Image = global::cpProLimp.Properties.Resources.agregar;
+            this.btnCrear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCrear.Location = new System.Drawing.Point(175, 3);
+            this.btnCrear.Name = "btnCrear";
+            this.btnCrear.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCrear.Size = new System.Drawing.Size(95, 45);
+            this.btnCrear.TabIndex = 6;
+            this.btnCrear.Text = "Crear";
+            this.btnCrear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
+            // 
             // gbxDatos
             // 
             this.gbxDatos.Controls.Add(this.txtTelefono);
@@ -144,6 +216,57 @@
             this.gbxDatos.TabIndex = 7;
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Agregar / Modificar datos:";
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(645, 54);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(179, 26);
+            this.txtTelefono.TabIndex = 11;
+            // 
+            // txtCedulaIdentidad
+            // 
+            this.txtCedulaIdentidad.Location = new System.Drawing.Point(645, 24);
+            this.txtCedulaIdentidad.Name = "txtCedulaIdentidad";
+            this.txtCedulaIdentidad.Size = new System.Drawing.Size(179, 26);
+            this.txtCedulaIdentidad.TabIndex = 10;
+            // 
+            // txtSegundoApellido
+            // 
+            this.txtSegundoApellido.Location = new System.Drawing.Point(191, 83);
+            this.txtSegundoApellido.Name = "txtSegundoApellido";
+            this.txtSegundoApellido.Size = new System.Drawing.Size(183, 26);
+            this.txtSegundoApellido.TabIndex = 9;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::cpProLimp.Properties.Resources.salvar;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGuardar.Location = new System.Drawing.Point(538, 89);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnGuardar.Size = new System.Drawing.Size(70, 62);
+            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnCanelar
+            // 
+            this.btnCanelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCanelar.Image = global::cpProLimp.Properties.Resources.cancel;
+            this.btnCanelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCanelar.Location = new System.Drawing.Point(645, 89);
+            this.btnCanelar.Name = "btnCanelar";
+            this.btnCanelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCanelar.Size = new System.Drawing.Size(73, 61);
+            this.btnCanelar.TabIndex = 8;
+            this.btnCanelar.Text = "Cancelar";
+            this.btnCanelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCanelar.UseVisualStyleBackColor = true;
+            this.btnCanelar.Click += new System.EventHandler(this.btnCanelar_Click);
             // 
             // txtPrimerApellido
             // 
@@ -205,111 +328,6 @@
             this.lblNombre.TabIndex = 0;
             this.lblNombre.Text = "Nombres: ";
             // 
-            // txtSegundoApellido
-            // 
-            this.txtSegundoApellido.Location = new System.Drawing.Point(191, 83);
-            this.txtSegundoApellido.Name = "txtSegundoApellido";
-            this.txtSegundoApellido.Size = new System.Drawing.Size(183, 26);
-            this.txtSegundoApellido.TabIndex = 9;
-            // 
-            // txtCedulaIdentidad
-            // 
-            this.txtCedulaIdentidad.Location = new System.Drawing.Point(645, 24);
-            this.txtCedulaIdentidad.Name = "txtCedulaIdentidad";
-            this.txtCedulaIdentidad.Size = new System.Drawing.Size(179, 26);
-            this.txtCedulaIdentidad.TabIndex = 10;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(645, 54);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(179, 26);
-            this.txtTelefono.TabIndex = 11;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Image = global::cpProLimp.Properties.Resources.salvar;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(538, 89);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnGuardar.Size = new System.Drawing.Size(70, 62);
-            this.btnGuardar.TabIndex = 7;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnCanelar
-            // 
-            this.btnCanelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCanelar.Image = global::cpProLimp.Properties.Resources.cancel;
-            this.btnCanelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCanelar.Location = new System.Drawing.Point(645, 89);
-            this.btnCanelar.Name = "btnCanelar";
-            this.btnCanelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCanelar.Size = new System.Drawing.Size(73, 61);
-            this.btnCanelar.TabIndex = 8;
-            this.btnCanelar.Text = "Cancelar";
-            this.btnCanelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCanelar.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Image = global::cpProLimp.Properties.Resources.close;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(603, 3);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCancelar.Size = new System.Drawing.Size(115, 45);
-            this.btnCancelar.TabIndex = 9;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditar.Image = global::cpProLimp.Properties.Resources.editar;
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(312, 3);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnEditar.Size = new System.Drawing.Size(100, 45);
-            this.btnEditar.TabIndex = 8;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditar.UseVisualStyleBackColor = true;
-            // 
-            // btnBorrar
-            // 
-            this.btnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBorrar.Image = global::cpProLimp.Properties.Resources.borrar;
-            this.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBorrar.Location = new System.Drawing.Point(466, 3);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnBorrar.Size = new System.Drawing.Size(100, 45);
-            this.btnBorrar.TabIndex = 7;
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBorrar.UseVisualStyleBackColor = true;
-            // 
-            // btnCrear
-            // 
-            this.btnCrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrear.Image = global::cpProLimp.Properties.Resources.agregar;
-            this.btnCrear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrear.Location = new System.Drawing.Point(175, 3);
-            this.btnCrear.Name = "btnCrear";
-            this.btnCrear.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCrear.Size = new System.Drawing.Size(95, 45);
-            this.btnCrear.TabIndex = 6;
-            this.btnCrear.Text = "Crear";
-            this.btnCrear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCrear.UseVisualStyleBackColor = true;
-            // 
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -323,6 +341,27 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // erpNombres
+            // 
+            this.erpNombres.ContainerControl = this;
+            // 
+            // erpPrimerApellido
+            // 
+            this.erpPrimerApellido.ContainerControl = this;
+            // 
+            // erpSegundoApellido
+            // 
+            this.erpSegundoApellido.ContainerControl = this;
+            // 
+            // erpCedulaIdentidad
+            // 
+            this.erpCedulaIdentidad.ContainerControl = this;
+            // 
+            // erpTelefono
+            // 
+            this.erpTelefono.ContainerControl = this;
             // 
             // FrmClientes
             // 
@@ -339,16 +378,22 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FrmClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "::: Clientes - ProLimp :::";
+            this.Load += new System.EventHandler(this.FrmClientes_Load);
             this.gbxListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.pnlAcciones.ResumeLayout(false);
             this.gbxDatos.ResumeLayout(false);
             this.gbxDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erpNombres)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpPrimerApellido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpSegundoApellido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpCedulaIdentidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpTelefono)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,5 +425,10 @@
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtCedulaIdentidad;
         private System.Windows.Forms.TextBox txtSegundoApellido;
+        private System.Windows.Forms.ErrorProvider erpNombres;
+        private System.Windows.Forms.ErrorProvider erpPrimerApellido;
+        private System.Windows.Forms.ErrorProvider erpSegundoApellido;
+        private System.Windows.Forms.ErrorProvider erpCedulaIdentidad;
+        private System.Windows.Forms.ErrorProvider erpTelefono;
     }
 }
