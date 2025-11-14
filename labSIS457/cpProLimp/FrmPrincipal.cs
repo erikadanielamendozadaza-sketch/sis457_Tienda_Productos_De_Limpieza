@@ -70,5 +70,15 @@ namespace cpProLimp
         {
             new FrmReVentas().ShowDialog();
         }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            new FrmProveedores().ShowDialog();
+        }
+
+        private void btnUnidadMedida_Click(object sender, EventArgs e)
+        {
+            new FrmUnidadMedida().ShowDialog();
+        }
     }
 }

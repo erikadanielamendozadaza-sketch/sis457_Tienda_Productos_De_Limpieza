@@ -17,6 +17,15 @@ namespace cpProLimp
         public FrmAutenticacion()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+        }
+
+        private void FrmAutenticacion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Application.Exit();
+            }
         }
 
         private bool validar()
@@ -28,12 +37,12 @@ namespace cpProLimp
             if (string.IsNullOrWhiteSpace(txtUsuario.Text))
             {
                 erpUsuario.SetError(txtUsuario, "El usuario es obligatorio");
-                esValido = true;
+                esValido = false;
             }
             if (string.IsNullOrWhiteSpace(txtClave.Text))
             {
-                erpClave.SetError(txtClave, "La contraseña es obligatoria");
-                esValido = true;
+                erpClave.SetError(txtClave, "La clave es obligatoria");
+                esValido = false;
             }
 
             return esValido;
@@ -59,8 +68,7 @@ namespace cpProLimp
                 }
                 else
                 {
-                    MessageBox.Show("Usuario y/o contraseña incorrectos :v", "::: Mensaje - ProLimp :) :::",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Usuario y/o contraseña incorrectos", "::: Mensaje - ProLimp :) :::", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -68,6 +76,23 @@ namespace cpProLimp
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ')
+                e.Handled = true; 
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtClave.Focus();
+                txtClave.SelectAll();
+            }
+        }
+
+        private void FrmAutenticacion_Load(object sender, EventArgs e)
+        {
+            txtUsuario.Focus();
         }
     }
 }

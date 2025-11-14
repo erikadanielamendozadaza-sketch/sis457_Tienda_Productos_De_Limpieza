@@ -39,6 +39,8 @@
             this.btnCaEmpleados = new C1.Win.C1Ribbon.RibbonButton();
             this.btnCaProductos = new C1.Win.C1Ribbon.RibbonButton();
             this.btnCaClientes = new C1.Win.C1Ribbon.RibbonButton();
+            this.btnProveedores = new C1.Win.C1Ribbon.RibbonButton();
+            this.btnUnidadMedida = new C1.Win.C1Ribbon.RibbonButton();
             this.btnCaVenta = new C1.Win.C1Ribbon.RibbonTab();
             this.ribbonGroup2 = new C1.Win.C1Ribbon.RibbonGroup();
             this.btnOpVenta = new C1.Win.C1Ribbon.RibbonButton();
@@ -101,6 +103,8 @@
             this.ribbonGroup1.Items.Add(this.btnCaEmpleados);
             this.ribbonGroup1.Items.Add(this.btnCaProductos);
             this.ribbonGroup1.Items.Add(this.btnCaClientes);
+            this.ribbonGroup1.Items.Add(this.btnProveedores);
+            this.ribbonGroup1.Items.Add(this.btnUnidadMedida);
             this.ribbonGroup1.Name = "ribbonGroup1";
             this.ribbonGroup1.Text = "Administración de catálogos";
             // 
@@ -130,6 +134,24 @@
             this.btnCaClientes.Text = "Clientes";
             this.btnCaClientes.ToolTip = "Registra clientes";
             this.btnCaClientes.Click += new System.EventHandler(this.btnCaClientes_Click);
+            // 
+            // btnProveedores
+            // 
+            this.btnProveedores.LargeImage = global::cpProLimp.Properties.Resources.provider;
+            this.btnProveedores.Name = "btnProveedores";
+            this.btnProveedores.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnProveedores.SmallImage")));
+            this.btnProveedores.Text = "Proveedores";
+            this.btnProveedores.ToolTip = "Registrar Proveedores";
+            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
+            // 
+            // btnUnidadMedida
+            // 
+            this.btnUnidadMedida.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUnidadMedida.LargeImage")));
+            this.btnUnidadMedida.Name = "btnUnidadMedida";
+            this.btnUnidadMedida.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnUnidadMedida.SmallImage")));
+            this.btnUnidadMedida.Text = "Unidades de Medida";
+            this.btnUnidadMedida.ToolTip = "Registrar Unidad de Medida";
+            this.btnUnidadMedida.Click += new System.EventHandler(this.btnUnidadMedida_Click);
             // 
             // btnCaVenta
             // 
@@ -286,5 +308,7 @@
         private C1.Win.C1Ribbon.RibbonButton btnReProductos;
         private C1.Win.C1Ribbon.RibbonButton btnReVentas;
         private C1.Win.C1Ribbon.RibbonButton btnAdEmpleados;
+        private C1.Win.C1Ribbon.RibbonButton btnProveedores;
+        private C1.Win.C1Ribbon.RibbonButton btnUnidadMedida;
     }
 }

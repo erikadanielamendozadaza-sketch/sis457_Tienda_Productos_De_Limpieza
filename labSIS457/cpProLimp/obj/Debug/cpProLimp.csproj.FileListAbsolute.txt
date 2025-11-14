@@ -243,3 +243,5 @@ C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS45
 C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\CpProLimp.csproj.Up2Date
 C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.exe
 C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.pdb
+C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmProveedores.resources
+C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmUnidadMedida.resources

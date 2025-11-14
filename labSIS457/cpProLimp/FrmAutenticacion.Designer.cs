@@ -84,6 +84,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(226, 24);
             this.txtUsuario.TabIndex = 6;
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // txtClave
             // 
@@ -160,6 +161,8 @@
             this.Name = "FrmAutenticacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "::: Iniciar Sesión - ProLimp :::";
+            this.Load += new System.EventHandler(this.FrmAutenticacion_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmAutenticacion_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpClave)).EndInit();
