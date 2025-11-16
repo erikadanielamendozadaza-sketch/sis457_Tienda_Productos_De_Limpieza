@@ -33,15 +33,15 @@
             this.gbxListado = new System.Windows.Forms.GroupBox();
             this.dgvLista = new System.Windows.Forms.DataGridView();
             this.pnlAcciones = new System.Windows.Forms.Panel();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
-            this.lblUnidadMedida = new System.Windows.Forms.Label();
-            this.txtUnidadMedida = new System.Windows.Forms.TextBox();
-            this.btnCanelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCanelar = new System.Windows.Forms.Button();
+            this.txtUnidadMedida = new System.Windows.Forms.TextBox();
+            this.lblUnidadMedida = new System.Windows.Forms.Label();
             this.erpUnidadMedida = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
@@ -89,7 +89,7 @@
             // 
             // pnlAcciones
             // 
-            this.pnlAcciones.Controls.Add(this.btnCancelar);
+            this.pnlAcciones.Controls.Add(this.btnCerrar);
             this.pnlAcciones.Controls.Add(this.btnEditar);
             this.pnlAcciones.Controls.Add(this.btnBorrar);
             this.pnlAcciones.Controls.Add(this.btnCrear);
@@ -98,19 +98,20 @@
             this.pnlAcciones.Size = new System.Drawing.Size(791, 51);
             this.pnlAcciones.TabIndex = 11;
             // 
-            // btnCancelar
+            // btnCerrar
             // 
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Image = global::cpProLimp.Properties.Resources.close;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(603, 3);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCancelar.Size = new System.Drawing.Size(115, 45);
-            this.btnCancelar.TabIndex = 9;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Image = global::cpProLimp.Properties.Resources.close;
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrar.Location = new System.Drawing.Point(603, 3);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCerrar.Size = new System.Drawing.Size(102, 45);
+            this.btnCerrar.TabIndex = 9;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnEditar
             // 
@@ -125,6 +126,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnBorrar
             // 
@@ -139,6 +141,7 @@
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnCrear
             // 
@@ -153,6 +156,7 @@
             this.btnCrear.Text = "Crear";
             this.btnCrear.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // gbxDatos
             // 
@@ -168,22 +172,20 @@
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Agregar / Modificar datos:";
             // 
-            // lblUnidadMedida
+            // btnGuardar
             // 
-            this.lblUnidadMedida.AutoSize = true;
-            this.lblUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnidadMedida.Location = new System.Drawing.Point(120, 42);
-            this.lblUnidadMedida.Name = "lblUnidadMedida";
-            this.lblUnidadMedida.Size = new System.Drawing.Size(164, 20);
-            this.lblUnidadMedida.TabIndex = 0;
-            this.lblUnidadMedida.Text = "Unidad de Medida: ";
-            // 
-            // txtUnidadMedida
-            // 
-            this.txtUnidadMedida.Location = new System.Drawing.Point(311, 39);
-            this.txtUnidadMedida.Name = "txtUnidadMedida";
-            this.txtUnidadMedida.Size = new System.Drawing.Size(183, 26);
-            this.txtUnidadMedida.TabIndex = 7;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Image = global::cpProLimp.Properties.Resources.salvar;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGuardar.Location = new System.Drawing.Point(557, 25);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnGuardar.Size = new System.Drawing.Size(70, 62);
+            this.btnGuardar.TabIndex = 7;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCanelar
             // 
@@ -198,20 +200,24 @@
             this.btnCanelar.Text = "Cancelar";
             this.btnCanelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCanelar.UseVisualStyleBackColor = true;
+            this.btnCanelar.Click += new System.EventHandler(this.btnCanelar_Click);
             // 
-            // btnGuardar
+            // txtUnidadMedida
             // 
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Image = global::cpProLimp.Properties.Resources.salvar;
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(557, 25);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnGuardar.Size = new System.Drawing.Size(70, 62);
-            this.btnGuardar.TabIndex = 7;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.txtUnidadMedida.Location = new System.Drawing.Point(311, 39);
+            this.txtUnidadMedida.Name = "txtUnidadMedida";
+            this.txtUnidadMedida.Size = new System.Drawing.Size(183, 26);
+            this.txtUnidadMedida.TabIndex = 7;
+            // 
+            // lblUnidadMedida
+            // 
+            this.lblUnidadMedida.AutoSize = true;
+            this.lblUnidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnidadMedida.Location = new System.Drawing.Point(120, 42);
+            this.lblUnidadMedida.Name = "lblUnidadMedida";
+            this.lblUnidadMedida.Size = new System.Drawing.Size(164, 20);
+            this.lblUnidadMedida.TabIndex = 0;
+            this.lblUnidadMedida.Text = "Unidad de Medida: ";
             // 
             // erpUnidadMedida
             // 
@@ -222,17 +228,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(815, 451);
+            this.ClientSize = new System.Drawing.Size(815, 458);
             this.Controls.Add(this.gbxDatos);
             this.Controls.Add(this.pnlAcciones);
             this.Controls.Add(this.gbxListado);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmUnidadMedida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "::: Unidad de Medida - ProLimp :::";
+            this.Load += new System.EventHandler(this.FrmUnidadMedida_Load);
             this.gbxListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.pnlAcciones.ResumeLayout(false);
@@ -249,7 +256,7 @@
         private System.Windows.Forms.GroupBox gbxListado;
         private System.Windows.Forms.DataGridView dgvLista;
         private System.Windows.Forms.Panel pnlAcciones;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnCrear;

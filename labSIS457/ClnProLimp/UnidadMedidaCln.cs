@@ -29,7 +29,7 @@ namespace ClnProLimp
             }
         }
 
-        public static int eliminar(int id, string usuarioRegistro)
+        public static int eliminar(int id, string usuarioRegistro) 
         {
             using (var context = new LabProLimpEntities())
             {

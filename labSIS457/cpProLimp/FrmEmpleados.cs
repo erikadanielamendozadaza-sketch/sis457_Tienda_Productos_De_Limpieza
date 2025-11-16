@@ -134,7 +134,7 @@ namespace cpProLimp
             }
             if (string.IsNullOrEmpty(txtTelefono.Text.Trim()))
             {
-                erpNombres.SetError(txtTelefono, "El campo clave es obligatorio");
+                erpNombres.SetError(txtTelefono, "El campo telefono es obligatorio");
                 esValido = false;
             }
 
