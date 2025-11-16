@@ -269,7 +269,7 @@
             this.pnlAcciones.Controls.Add(this.btnBorrar);
             this.pnlAcciones.Location = new System.Drawing.Point(764, 637);
             this.pnlAcciones.Name = "pnlAcciones";
-            this.pnlAcciones.Size = new System.Drawing.Size(480, 51);
+            this.pnlAcciones.Size = new System.Drawing.Size(613, 51);
             this.pnlAcciones.TabIndex = 26;
             // 
             // btnRegistrar
@@ -277,7 +277,7 @@
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.Image = global::cpProLimp.Properties.Resources.caja_registradora;
             this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrar.Location = new System.Drawing.Point(233, 3);
+            this.btnRegistrar.Location = new System.Drawing.Point(325, 3);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnRegistrar.Size = new System.Drawing.Size(117, 45);
@@ -292,7 +292,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::cpProLimp.Properties.Resources.close;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(356, 3);
+            this.btnCancelar.Location = new System.Drawing.Point(482, 3);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnCancelar.Size = new System.Drawing.Size(115, 45);
@@ -307,7 +307,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.Image = global::cpProLimp.Properties.Resources.escoba;
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiar.Location = new System.Drawing.Point(130, 3);
+            this.btnLimpiar.Location = new System.Drawing.Point(177, 3);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnLimpiar.Size = new System.Drawing.Size(97, 45);
@@ -322,7 +322,7 @@
             this.btnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBorrar.Image = global::cpProLimp.Properties.Resources.borrar;
             this.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBorrar.Location = new System.Drawing.Point(6, 3);
+            this.btnBorrar.Location = new System.Drawing.Point(16, 3);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnBorrar.Size = new System.Drawing.Size(118, 45);
@@ -347,7 +347,7 @@
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Image = global::cpProLimp.Properties.Resources.anadir_al_carrito;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(200, 637);
+            this.btnAgregar.Location = new System.Drawing.Point(289, 637);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnAgregar.Size = new System.Drawing.Size(131, 45);
@@ -374,7 +374,7 @@
             // btnMas
             // 
             this.btnMas.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMas.Location = new System.Drawing.Point(1409, 280);
+            this.btnMas.Location = new System.Drawing.Point(1400, 383);
             this.btnMas.Name = "btnMas";
             this.btnMas.Size = new System.Drawing.Size(46, 46);
             this.btnMas.TabIndex = 28;
@@ -385,7 +385,7 @@
             // btnMenos
             // 
             this.btnMenos.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenos.Location = new System.Drawing.Point(1409, 332);
+            this.btnMenos.Location = new System.Drawing.Point(1400, 435);
             this.btnMenos.Name = "btnMenos";
             this.btnMenos.Size = new System.Drawing.Size(46, 46);
             this.btnMenos.TabIndex = 29;
