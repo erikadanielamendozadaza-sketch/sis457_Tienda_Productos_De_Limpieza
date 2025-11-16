@@ -119,7 +119,6 @@ ALTER TABLE Venta ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
 ALTER TABLE Venta ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
 ALTER TABLE Venta ADD estado SMALLINT NOT NULL DEFAULT 1;
 
-
 ALTER TABLE DetalleVenta ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
 ALTER TABLE DetalleVenta ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
 ALTER TABLE DetalleVenta ADD estado SMALLINT NOT NULL DEFAULT 1;
@@ -229,8 +228,6 @@ GO
 
 EXEC paVentaListar '';
 
-
-
 GO
 DROP PROC IF EXISTS paDetalleVentaListar;
 GO
@@ -274,3 +271,5 @@ INSERT INTO Producto(idunidadMedida,idproveedor,codigo,nombre,categoria,precioUn
 VALUES ('1','1','PROD001','Detergente','Limpieza','25.50','100','2026-05-10','2025-10-30','15.00','10')
 
 SELECT * FROM Producto
+
+SELECT * FROM DetalleVenta

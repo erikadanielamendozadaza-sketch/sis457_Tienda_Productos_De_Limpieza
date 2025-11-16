@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClnProLimp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,36 @@ namespace cpProLimp
         public FrmReEmpleados()
         {
             InitializeComponent();
+        }
+
+        private void listar()
+        {
+            var lista = EmpleadoCln.listarPa(txtParametro.Text.Trim());
+            dgvLista.DataSource = lista;
+            dgvLista.Columns["id"].Visible = false;
+            dgvLista.Columns["estado"].Visible = false;
+            dgvLista.Columns["nombres"].HeaderText = "Nombres";
+            dgvLista.Columns["primerApellido"].HeaderText = "Primer Apellido";
+            dgvLista.Columns["segundoApellido"].HeaderText = "Segundo Apellido";
+            dgvLista.Columns["usuario"].HeaderText = "Usuario";
+            dgvLista.Columns["telefono"].HeaderText = "Teléfono/Celular";
+            dgvLista.Columns["usuarioRegistro"].HeaderText = "Usuario Registro";
+            dgvLista.Columns["fechaRegistro"].HeaderText = "Fecha de Registro";
+        }
+
+        private void FrmReEmpleados_Load(object sender, EventArgs e)
+        {
+            listar();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            listar();
+        }
+
+        private void txtParametro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter) listar();
         }
     }
 }
