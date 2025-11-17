@@ -120,11 +120,6 @@ namespace cpProLimp
                 erpPrimerApellido.SetError(txtPrimerApellido, "El campo primer apellido es obligatorio");
                 esValido = false;
             }
-            if (string.IsNullOrEmpty(txtSegundoApellido.Text.Trim()))
-            {
-                erpSegundoApellido.SetError(txtSegundoApellido, "El campo segundo apellido es obligatorio");
-                esValido = false;
-            }
             if (string.IsNullOrEmpty(txtCedulaIdentidad.Text.Trim()))
             {
                 erpCedulaIdentidad.SetError(txtCedulaIdentidad, "El campo CI es obligatorio");
@@ -156,11 +151,13 @@ namespace cpProLimp
                 var empleado = new Empleado();
                 empleado.nombres = txtNombres.Text.Trim();
                 empleado.primerApellido = txtPrimerApellido.Text.Trim();
-                empleado.segundoApellido = txtSegundoApellido.Text.Trim();
+                empleado.segundoApellido = string.IsNullOrEmpty(txtSegundoApellido.Text) ?
+                        null : txtSegundoApellido.Text.Trim();
                 empleado.cedulaIdentidad = txtCedulaIdentidad.Text.Trim();
                 empleado.usuario = txtUsuario.Text.Trim();
                 empleado.clave = txtClave.Text.Trim();
                 empleado.telefono = txtTelefono.Text.Trim().Length > 0 ? long.Parse(txtTelefono.Text.Trim()) : 0;
+                empleado.usuarioRegistro = Util.empleado.usuario;
 
                 if (esNuevo)
                 {
@@ -174,7 +171,7 @@ namespace cpProLimp
                     EmpleadoCln.actualizar(empleado);
                 }
                 listar();
-                btnCancelar.PerformClick();
+                btnCanelar.PerformClick();
                 MessageBox.Show("Empleado guardado correctamente", "::: Mensaje - ProLimp :::",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

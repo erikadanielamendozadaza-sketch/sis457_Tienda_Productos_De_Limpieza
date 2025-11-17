@@ -224,7 +224,6 @@ C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS45
 C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\EntityFramework.xml
 C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\CpProLimp.csproj.AssemblyReference.cache
-C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.exe.config
 C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmAutenticacion.resources
 C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmClientes.resources
 C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmEmpleados.resources
@@ -285,3 +284,4 @@ E:\Daniel dou\Mio\SIS 457 fundamentos\clon lab v3\sis457_Tienda_Productos_De_Lim
 E:\Daniel dou\Mio\SIS 457 fundamentos\clon lab v3\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.exe
 E:\Daniel dou\Mio\SIS 457 fundamentos\clon lab v3\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.pdb
 C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmFactura.resources
+C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.exe.config
