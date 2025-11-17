@@ -63,6 +63,7 @@ namespace cpProLimp
             txtNombres.Text = empleado.nombres;
             txtPrimerApellido.Text = empleado.primerApellido;
             txtSegundoApellido.Text = empleado.segundoApellido;
+            txtCedulaIdentidad.Text = empleado.cedulaIdentidad;
             txtUsuario.Text = empleado.usuario;
             txtClave.Text = empleado.clave;
             txtTelefono.Text = empleado.telefono.ToString();
@@ -75,6 +76,7 @@ namespace cpProLimp
             txtNombres.Clear();
             txtPrimerApellido.Clear();
             txtSegundoApellido.Clear();
+            txtCedulaIdentidad.Clear();
             txtUsuario.Clear();
             txtClave.Clear();
             txtTelefono.Clear();
@@ -103,6 +105,7 @@ namespace cpProLimp
             erpNombres.Clear();
             erpPrimerApellido.Clear();
             erpSegundoApellido.Clear();
+            erpCedulaIdentidad.Clear();
             erpUsuario.Clear();
             erpContraseña.Clear();
             erpTelefono.Clear();
@@ -114,27 +117,32 @@ namespace cpProLimp
             }
             if (string.IsNullOrEmpty(txtPrimerApellido.Text.Trim()))
             {
-                erpNombres.SetError(txtPrimerApellido, "El campo primer apellido es obligatorio");
+                erpPrimerApellido.SetError(txtPrimerApellido, "El campo primer apellido es obligatorio");
                 esValido = false;
             }
             if (string.IsNullOrEmpty(txtSegundoApellido.Text.Trim()))
             {
-                erpNombres.SetError(txtSegundoApellido, "El campo segundo apellido es obligatorio");
+                erpSegundoApellido.SetError(txtSegundoApellido, "El campo segundo apellido es obligatorio");
+                esValido = false;
+            }
+            if (string.IsNullOrEmpty(txtCedulaIdentidad.Text.Trim()))
+            {
+                erpCedulaIdentidad.SetError(txtCedulaIdentidad, "El campo CI es obligatorio");
                 esValido = false;
             }
             if (string.IsNullOrEmpty(txtUsuario.Text.Trim()))
             {
-                erpNombres.SetError(txtUsuario, "El campo usuario es obligatorio");
+                erpUsuario.SetError(txtUsuario, "El campo usuario es obligatorio");
                 esValido = false;
             }
             if (string.IsNullOrEmpty(txtClave.Text.Trim()))
             {
-                erpNombres.SetError(txtClave, "El campo clave es obligatorio");
+                erpContraseña.SetError(txtClave, "El campo clave es obligatorio");
                 esValido = false;
             }
             if (string.IsNullOrEmpty(txtTelefono.Text.Trim()))
             {
-                erpNombres.SetError(txtTelefono, "El campo telefono es obligatorio");
+                erpTelefono.SetError(txtTelefono, "El campo telefono es obligatorio");
                 esValido = false;
             }
 
@@ -149,6 +157,7 @@ namespace cpProLimp
                 empleado.nombres = txtNombres.Text.Trim();
                 empleado.primerApellido = txtPrimerApellido.Text.Trim();
                 empleado.segundoApellido = txtSegundoApellido.Text.Trim();
+                empleado.cedulaIdentidad = txtCedulaIdentidad.Text.Trim();
                 empleado.usuario = txtUsuario.Text.Trim();
                 empleado.clave = txtClave.Text.Trim();
                 empleado.telefono = txtTelefono.Text.Trim().Length > 0 ? long.Parse(txtTelefono.Text.Trim()) : 0;
@@ -175,7 +184,7 @@ namespace cpProLimp
         {
             int id = (int)dgvLista.CurrentRow.Cells["id"].Value;
             string nombres = dgvLista.CurrentRow.Cells["nombres"].Value.ToString();
-            DialogResult dialog = MessageBox.Show($"¿Está seguro de eliminar el cliente {nombres}?",
+            DialogResult dialog = MessageBox.Show($"¿Está seguro de eliminar el empleado {nombres}?",
                 "::: Mensaje - ProLimp :::", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == DialogResult.Yes)
             {

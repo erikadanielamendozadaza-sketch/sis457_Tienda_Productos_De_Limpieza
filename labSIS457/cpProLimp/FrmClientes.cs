@@ -157,7 +157,7 @@ namespace cpProLimp
                     ClienteCln.actualizar(cliente);
                 }
                 listar();
-                btnCancelar.PerformClick();
+                btnCanelar.PerformClick();
                 MessageBox.Show("Cliente guardado correctamente", "::: Mensaje - ProLimp :::",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

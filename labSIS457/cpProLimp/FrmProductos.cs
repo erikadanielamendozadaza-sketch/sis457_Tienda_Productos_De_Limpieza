@@ -68,7 +68,7 @@ namespace cpProLimp
         }
         private void FrmProductos_Load(object sender, EventArgs e)
         {
-            Size = new Size(933, 369);
+            Size = new Size(1143, 563);
             listar();
             cargarUnidadMedida();
             cargarProveedor();
@@ -78,7 +78,7 @@ namespace cpProLimp
         {
             esNuevo = true;
             pnlAcciones.Enabled = false;
-            Size = new Size(933, 510);
+            Size = new Size(1143, 838);
             txtCodigo.Focus();
         }
 
@@ -86,7 +86,7 @@ namespace cpProLimp
         {
             esNuevo = false;
             pnlAcciones.Enabled = false;
-            Size = new Size(933, 610);
+            Size = new Size(1143, 838);
 
             int id = (int)dgvLista.CurrentRow.Cells["id"].Value;
             var producto = ProductoCln.obtenerUno(id);
@@ -121,7 +121,7 @@ namespace cpProLimp
         }
         private void btnCanelar_Click(object sender, EventArgs e)
         {
-            Size = new Size(933, 369);
+            Size = new Size(1143, 563);
             pnlAcciones.Enabled = true;
             limpiar();
         }

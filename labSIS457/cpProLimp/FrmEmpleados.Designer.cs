@@ -61,6 +61,9 @@
             this.erpUsuario = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpContraseña = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpTelefono = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtCedulaIdentidad = new System.Windows.Forms.TextBox();
+            this.lblCedulaIdentidad = new System.Windows.Forms.Label();
+            this.erpCedulaIdentidad = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.pnlAcciones.SuspendLayout();
@@ -71,6 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpContraseña)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpTelefono)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpCedulaIdentidad)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBuscar
@@ -217,6 +221,8 @@
             // 
             // gbxDatos
             // 
+            this.gbxDatos.Controls.Add(this.txtCedulaIdentidad);
+            this.gbxDatos.Controls.Add(this.lblCedulaIdentidad);
             this.gbxDatos.Controls.Add(this.txtTelefono);
             this.gbxDatos.Controls.Add(this.txtClave);
             this.gbxDatos.Controls.Add(this.txtUsuario);
@@ -390,6 +396,26 @@
             // 
             this.erpTelefono.ContainerControl = this;
             // 
+            // txtCedulaIdentidad
+            // 
+            this.txtCedulaIdentidad.Location = new System.Drawing.Point(191, 116);
+            this.txtCedulaIdentidad.Name = "txtCedulaIdentidad";
+            this.txtCedulaIdentidad.Size = new System.Drawing.Size(183, 26);
+            this.txtCedulaIdentidad.TabIndex = 15;
+            // 
+            // lblCedulaIdentidad
+            // 
+            this.lblCedulaIdentidad.AutoSize = true;
+            this.lblCedulaIdentidad.Location = new System.Drawing.Point(3, 119);
+            this.lblCedulaIdentidad.Name = "lblCedulaIdentidad";
+            this.lblCedulaIdentidad.Size = new System.Drawing.Size(176, 20);
+            this.lblCedulaIdentidad.TabIndex = 14;
+            this.lblCedulaIdentidad.Text = "Cédula de Identidad:";
+            // 
+            // erpCedulaIdentidad
+            // 
+            this.erpCedulaIdentidad.ContainerControl = this;
+            // 
             // FrmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -421,6 +447,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpContraseña)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpTelefono)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpCedulaIdentidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,5 +487,8 @@
         private System.Windows.Forms.ErrorProvider erpUsuario;
         private System.Windows.Forms.ErrorProvider erpContraseña;
         private System.Windows.Forms.ErrorProvider erpTelefono;
+        private System.Windows.Forms.TextBox txtCedulaIdentidad;
+        private System.Windows.Forms.Label lblCedulaIdentidad;
+        private System.Windows.Forms.ErrorProvider erpCedulaIdentidad;
     }
 }
