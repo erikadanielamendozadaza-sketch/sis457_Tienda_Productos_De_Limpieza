@@ -57,7 +57,7 @@ fechaVencimiento
 Relaciones:
 •	Pertenece a una Unidad de Medida (N–1)
 •	Pertenece a un Proveedor (N–1)
-•	Participa en muchos DetallesVenta y muchos DetallesCompra (N–N mediante esas tablas)
+•	Participa en muchos DetallesVenta(N–N mediante esas tablas)
 
 6. Empleado
 Propósito: registrar al personal que trabaja en la tienda (cajeros, encargados, etc.)
@@ -77,7 +77,7 @@ telefono
 rol 
 
 Relaciones:
-•	Puede registrar muchas Ventas y Compras (1–N)
+•	Puede registrar muchas Ventas(1–N)
 
 8. Cliente
 Propósito: registrar a los compradores frecuentes o que requieren facturación.
@@ -134,39 +134,4 @@ Relaciones:
 •	Pertenece a una Venta (N–1)
 •	Se refiere a un Producto (N–1)
 
-14. Compra
-Propósito: registrar las compras que hace la tienda a los proveedores.
 
-Id
-
-idProveedor 
-
-idEmpleado 
-
-fecha
-
-total
-
-Relaciones:
-•	Una Compra tiene muchos DetallesCompra (1–N)
-•	Una Compra la gestiona un Empleado
-•	Una Compra pertenece a un Proveedor
-
-16. DetalleCompra
-Propósito: registrar los productos incluidos en una compra.
-
-id
-
-idCompra 
-
-idProducto 
-
-cantidad
-
-precioUnitario
-
-subtotal
-
-Relaciones:
-•	Pertenece a una Compra (N–1)
-•	Se refiere a un Producto (N–1)
