@@ -40,6 +40,20 @@ namespace ClnProLimp
             }
         }
 
+        public static int actualizarStock(int idProducto, decimal cantidadVendida)
+        {
+            using (var context = new LabProLimpEntities())
+            {
+                var producto = context.Producto.Find(idProducto);
+                if (producto != null)
+                {
+                    producto.stock = producto.stock - (int)cantidadVendida;
+                    return context.SaveChanges();
+                }
+                return 0;
+            }
+        }
+
         public static int eliminar(int id, string usuarioRegistro)
         {
             using (var context = new LabProLimpEntities())

@@ -57,7 +57,6 @@
             this.lblUnidadMedida = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.gbxEditar = new System.Windows.Forms.GroupBox();
             this.nudCantidadMinimaStock = new System.Windows.Forms.NumericUpDown();
             this.nudPrecioCompra = new System.Windows.Forms.NumericUpDown();
             this.dtpFechaUltimaCompra = new System.Windows.Forms.DateTimePicker();
@@ -84,7 +83,6 @@
             this.gbxDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioUnitario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
-            this.gbxEditar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadMinimaStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCodigo)).BeginInit();
@@ -229,13 +227,21 @@
             // 
             // gbxDatos
             // 
+            this.gbxDatos.Controls.Add(this.nudCantidadMinimaStock);
             this.gbxDatos.Controls.Add(this.btnGuardar);
+            this.gbxDatos.Controls.Add(this.nudPrecioCompra);
             this.gbxDatos.Controls.Add(this.btnCanelar);
+            this.gbxDatos.Controls.Add(this.dtpFechaUltimaCompra);
             this.gbxDatos.Controls.Add(this.cbxProveedor);
+            this.gbxDatos.Controls.Add(this.txtCategoria);
             this.gbxDatos.Controls.Add(this.dtpFechaVencimiento);
+            this.gbxDatos.Controls.Add(this.lblCantidadMinimaStock);
             this.gbxDatos.Controls.Add(this.nudPrecioUnitario);
+            this.gbxDatos.Controls.Add(this.lblPrecioCompra);
             this.gbxDatos.Controls.Add(this.nudStock);
+            this.gbxDatos.Controls.Add(this.lblFechaUltimaCompra);
             this.gbxDatos.Controls.Add(this.cbxUnidadMedida);
+            this.gbxDatos.Controls.Add(this.lblCategoria);
             this.gbxDatos.Controls.Add(this.txtNombreProducto);
             this.gbxDatos.Controls.Add(this.txtCodigo);
             this.gbxDatos.Controls.Add(this.lblProveedor);
@@ -248,7 +254,7 @@
             this.gbxDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxDatos.Location = new System.Drawing.Point(27, 328);
             this.gbxDatos.Name = "gbxDatos";
-            this.gbxDatos.Size = new System.Drawing.Size(876, 155);
+            this.gbxDatos.Size = new System.Drawing.Size(876, 228);
             this.gbxDatos.TabIndex = 6;
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Agregar / Modificar datos:";
@@ -413,27 +419,9 @@
             this.lblCodigo.TabIndex = 0;
             this.lblCodigo.Text = "Código: ";
             // 
-            // gbxEditar
-            // 
-            this.gbxEditar.Controls.Add(this.nudCantidadMinimaStock);
-            this.gbxEditar.Controls.Add(this.nudPrecioCompra);
-            this.gbxEditar.Controls.Add(this.dtpFechaUltimaCompra);
-            this.gbxEditar.Controls.Add(this.txtCategoria);
-            this.gbxEditar.Controls.Add(this.lblCantidadMinimaStock);
-            this.gbxEditar.Controls.Add(this.lblPrecioCompra);
-            this.gbxEditar.Controls.Add(this.lblFechaUltimaCompra);
-            this.gbxEditar.Controls.Add(this.lblCategoria);
-            this.gbxEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxEditar.Location = new System.Drawing.Point(27, 494);
-            this.gbxEditar.Name = "gbxEditar";
-            this.gbxEditar.Size = new System.Drawing.Size(878, 101);
-            this.gbxEditar.TabIndex = 7;
-            this.gbxEditar.TabStop = false;
-            this.gbxEditar.Text = "Editar datos";
-            // 
             // nudCantidadMinimaStock
             // 
-            this.nudCantidadMinimaStock.Location = new System.Drawing.Point(589, 60);
+            this.nudCantidadMinimaStock.Location = new System.Drawing.Point(589, 189);
             this.nudCantidadMinimaStock.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -445,7 +433,7 @@
             // 
             // nudPrecioCompra
             // 
-            this.nudPrecioCompra.Location = new System.Drawing.Point(589, 25);
+            this.nudPrecioCompra.Location = new System.Drawing.Point(589, 154);
             this.nudPrecioCompra.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -458,14 +446,14 @@
             // dtpFechaUltimaCompra
             // 
             this.dtpFechaUltimaCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaUltimaCompra.Location = new System.Drawing.Point(191, 57);
+            this.dtpFechaUltimaCompra.Location = new System.Drawing.Point(191, 186);
             this.dtpFechaUltimaCompra.Name = "dtpFechaUltimaCompra";
             this.dtpFechaUltimaCompra.Size = new System.Drawing.Size(183, 26);
             this.dtpFechaUltimaCompra.TabIndex = 14;
             // 
             // txtCategoria
             // 
-            this.txtCategoria.Location = new System.Drawing.Point(191, 25);
+            this.txtCategoria.Location = new System.Drawing.Point(191, 154);
             this.txtCategoria.MaxLength = 20;
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(183, 26);
@@ -475,7 +463,7 @@
             // 
             this.lblCantidadMinimaStock.AutoSize = true;
             this.lblCantidadMinimaStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadMinimaStock.Location = new System.Drawing.Point(396, 66);
+            this.lblCantidadMinimaStock.Location = new System.Drawing.Point(396, 195);
             this.lblCantidadMinimaStock.Name = "lblCantidadMinimaStock";
             this.lblCantidadMinimaStock.Size = new System.Drawing.Size(198, 20);
             this.lblCantidadMinimaStock.TabIndex = 17;
@@ -485,7 +473,7 @@
             // 
             this.lblPrecioCompra.AutoSize = true;
             this.lblPrecioCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioCompra.Location = new System.Drawing.Point(396, 31);
+            this.lblPrecioCompra.Location = new System.Drawing.Point(396, 160);
             this.lblPrecioCompra.Name = "lblPrecioCompra";
             this.lblPrecioCompra.Size = new System.Drawing.Size(156, 20);
             this.lblPrecioCompra.TabIndex = 16;
@@ -495,7 +483,7 @@
             // 
             this.lblFechaUltimaCompra.AutoSize = true;
             this.lblFechaUltimaCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaUltimaCompra.Location = new System.Drawing.Point(6, 62);
+            this.lblFechaUltimaCompra.Location = new System.Drawing.Point(6, 191);
             this.lblFechaUltimaCompra.Name = "lblFechaUltimaCompra";
             this.lblFechaUltimaCompra.Size = new System.Drawing.Size(187, 20);
             this.lblFechaUltimaCompra.TabIndex = 15;
@@ -505,7 +493,7 @@
             // 
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(6, 31);
+            this.lblCategoria.Location = new System.Drawing.Point(6, 160);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(97, 20);
             this.lblCategoria.TabIndex = 14;
@@ -575,8 +563,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(917, 596);
-            this.Controls.Add(this.gbxEditar);
+            this.ClientSize = new System.Drawing.Size(917, 571);
             this.Controls.Add(this.gbxDatos);
             this.Controls.Add(this.pnlAcciones);
             this.Controls.Add(this.gbxListado);
@@ -600,8 +587,6 @@
             this.gbxDatos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioUnitario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStock)).EndInit();
-            this.gbxEditar.ResumeLayout(false);
-            this.gbxEditar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadMinimaStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioCompra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCodigo)).EndInit();
@@ -643,7 +628,6 @@
         private System.Windows.Forms.ComboBox cbxProveedor;
         private System.Windows.Forms.DateTimePicker dtpFechaVencimiento;
         private System.Windows.Forms.NumericUpDown nudPrecioUnitario;
-        private System.Windows.Forms.GroupBox gbxEditar;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label lblPrecioCompra;
         private System.Windows.Forms.Label lblFechaUltimaCompra;

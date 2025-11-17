@@ -78,7 +78,7 @@ namespace cpProLimp
         {
             esNuevo = true;
             pnlAcciones.Enabled = false;
-            Size = new Size(933, 523);
+            Size = new Size(933, 510);
             txtCodigo.Focus();
         }
 
@@ -86,22 +86,21 @@ namespace cpProLimp
         {
             esNuevo = false;
             pnlAcciones.Enabled = false;
-            Size = new Size(933, 635);
+            Size = new Size(933, 610);
 
             int id = (int)dgvLista.CurrentRow.Cells["id"].Value;
             var producto = ProductoCln.obtenerUno(id);
 
             txtCodigo.Text = producto.codigo;
             txtNombreProducto.Text = producto.nombre;
+            txtCategoria.Text = producto.categoria;
             cbxUnidadMedida.SelectedValue = producto.idunidadMedida;
             nudStock.Value = producto.stock;
             nudPrecioUnitario.Value = producto.precioUnitario;
-            dtpFechaVencimiento.Value = producto.fechaVencimiento;
-            cbxProveedor.SelectedValue = producto.idproveedor;
-
-            txtCategoria.Text = producto.categoria;
-            dtpFechaUltimaCompra.Value = producto.fechaUltimaCompra;
             nudPrecioCompra.Value = producto.precioCompra;
+            dtpFechaVencimiento.Value = producto.fechaVencimiento;
+            dtpFechaUltimaCompra.Value = producto.fechaUltimaCompra;
+            cbxProveedor.SelectedValue = producto.idproveedor;
             nudCantidadMinimaStock.Value = producto.cantidadMinimaStock;
             txtCategoria.Focus();
         }
@@ -110,15 +109,15 @@ namespace cpProLimp
         {
             txtCodigo.Clear();
             txtNombreProducto.Clear();
+            txtCategoria.Clear();
             cbxUnidadMedida.SelectedIndex = -1;
+            cbxProveedor.SelectedIndex = -1;
             nudStock.Value = 0;
             nudPrecioUnitario.Value = 0;
-            dtpFechaVencimiento.Value = DateTime.Today;
-            cbxProveedor.SelectedIndex = -1;
-            txtCategoria.Clear();
             nudPrecioCompra.Value = 0;
-            nudCantidadMinimaStock.Value = 0;
-            dtpFechaUltimaCompra.Value = DateTime.Today;
+            nudCantidadMinimaStock.Value = 5; 
+            dtpFechaVencimiento.Value = DateTime.Now; 
+            dtpFechaUltimaCompra.Value = DateTime.Now;
         }
         private void btnCanelar_Click(object sender, EventArgs e)
         {
@@ -158,68 +157,66 @@ namespace cpProLimp
                 erpCodigo.SetError(txtCodigo, "El código es obligatorio");
                 esValido = false;
             }
-
             if (string.IsNullOrWhiteSpace(txtNombreProducto.Text))
             {
                 erpDescripcion.SetError(txtNombreProducto, "El nombre del producto es obligatorio");
                 esValido = false;
             }
-
+            if (string.IsNullOrWhiteSpace(txtCategoria.Text))
+            {
+                erpCategoria.SetError(txtCategoria, "La categoría es obligatoria");
+                esValido = false;
+            }
             if (cbxUnidadMedida.SelectedIndex == -1)
             {
                 erpUnidadMedida.SetError(cbxUnidadMedida, "Seleccione una unidad de medida");
                 esValido = false;
             }
-
-            if (nudStock.Value <= 0)
+            if (nudStock.Value < 0) 
             {
-                erpStock.SetError(nudStock, "El stock debe ser mayor a cero");
+                erpStock.SetError(nudStock, "El stock no puede ser negativo");
+            }
+            if (nudPrecioCompra.Value <= 0)
+            {
+                erpPrecioCompra.SetError(nudPrecioCompra, "El precio de compra debe ser mayor a cero");
                 esValido = false;
             }
-
-            if (nudPrecioUnitario.Value <= 0)
+            if (nudPrecioUnitario.Value <= nudPrecioCompra.Value)
             {
-                erpPrecioUnitario.SetError(nudPrecioUnitario, "El precio unitario debe ser mayor a cero");
+                erpPrecioUnitario.SetError(nudPrecioUnitario,
+                    "El precio de venta debe ser mayor al precio de compra");
                 esValido = false;
             }
-
             if (dtpFechaVencimiento.Value < DateTime.Today)
             {
-                erpFechaVencimiento.SetError(dtpFechaVencimiento, "La fecha de vencimiento no puede ser anterior a hoy");
+                var result = MessageBox.Show(
+                    "La fecha de vencimiento es anterior a hoy. ¿Desea continuar?",
+                    "::: Advertencia - ProLimp :::",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.No)
+                {
+                    erpFechaVencimiento.SetError(dtpFechaVencimiento,
+                        "La fecha de vencimiento no puede ser anterior a hoy");
+                    esValido = false;
+                }
+            }
+            if (dtpFechaUltimaCompra.Value > DateTime.Today)
+            {
+                erpFechaUltimaCompra.SetError(dtpFechaUltimaCompra,
+                    "La fecha de última compra no puede ser futura");
                 esValido = false;
             }
-
             if (cbxProveedor.SelectedIndex == -1)
             {
                 erpProveedor.SetError(cbxProveedor, "Seleccione un proveedor");
                 esValido = false;
             }
-
-            if (!esNuevo)
+            if (nudCantidadMinimaStock.Value <= 0)
             {
-                if (string.IsNullOrWhiteSpace(txtCategoria.Text))
-                {
-                    erpCategoria.SetError(txtCategoria, "Seleccione una categoría");
-                    esValido = false;
-                }
-
-                if (nudPrecioCompra.Value <= 0)
-                {
-                    erpPrecioCompra.SetError(nudPrecioCompra, "El precio de compra debe ser mayor a cero");
-                    esValido = false;
-                }
-
-                if (nudCantidadMinimaStock.Value <= 0)
-                {
-                    erpCantidadMinimaStock.SetError(nudCantidadMinimaStock, "La cantidad mínima debe ser mayor a cero");
-                    esValido = false;
-                }
-
-                if (dtpFechaUltimaCompra.Value > DateTime.Today)
-                {
-                    erpFechaUltimaCompra.SetError(dtpFechaUltimaCompra, "La fecha de última compra no puede ser futura");
-                    esValido = false;
-                }
+                erpCantidadMinimaStock.SetError(nudCantidadMinimaStock,
+                    "La cantidad mínima debe ser mayor a cero");
+                esValido = false;
             }
 
             return esValido;
@@ -231,34 +228,34 @@ namespace cpProLimp
                 var producto = new Producto();
                 producto.codigo = txtCodigo.Text.Trim();
                 producto.nombre = txtNombreProducto.Text.Trim();
+                producto.categoria = txtCategoria.Text.Trim();
                 producto.idunidadMedida = (int)cbxUnidadMedida.SelectedValue;
                 producto.stock = (int)nudStock.Value;
                 producto.precioUnitario = nudPrecioUnitario.Value;
+                producto.precioCompra = nudPrecioCompra.Value;
                 producto.fechaVencimiento = dtpFechaVencimiento.Value;
+                producto.fechaUltimaCompra = dtpFechaUltimaCompra.Value;
                 producto.idproveedor = (int)cbxProveedor.SelectedValue;
+                producto.cantidadMinimaStock = (int)nudCantidadMinimaStock.Value;
                 producto.usuarioRegistro = Util.empleado.usuario;
-
                 if (esNuevo)
                 {
                     producto.fechaRegistro = DateTime.Now;
                     producto.estado = 1;
-
-                    producto.categoria = string.IsNullOrWhiteSpace(txtCategoria.Text) ? "Sin categoría" : txtCategoria.Text.Trim();
-                    producto.fechaUltimaCompra = DateTime.Now; 
-                    producto.precioCompra = nudPrecioCompra.Value > 0 ? nudPrecioCompra.Value : producto.precioUnitario;
-                    producto.cantidadMinimaStock = (int)(nudCantidadMinimaStock.Value > 0 ? nudCantidadMinimaStock.Value : 5);
-
                     ProductoCln.insertar(producto);
+
+                    MessageBox.Show("Producto agregado correctamente",
+                        "::: Mensaje - ProLimp :::",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     producto.id = (int)dgvLista.CurrentRow.Cells["id"].Value;
-                    producto.categoria = txtCategoria.Text.Trim();
-                    producto.fechaUltimaCompra = dtpFechaUltimaCompra.Value;
-                    producto.precioCompra = nudPrecioCompra.Value;
-                    producto.cantidadMinimaStock = (int)nudCantidadMinimaStock.Value;
-
                     ProductoCln.actualizar(producto);
+
+                    MessageBox.Show("Producto actualizado correctamente",
+                        "::: Mensaje - ProLimp :::",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 listar();

@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
-            this.cbxCliente = new System.Windows.Forms.ComboBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblUsuari = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,13 +54,17 @@
             this.btnNuevoCliente = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtCiCliente = new System.Windows.Forms.TextBox();
             this.btnMas = new System.Windows.Forms.Button();
+            this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.btnMenos = new System.Windows.Forms.Button();
+            this.lblCantidad = new System.Windows.Forms.Label();
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.gbxListaVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).BeginInit();
             this.pnlAcciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -71,7 +74,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1443, 28);
+            this.label1.Size = new System.Drawing.Size(1483, 28);
             this.label1.TabIndex = 5;
             this.label1.Text = "Ventas - ProLimp";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -85,15 +88,6 @@
             this.lblCliente.Size = new System.Drawing.Size(70, 20);
             this.lblCliente.TabIndex = 6;
             this.lblCliente.Text = "Cliente:";
-            // 
-            // cbxCliente
-            // 
-            this.cbxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxCliente.FormattingEnabled = true;
-            this.cbxCliente.Location = new System.Drawing.Point(96, 76);
-            this.cbxCliente.Name = "cbxCliente";
-            this.cbxCliente.Size = new System.Drawing.Size(183, 26);
-            this.cbxCliente.TabIndex = 10;
             // 
             // lblUsuario
             // 
@@ -205,7 +199,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(753, 156);
+            this.label7.Location = new System.Drawing.Point(704, 156);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(194, 25);
             this.label7.TabIndex = 23;
@@ -217,7 +211,7 @@
             this.gbxListado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxListado.Location = new System.Drawing.Point(16, 186);
             this.gbxListado.Name = "gbxListado";
-            this.gbxListado.Size = new System.Drawing.Size(688, 433);
+            this.gbxListado.Size = new System.Drawing.Size(667, 433);
             this.gbxListado.TabIndex = 24;
             this.gbxListado.TabStop = false;
             this.gbxListado.Text = "Lista de Productos";
@@ -233,16 +227,16 @@
             this.dgvLista.Name = "dgvLista";
             this.dgvLista.ReadOnly = true;
             this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLista.Size = new System.Drawing.Size(671, 395);
+            this.dgvLista.Size = new System.Drawing.Size(641, 395);
             this.dgvLista.TabIndex = 0;
             // 
             // gbxListaVenta
             // 
             this.gbxListaVenta.Controls.Add(this.dgvVenta);
             this.gbxListaVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxListaVenta.Location = new System.Drawing.Point(758, 184);
+            this.gbxListaVenta.Location = new System.Drawing.Point(700, 184);
             this.gbxListaVenta.Name = "gbxListaVenta";
-            this.gbxListaVenta.Size = new System.Drawing.Size(625, 435);
+            this.gbxListaVenta.Size = new System.Drawing.Size(683, 435);
             this.gbxListaVenta.TabIndex = 25;
             this.gbxListaVenta.TabStop = false;
             this.gbxListaVenta.Text = "ProLimp";
@@ -258,7 +252,7 @@
             this.dgvVenta.Name = "dgvVenta";
             this.dgvVenta.ReadOnly = true;
             this.dgvVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVenta.Size = new System.Drawing.Size(613, 405);
+            this.dgvVenta.Size = new System.Drawing.Size(671, 405);
             this.dgvVenta.TabIndex = 0;
             // 
             // pnlAcciones
@@ -267,9 +261,9 @@
             this.pnlAcciones.Controls.Add(this.btnCancelar);
             this.pnlAcciones.Controls.Add(this.btnLimpiar);
             this.pnlAcciones.Controls.Add(this.btnBorrar);
-            this.pnlAcciones.Location = new System.Drawing.Point(764, 637);
+            this.pnlAcciones.Location = new System.Drawing.Point(709, 637);
             this.pnlAcciones.Name = "pnlAcciones";
-            this.pnlAcciones.Size = new System.Drawing.Size(613, 51);
+            this.pnlAcciones.Size = new System.Drawing.Size(668, 51);
             this.pnlAcciones.TabIndex = 26;
             // 
             // btnRegistrar
@@ -277,7 +271,7 @@
             this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrar.Image = global::cpProLimp.Properties.Resources.caja_registradora;
             this.btnRegistrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrar.Location = new System.Drawing.Point(325, 3);
+            this.btnRegistrar.Location = new System.Drawing.Point(355, 3);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnRegistrar.Size = new System.Drawing.Size(117, 45);
@@ -292,7 +286,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::cpProLimp.Properties.Resources.close;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(482, 3);
+            this.btnCancelar.Location = new System.Drawing.Point(522, 3);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnCancelar.Size = new System.Drawing.Size(115, 45);
@@ -307,7 +301,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.Image = global::cpProLimp.Properties.Resources.escoba;
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiar.Location = new System.Drawing.Point(177, 3);
+            this.btnLimpiar.Location = new System.Drawing.Point(193, 3);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnLimpiar.Size = new System.Drawing.Size(97, 45);
@@ -335,7 +329,7 @@
             // btnNuevoCliente
             // 
             this.btnNuevoCliente.Image = global::cpProLimp.Properties.Resources._new;
-            this.btnNuevoCliente.Location = new System.Drawing.Point(295, 66);
+            this.btnNuevoCliente.Location = new System.Drawing.Point(371, 65);
             this.btnNuevoCliente.Name = "btnNuevoCliente";
             this.btnNuevoCliente.Size = new System.Drawing.Size(49, 45);
             this.btnNuevoCliente.TabIndex = 27;
@@ -371,10 +365,19 @@
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             this.btnBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnBuscar_KeyPress);
             // 
+            // txtCiCliente
+            // 
+            this.txtCiCliente.Location = new System.Drawing.Point(175, 76);
+            this.txtCiCliente.Multiline = true;
+            this.txtCiCliente.Name = "txtCiCliente";
+            this.txtCiCliente.Size = new System.Drawing.Size(191, 27);
+            this.txtCiCliente.TabIndex = 30;
+            this.txtCiCliente.Leave += new System.EventHandler(this.txtCiCliente_Leave);
+            // 
             // btnMas
             // 
             this.btnMas.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMas.Location = new System.Drawing.Point(1400, 383);
+            this.btnMas.Location = new System.Drawing.Point(1422, 374);
             this.btnMas.Name = "btnMas";
             this.btnMas.Size = new System.Drawing.Size(46, 46);
             this.btnMas.TabIndex = 28;
@@ -382,10 +385,22 @@
             this.btnMas.UseVisualStyleBackColor = true;
             this.btnMas.Click += new System.EventHandler(this.btnMas_Click);
             // 
+            // nudCantidad
+            // 
+            this.nudCantidad.Location = new System.Drawing.Point(1398, 344);
+            this.nudCantidad.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.nudCantidad.Name = "nudCantidad";
+            this.nudCantidad.Size = new System.Drawing.Size(95, 24);
+            this.nudCantidad.TabIndex = 31;
+            // 
             // btnMenos
             // 
             this.btnMenos.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenos.Location = new System.Drawing.Point(1400, 435);
+            this.btnMenos.Location = new System.Drawing.Point(1422, 426);
             this.btnMenos.Name = "btnMenos";
             this.btnMenos.Size = new System.Drawing.Size(46, 46);
             this.btnMenos.TabIndex = 29;
@@ -393,13 +408,26 @@
             this.btnMenos.UseVisualStyleBackColor = true;
             this.btnMenos.Click += new System.EventHandler(this.btnMenos_Click);
             // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.Location = new System.Drawing.Point(1394, 321);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(86, 20);
+            this.lblCantidad.TabIndex = 32;
+            this.lblCantidad.Text = "Cantidad:";
+            // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1467, 743);
+            this.ClientSize = new System.Drawing.Size(1507, 743);
+            this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.btnMenos);
+            this.Controls.Add(this.nudCantidad);
+            this.Controls.Add(this.txtCiCliente);
             this.Controls.Add(this.btnMas);
             this.Controls.Add(this.btnNuevoCliente);
             this.Controls.Add(this.pnlAcciones);
@@ -419,7 +447,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblUsuari);
             this.Controls.Add(this.lblUsuario);
-            this.Controls.Add(this.cbxCliente);
             this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -427,13 +454,14 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmVentas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmVentas";
+            this.Text = "::: Ventas - ProLimp :::";
             this.Load += new System.EventHandler(this.FrmVentas_Load);
             this.gbxListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.gbxListaVenta.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVenta)).EndInit();
             this.pnlAcciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,7 +471,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblCliente;
-        private System.Windows.Forms.ComboBox cbxCliente;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblUsuari;
         private System.Windows.Forms.Label label5;
@@ -468,7 +495,10 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnNuevoCliente;
+        private System.Windows.Forms.TextBox txtCiCliente;
         private System.Windows.Forms.Button btnMas;
+        private System.Windows.Forms.NumericUpDown nudCantidad;
         private System.Windows.Forms.Button btnMenos;
+        private System.Windows.Forms.Label lblCantidad;
     }
 }

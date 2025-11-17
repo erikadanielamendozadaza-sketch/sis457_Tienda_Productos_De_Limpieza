@@ -29,20 +29,70 @@ namespace cpProLimp
         public FrmVentas()
         {
             InitializeComponent();
+
+            dtpFechaVenta.Value = DateTime.Now;
+            dtpFechaVenta.Enabled = false;
         }
 
-        private void cargarClientes()
+        private void cargarClientesBuscadorPorCI()
         {
-            var lista = ClienteCln.listarPa("");
-            var listaMod = lista.Select(x => new
+            try
             {
-                x.id,
-                nombreCompleto = x.nombres + " " + x.primerApellido + " " + x.segundoApellido
-            }).ToList();
+                var lista = ClienteCln.listarPa("");
+                if (lista == null || lista.Count == 0)
+                {
+                    MessageBox.Show("No hay clientes registrados en el sistema.",
+                        "::: Aviso - ProLimp :::",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                AutoCompleteStringCollection sugerencias = new AutoCompleteStringCollection();
+                foreach (var cliente in lista)
+                {
+                    if (!string.IsNullOrWhiteSpace(cliente.cedulaIdentidad))
+                    {
+                        sugerencias.Add(cliente.cedulaIdentidad.Trim());
+                    }
+                }
+                if (sugerencias.Count == 0)
+                {
+                    MessageBox.Show("No hay clientes con CI registrado.",
+                        "::: Aviso - ProLimp :::",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                txtCiCliente.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                txtCiCliente.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtCiCliente.AutoCompleteCustomSource = sugerencias;
+                Console.WriteLine($"Se cargaron {sugerencias.Count} CIs para autocompletar");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar clientes: {ex.Message}",
+                    "::: Error - ProLimp :::",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-            cbxCliente.DataSource = listaMod;
-            cbxCliente.DisplayMember = "nombreCompleto";
-            cbxCliente.ValueMember = "id";
+        private int obtenerIdClientePorCI(string ci)
+        {
+            if (string.IsNullOrWhiteSpace(ci))
+                return -1;
+
+            var lista = ClienteCln.listarPa("");
+
+            var cliente = lista.FirstOrDefault(x =>
+                !string.IsNullOrWhiteSpace(x.cedulaIdentidad) &&
+                x.cedulaIdentidad.Trim().Equals(ci.Trim(), StringComparison.OrdinalIgnoreCase)
+            );
+
+            if (cliente != null)
+            {
+                lblCliente.Text = $"{cliente.nombres} {cliente.primerApellido}";
+                return cliente.id;
+            }
+
+            return -1;
         }
 
         private void listarProductos()
@@ -78,7 +128,7 @@ namespace cpProLimp
 
         private void FrmVentas_Load(object sender, EventArgs e)
         {
-            cargarClientes();
+            cargarClientesBuscadorPorCI();
 
             lblEmplead.Text = Util.empleado.nombres + " " +
                        Util.empleado.primerApellido;
@@ -94,7 +144,7 @@ namespace cpProLimp
         {
             FrmClientes frm = new FrmClientes();
             frm.ShowDialog();
-            cargarClientes();
+            cargarClientesBuscadorPorCI();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -128,42 +178,64 @@ namespace cpProLimp
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (dgvLista.CurrentRow == null) return;
-
+            if (dgvLista.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un producto de la lista.",
+                    "::: Mensaje - ProLimp :::",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             int idProd = (int)dgvLista.CurrentRow.Cells["id"].Value;
             string nombre = dgvLista.CurrentRow.Cells["nombre"].Value.ToString();
             decimal precio = decimal.Parse(dgvLista.CurrentRow.Cells["precioVenta"].Value.ToString());
             int stock = (int)dgvLista.CurrentRow.Cells["stock"].Value;
+
+            decimal cantidadAgregar = nudCantidad.Value;
+
             var existente = detalle.FirstOrDefault(x => x.idProducto == idProd);
+
             if (existente != null)
             {
-                if (existente.cantidad + 1 > stock)
+                decimal cantidadTotal = existente.cantidad + cantidadAgregar;
+
+                if (cantidadTotal > stock)
                 {
-                    MessageBox.Show("No hay suficiente stock para agregar más unidades.", "::: Mensaje - ProLimp :::", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"Stock insuficiente.\n" +
+                        $"Stock disponible: {stock}\n" +
+                        $"Cantidad actual en venta: {existente.cantidad}\n" +
+                        $"Máximo a agregar: {stock - existente.cantidad}",
+                        "::: Mensaje - ProLimp :::",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                existente.cantidad += 1;
+
+                existente.cantidad = cantidadTotal;
                 existente.subtotal = existente.precioUnitario * existente.cantidad;
             }
             else
             {
-                if (stock < 1)
+                if (cantidadAgregar > stock)
                 {
-                    MessageBox.Show("Este producto no tiene stock disponible.", "::: Mensaje - ProLimp :::", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"Stock insuficiente.\nStock disponible: {stock}",
+                        "::: Mensaje - ProLimp :::",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    nudCantidad.Value = stock > 0 ? stock : 1;
                     return;
                 }
+
                 var item = new ItemVenta
                 {
                     idProducto = idProd,
                     nombre = nombre,
                     precioUnitario = precio,
-                    cantidad = 1,
-                    subtotal = precio * 1
+                    cantidad = cantidadAgregar,
+                    subtotal = precio * cantidadAgregar
                 };
                 detalle.Add(item);
             }
 
             refrescarDetalle();
+            nudCantidad.Value = 1;
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
@@ -174,36 +246,72 @@ namespace cpProLimp
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            var venta = new Venta();
-            venta.idcliente = (int)cbxCliente.SelectedValue;
-            venta.idempleado = Util.empleado.id;
-            venta.fecha = DateTime.Now;
-            venta.total = detalle.Sum(x => x.subtotal);
-
-            venta.fechaRegistro = DateTime.Now;
-            venta.estado = 1;
-            venta.usuarioRegistro = Util.empleado.usuario;
-            int idVenta = VentaCln.insertar(venta);
-            foreach (var item in detalle)
+            int idCli = obtenerIdClientePorCI(txtCiCliente.Text);
+            if (idCli == -1)
             {
-                var det = new DetalleVenta();
-                det.idventa = idVenta;
-                det.idproducto = item.idProducto;
-                det.cantidad = item.cantidad;
-                det.precioUnitario = item.precioUnitario;
-                det.subtotal = item.subtotal;
-
-                det.usuarioRegistro = Util.empleado.usuario;
-                det.fechaRegistro = DateTime.Now;
-                det.estado = 1;
-                DetalleVentaCln.insertar(det);
+                MessageBox.Show("Debe ingresar un CI válido.",
+                    "::: Mensaje - ProLimp :::",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            MessageBox.Show("Venta registrada correctamente.", "::: Mensaje - ProLimp :::",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-            detalle.Clear();
-            refrescarDetalle();
-        }
 
+            try
+            {
+                string nombreClienteTemp = lblCliente.Text;
+                string ciClienteTemp = txtCiCliente.Text;
+                List<ItemVenta> detalleTemp = new List<ItemVenta>(detalle);
+                var venta = new Venta();
+                venta.idcliente = idCli;
+                venta.idempleado = Util.empleado.id;
+                venta.fecha = DateTime.Now;
+                venta.total = detalle.Sum(x => x.subtotal);
+                venta.fechaRegistro = DateTime.Now;
+                venta.estado = 1;
+                venta.usuarioRegistro = Util.empleado.usuario;
+
+                int idVenta = VentaCln.insertar(venta);
+                foreach (var item in detalle)
+                {
+                    var det = new DetalleVenta();
+                    det.idventa = idVenta;
+                    det.idproducto = item.idProducto;
+                    det.cantidad = item.cantidad;
+                    det.precioUnitario = item.precioUnitario;
+                    det.subtotal = item.subtotal;
+                    det.usuarioRegistro = Util.empleado.usuario;
+                    det.fechaRegistro = DateTime.Now;
+                    det.estado = 1;
+                    DetalleVentaCln.insertar(det);
+                    ProductoCln.actualizarStock(item.idProducto, item.cantidad);
+                }
+                MessageBox.Show("Venta registrada correctamente.\nStock actualizado.",
+                "::: Venta Exitosa - ProLimp :::",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                detalle.Clear();
+                refrescarDetalle();
+                txtCiCliente.Clear();
+                lblCliente.Text = "";
+
+                listarProductos();
+
+                FrmFactura factura = new FrmFactura(
+                idVenta,
+                nombreClienteTemp,
+                ciClienteTemp,
+                DateTime.Now,
+                venta.total,
+                detalleTemp
+                );
+                factura.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al registrar venta: {ex.Message}",
+                    "::: Error - ProLimp :::",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btnMas_Click(object sender, EventArgs e)
         {
             if (dgvVenta.CurrentRow == null) return;
@@ -293,6 +401,30 @@ namespace cpProLimp
 
             if (r == DialogResult.Yes)
                 this.Close();
+        }
+
+        private void txtCiCliente_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCiCliente.Text))
+            {
+                lblCliente.Text = "Cliente no seleccionado";
+                lblCliente.ForeColor = Color.Red;
+                return;
+            }
+
+            int idCliente = obtenerIdClientePorCI(txtCiCliente.Text);
+
+            if (idCliente == -1)
+            {
+                lblCliente.Text = "CI no encontrado";
+                lblCliente.ForeColor = Color.Red;
+                txtCiCliente.Focus();
+                txtCiCliente.SelectAll();
+            }
+            else
+            {
+                lblCliente.ForeColor = Color.Green;
+            }
         }
     }
 }

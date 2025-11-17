@@ -263,6 +263,16 @@ namespace cpProLimp.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PRO_LIMP {
+            get {
+                object obj = ResourceManager.GetObject("PRO-LIMP", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap productos {
             get {
                 object obj = ResourceManager.GetObject("productos", resourceCulture);
