@@ -21,11 +21,8 @@ namespace CadProLimp
         }
     
         public int id { get; set; }
-        public string nombres { get; set; }
-        public string primerApellido { get; set; }
-        public string segundoApellido { get; set; }
+        public string razonSocial { get; set; }
         public string cedulaIdentidad { get; set; }
-        public long telefono { get; set; }
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
         public short estado { get; set; }

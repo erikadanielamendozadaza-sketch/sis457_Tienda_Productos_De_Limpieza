@@ -35,7 +35,7 @@ namespace cpProLimp
                                 {
                                     v.id,
                                     v.fecha,
-                                    Cliente = c.nombres + " " + c.primerApellido,
+                                    Cliente = c.razonSocial,
                                     Empleado = e.nombres + " " + e.primerApellido,
                                     v.total,
                                     v.usuarioRegistro,

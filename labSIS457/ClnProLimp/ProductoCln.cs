@@ -32,7 +32,6 @@ namespace ClnProLimp
                 existe.precioUnitario = producto.precioUnitario;
                 existe.stock = producto.stock;
                 existe.fechaVencimiento = producto.fechaVencimiento;
-                existe.fechaUltimaCompra = producto.fechaUltimaCompra;
                 existe.precioCompra = producto.precioCompra;
                 existe.cantidadMinimaStock = producto.cantidadMinimaStock;
                 return context.SaveChanges();

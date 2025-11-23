@@ -26,11 +26,8 @@ namespace cpProLimp
             dgvLista.DataSource = lista;
             dgvLista.Columns["id"].Visible = false;
             dgvLista.Columns["estado"].Visible = false;
-            dgvLista.Columns["nombres"].HeaderText = "Nombres";
-            dgvLista.Columns["primerApellido"].HeaderText = "Primer Apellido";
-            dgvLista.Columns["segundoApellido"].HeaderText = "Segundo Apellido";
+            dgvLista.Columns["razonSocial"].HeaderText = "Razon Social";
             dgvLista.Columns["cedulaIdentidad"].HeaderText = "Cédula de Identidad";
-            dgvLista.Columns["telefono"].HeaderText = "Teléfono/Celular";
             dgvLista.Columns["usuarioRegistro"].HeaderText = "Usuario Registro";
             dgvLista.Columns["fechaRegistro"].HeaderText = "Fecha de Registro";
 
@@ -49,7 +46,7 @@ namespace cpProLimp
         {
             esNuevo = true;
             Size = new Size(876, 534);
-            txtNombres.Focus();
+            txtRazonSocial.Focus();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -60,29 +57,16 @@ namespace cpProLimp
 
             int id = (int)dgvLista.CurrentRow.Cells["id"].Value;
             var cliente = ClienteCln.obtenerUno(id);
-            txtNombres.Text = cliente.nombres;
-            txtPrimerApellido.Text = cliente.primerApellido;
-            txtSegundoApellido.Text = cliente.segundoApellido;
+            txtRazonSocial.Text = cliente.razonSocial;
             txtCedulaIdentidad.Text = cliente.cedulaIdentidad;
-            txtTelefono.Text = cliente.telefono.ToString();
 
-            txtNombres.Focus();
+            txtRazonSocial.Focus();
         }
 
         private void limpiar()
         {
-            txtNombres.Clear();
-            txtPrimerApellido.Clear();
-            txtSegundoApellido.Clear();
+            txtRazonSocial.Clear();
             txtCedulaIdentidad.Clear();
-            txtTelefono.Clear();
-        }
-
-        private void btnCanelar_Click(object sender, EventArgs e)
-        {
-            Size = new Size(876, 366);
-            pnlAcciones.Enabled = true;
-            limpiar();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -97,40 +81,18 @@ namespace cpProLimp
 
         private bool validar()
         {
-            bool esValido = true;
-            erpNombres.Clear();
-            erpPrimerApellido.Clear();
-            erpSegundoApellido.Clear();
+            erpRazonSocial.Clear();
             erpCedulaIdentidad.Clear();
-            erpTelefono.Clear();
 
-            if (string.IsNullOrEmpty(txtNombres.Text.Trim()))
+            if (string.IsNullOrWhiteSpace(txtRazonSocial.Text) &&
+                string.IsNullOrWhiteSpace(txtCedulaIdentidad.Text))
             {
-                erpNombres.SetError(txtNombres, "El campo nombres es obligatorio");
-                esValido = false;
-            }
-            if (string.IsNullOrEmpty(txtPrimerApellido.Text.Trim()))
-            {
-                erpPrimerApellido.SetError(txtPrimerApellido, "El campo primer apellido es obligatorio");
-                esValido = false;
-            }
-            if (string.IsNullOrEmpty(txtSegundoApellido.Text.Trim()))
-            {
-                erpSegundoApellido.SetError(txtSegundoApellido, "El campo segundo apellido es obligatorio");
-                esValido = false;
-            }
-            if (string.IsNullOrEmpty(txtCedulaIdentidad.Text.Trim()))
-            {
-                erpCedulaIdentidad.SetError(txtCedulaIdentidad, "El campo cédula de identidad es obligatorio");
-                esValido = false;
-            }
-            if (string.IsNullOrEmpty(txtTelefono.Text.Trim()))
-            {
-                erpTelefono.SetError(txtTelefono, "El campo teléfono/celular es obligatorio");
-                esValido = false;
+                erpRazonSocial.SetError(txtRazonSocial, "Debe ingresar al menos un dato del cliente");
+                erpCedulaIdentidad.SetError(txtCedulaIdentidad, "Debe ingresar al menos un dato del cliente");
+                return false;
             }
 
-            return esValido;
+            return true;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -138,11 +100,8 @@ namespace cpProLimp
             if (validar())
             {
                 var cliente = new Cliente();
-                cliente.nombres = txtNombres.Text.Trim();
-                cliente.primerApellido = txtPrimerApellido.Text.Trim();
-                cliente.segundoApellido = txtSegundoApellido.Text.Trim();
+                cliente.razonSocial = txtRazonSocial.Text.Trim();
                 cliente.cedulaIdentidad = txtCedulaIdentidad.Text.Trim();
-                cliente.telefono = txtTelefono.Text.Trim().Length > 0 ? long.Parse(txtTelefono.Text.Trim()) : 0;
                 cliente.usuarioRegistro = Util.empleado.usuario;
 
                 if (esNuevo)
@@ -157,7 +116,7 @@ namespace cpProLimp
                     ClienteCln.actualizar(cliente);
                 }
                 listar();
-                btnCanelar.PerformClick();
+                btnCancelar.PerformClick();
                 MessageBox.Show("Cliente guardado correctamente", "::: Mensaje - ProLimp :::",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -167,8 +126,8 @@ namespace cpProLimp
         {
             int id = (int)dgvLista.CurrentRow.Cells["id"].Value;
             string cedulaIdentidad = dgvLista.CurrentRow.Cells["cedulaIdentidad"].Value.ToString();
-            string nombres = dgvLista.CurrentRow.Cells["nombres"].Value.ToString();
-            DialogResult dialog = MessageBox.Show($"¿Está seguro de eliminar el cliente {nombres}?",
+            string razonSocial = dgvLista.CurrentRow.Cells["razonSocial"].Value.ToString();
+            DialogResult dialog = MessageBox.Show($"¿Está seguro de eliminar el cliente {razonSocial}?",
                 "::: Mensaje - ProLimp :::", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialog == DialogResult.Yes)
             {
@@ -179,9 +138,16 @@ namespace cpProLimp
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            Size = new Size(876, 366);
+            pnlAcciones.Enabled = true;
+            limpiar();
         }
     }
 }

@@ -329,7 +329,7 @@
             // btnNuevoCliente
             // 
             this.btnNuevoCliente.Image = global::cpProLimp.Properties.Resources._new;
-            this.btnNuevoCliente.Location = new System.Drawing.Point(371, 65);
+            this.btnNuevoCliente.Location = new System.Drawing.Point(371, 66);
             this.btnNuevoCliente.Name = "btnNuevoCliente";
             this.btnNuevoCliente.Size = new System.Drawing.Size(49, 45);
             this.btnNuevoCliente.TabIndex = 27;

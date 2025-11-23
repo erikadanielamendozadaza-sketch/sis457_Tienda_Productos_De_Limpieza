@@ -24,11 +24,8 @@ namespace cpProLimp
             dgvLista.DataSource = lista;
             dgvLista.Columns["id"].Visible = false;
             dgvLista.Columns["estado"].Visible = false;
-            dgvLista.Columns["nombres"].HeaderText = "Nombres";
-            dgvLista.Columns["primerApellido"].HeaderText = "Primer Apellido";
-            dgvLista.Columns["segundoApellido"].HeaderText = "Segundo Apellido";
+            dgvLista.Columns["razonSocial"].HeaderText = "Razón Social";
             dgvLista.Columns["cedulaIdentidad"].HeaderText = "Cédula de Identidad";
-            dgvLista.Columns["telefono"].HeaderText = "Teléfono/Celular";
             dgvLista.Columns["usuarioRegistro"].HeaderText = "Usuario Registro";
             dgvLista.Columns["fechaRegistro"].HeaderText = "Fecha de Registro";
         }

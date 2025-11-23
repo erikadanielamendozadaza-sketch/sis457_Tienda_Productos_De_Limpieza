@@ -33,8 +33,6 @@ namespace cpProLimp
             dgvLista.Columns["stock"].HeaderText = "Stock";
             dgvLista.Columns["precioVenta"].HeaderText = "Precio Venta";
             dgvLista.Columns["fechaVencimiento"].HeaderText = "Fecha de Vencimiento";
-            dgvLista.Columns["fechaUltimaCompra"].HeaderText = "Fecha de Ultima Compra";
-            dgvLista.Columns["precioCompra"].HeaderText = "Precio de Compra";
             dgvLista.Columns["cantidadMinimaStock"].HeaderText = "Cantidad Mínima Stock";
             dgvLista.Columns["proveedor"].HeaderText = "Proveedor";
             dgvLista.Columns["usuarioRegistro"].HeaderText = "Usuario Registro";

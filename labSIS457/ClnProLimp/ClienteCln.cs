@@ -13,7 +13,7 @@ namespace ClnProLimp
         {
             using (var context = new LabProLimpEntities())
             {
-                return context.Cliente.Where(c => c.nombres == cliente && c.cedulaIdentidad == cedulaIdentidad).FirstOrDefault();
+                return context.Cliente.Where(c => c.razonSocial == cliente && c.cedulaIdentidad == cedulaIdentidad).FirstOrDefault();
             }
         }
 
@@ -32,11 +32,8 @@ namespace ClnProLimp
             using (var context = new LabProLimpEntities())
             {
                 var existe = context.Cliente.Find(cliente.id);
-                existe.nombres = cliente.nombres;
-                existe.primerApellido = cliente.primerApellido;
-                existe.segundoApellido = cliente.segundoApellido;  
+                existe.razonSocial = cliente.razonSocial;
                 existe.cedulaIdentidad = cliente.cedulaIdentidad;
-                existe.telefono = cliente.telefono;
                 return context.SaveChanges();
             }
         }
@@ -46,6 +43,7 @@ namespace ClnProLimp
             using (var context = new LabProLimpEntities())
             {
                 var existe = context.Cliente.Find(id);
+                existe.estado = -1;
                 existe.usuarioRegistro = usuarioRegistro;
                 return context.SaveChanges();
             }

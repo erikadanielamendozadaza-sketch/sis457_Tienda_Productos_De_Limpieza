@@ -36,7 +36,6 @@ namespace cpProLimp
             dgvLista.Columns["stock"].HeaderText = "Stock";
             dgvLista.Columns["precioVenta"].HeaderText = "Precio Venta";
             dgvLista.Columns["fechaVencimiento"].HeaderText = "Fecha de Vencimiento";
-            dgvLista.Columns["fechaUltimaCompra"].HeaderText = "Fecha de Ultima Compra";
             dgvLista.Columns["precioCompra"].HeaderText = "Precio de Compra";
             dgvLista.Columns["cantidadMinimaStock"].HeaderText = "Cantidad Mínima Stock";
             dgvLista.Columns["proveedor"].HeaderText = "Proveedor";
@@ -99,7 +98,6 @@ namespace cpProLimp
             nudPrecioUnitario.Value = producto.precioUnitario;
             nudPrecioCompra.Value = producto.precioCompra;
             dtpFechaVencimiento.Value = producto.fechaVencimiento;
-            dtpFechaUltimaCompra.Value = producto.fechaUltimaCompra;
             cbxProveedor.SelectedValue = producto.idproveedor;
             nudCantidadMinimaStock.Value = producto.cantidadMinimaStock;
             txtCategoria.Focus();
@@ -117,13 +115,6 @@ namespace cpProLimp
             nudPrecioCompra.Value = 0;
             nudCantidadMinimaStock.Value = 5; 
             dtpFechaVencimiento.Value = DateTime.Now; 
-            dtpFechaUltimaCompra.Value = DateTime.Now;
-        }
-        private void btnCanelar_Click(object sender, EventArgs e)
-        {
-            Size = new Size(1143, 563);
-            pnlAcciones.Enabled = true;
-            limpiar();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -148,7 +139,6 @@ namespace cpProLimp
             erpFechaVencimiento.Clear();
             erpProveedor.Clear();
             erpCategoria.Clear();
-            erpFechaUltimaCompra.Clear();
             erpPrecioCompra.Clear();
             erpCantidadMinimaStock.Clear();
 
@@ -201,12 +191,6 @@ namespace cpProLimp
                     esValido = false;
                 }
             }
-            if (dtpFechaUltimaCompra.Value > DateTime.Today)
-            {
-                erpFechaUltimaCompra.SetError(dtpFechaUltimaCompra,
-                    "La fecha de última compra no puede ser futura");
-                esValido = false;
-            }
             if (cbxProveedor.SelectedIndex == -1)
             {
                 erpProveedor.SetError(cbxProveedor, "Seleccione un proveedor");
@@ -234,7 +218,6 @@ namespace cpProLimp
                 producto.precioUnitario = nudPrecioUnitario.Value;
                 producto.precioCompra = nudPrecioCompra.Value;
                 producto.fechaVencimiento = dtpFechaVencimiento.Value;
-                producto.fechaUltimaCompra = dtpFechaUltimaCompra.Value;
                 producto.idproveedor = (int)cbxProveedor.SelectedValue;
                 producto.cantidadMinimaStock = (int)nudCantidadMinimaStock.Value;
                 producto.usuarioRegistro = Util.empleado.usuario;
@@ -259,7 +242,7 @@ namespace cpProLimp
                 }
 
                 listar();
-                btnCanelar.PerformClick();
+                btnCancelar.PerformClick();
                 MessageBox.Show("Producto guardado correctamente", "::: Mensaje - ProLimp :::",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -283,6 +266,13 @@ namespace cpProLimp
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Size = new Size(1143, 563);
+            pnlAcciones.Enabled = true;
+            limpiar();
         }
     }
 }

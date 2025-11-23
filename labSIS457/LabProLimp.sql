@@ -30,11 +30,8 @@ CREATE TABLE UnidadMedida(
 
 CREATE TABLE Cliente(
 	id INT NOT NULL PRIMARY KEY IDENTITY (1, 1),
-	nombres VARCHAR (50) NOT NULL,
-	primerApellido VARCHAR (50) NOT NULL,
-	segundoApellido VARCHAR (50) NOT NULL,
-	cedulaIdentidad VARCHAR (10) NOT NULL,
-	telefono BIGINT NOT NULL
+	razonSocial VARCHAR (50) NULL,
+	cedulaIdentidad VARCHAR (10) NULL,
 );
 
 CREATE TABLE Proveedor(
@@ -66,7 +63,6 @@ CREATE TABLE Proveedor(
 	precioUnitario DECIMAL NOT NULL CHECK (precioUnitario>0),
 	stock INT NOT NULL,
 	fechaVencimiento DATE NOT NULL,
-	fechaUltimaCompra DATE NOT NULL,
 	precioCompra DECIMAL NOT NULL CHECK (precioCompra >= 0),
 	cantidadMinimaStock INT NOT NULL DEFAULT 5,
 	CONSTRAINT fk_Producto_UnidadMedida FOREIGN KEY (idunidadMedida) REFERENCES UnidadMedida(id),
@@ -148,13 +144,15 @@ CREATE PROC paClienteListar @parametro VARCHAR(50)
 AS
 BEGIN
     SELECT 
-        c.id, c.nombres, c.primerApellido,c.segundoApellido, c.cedulaIdentidad, c.telefono, c.usuarioRegistro, c.fechaRegistro, c.estado
+        c.id, c.razonSocial, c.cedulaIdentidad, c.usuarioRegistro, c.fechaRegistro, c.estado
     FROM Cliente c
-    WHERE c.estado > -1 
-      AND (c.nombres + ISNULL (c.primerApellido, '') + ISNULL (c.segundoApellido, '')+ c.cedulaIdentidad) LIKE '%' + REPLACE(@parametro, ' ', '%') + '%'
-    ORDER BY c.estado DESC, c.nombres ASC;
+    WHERE c.estado > -1
+      AND ( ISNULL(c.razonSocial, '') + ' ' + ISNULL(c.cedulaIdentidad, '') ) LIKE '%' + REPLACE(@parametro, ' ', '%') + '%'
+    ORDER BY 
+        c.estado DESC, c.razonSocial ASC;  
 END;
 GO
+
 
 EXEC paClienteListar '';
 
@@ -199,7 +197,7 @@ AS
 BEGIN
     SELECT 
         p.id, p.idunidadMedida, p.idproveedor, p.codigo, p.nombre, p.categoria, um.descripcion AS unidadMedida, p.stock,  
-        p.precioUnitario AS precioVenta, p.fechaVencimiento,p.fechaUltimaCompra, p.precioCompra, p.cantidadMinimaStock, pr.nombreEmpresa AS proveedor, p.usuarioRegistro, p.fechaRegistro, p.estado
+        p.precioUnitario AS precioVenta, p.fechaVencimiento, p.precioCompra, p.cantidadMinimaStock, pr.nombreEmpresa AS proveedor, p.usuarioRegistro, p.fechaRegistro, p.estado
     FROM Producto p
     INNER JOIN UnidadMedida um ON um.id = p.idunidadMedida
 	INNER JOIN Proveedor pr ON pr.id = p.idproveedor
@@ -251,8 +249,8 @@ VALUES ('Jorge','Romero','Perez','345678','admin','i0hcoO/nssY6WOs9pOp5Xw==','67
 
 SELECT * FROM Empleado
 
-INSERT INTO Cliente(nombres,primerApellido,segundoApellido,cedulaIdentidad,telefono)
-VALUES ('Carlos','Lopez','Dávalos','45671345','72856910')
+INSERT INTO Cliente(razonSocial,cedulaIdentidad)
+VALUES ('Carlos Lopez','45671345')
 
 SELECT * FROM Cliente
 
@@ -267,8 +265,8 @@ VALUES ('Distribuidora Limpieza Total SRL', '76451234', 'Av. Blanco Galindo', 'c
 SELECT * FROM Proveedor
 
 
-INSERT INTO Producto(idunidadMedida,idproveedor,codigo,nombre,categoria,precioUnitario,stock,fechaVencimiento,fechaUltimaCompra,precioCompra,cantidadMinimaStock)
-VALUES ('1','1','PROD001','Detergente','Limpieza','25.50','100','2026-05-10','2025-10-30','15.00','10')
+INSERT INTO Producto(idunidadMedida,idproveedor,codigo,nombre,categoria,precioUnitario,stock,fechaVencimiento,precioCompra,cantidadMinimaStock)
+VALUES ('1','1','PROD001','Detergente','Limpieza','25.50','100','2026-05-10','15.00','10')
 
 SELECT * FROM Producto
 

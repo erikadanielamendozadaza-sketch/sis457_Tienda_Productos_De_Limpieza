@@ -44,8 +44,6 @@
             this.nudCantidadMinimaStock = new System.Windows.Forms.NumericUpDown();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.nudPrecioCompra = new System.Windows.Forms.NumericUpDown();
-            this.btnCanelar = new System.Windows.Forms.Button();
-            this.dtpFechaUltimaCompra = new System.Windows.Forms.DateTimePicker();
             this.cbxProveedor = new System.Windows.Forms.ComboBox();
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.dtpFechaVencimiento = new System.Windows.Forms.DateTimePicker();
@@ -53,7 +51,6 @@
             this.nudPrecioUnitario = new System.Windows.Forms.NumericUpDown();
             this.lblPrecioCompra = new System.Windows.Forms.Label();
             this.nudStock = new System.Windows.Forms.NumericUpDown();
-            this.lblFechaUltimaCompra = new System.Windows.Forms.Label();
             this.cbxUnidadMedida = new System.Windows.Forms.ComboBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
@@ -73,10 +70,10 @@
             this.erpFechaVencimiento = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpProveedor = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpCategoria = new System.Windows.Forms.ErrorProvider(this.components);
-            this.erpFechaUltimaCompra = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpPrecioCompra = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpCantidadMinimaStock = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.pnlAcciones.SuspendLayout();
@@ -93,7 +90,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpFechaVencimiento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCategoria)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erpFechaUltimaCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpPrecioCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCantidadMinimaStock)).BeginInit();
             this.SuspendLayout();
@@ -227,11 +223,10 @@
             // 
             // gbxDatos
             // 
+            this.gbxDatos.Controls.Add(this.btnCancelar);
             this.gbxDatos.Controls.Add(this.nudCantidadMinimaStock);
             this.gbxDatos.Controls.Add(this.btnGuardar);
             this.gbxDatos.Controls.Add(this.nudPrecioCompra);
-            this.gbxDatos.Controls.Add(this.btnCanelar);
-            this.gbxDatos.Controls.Add(this.dtpFechaUltimaCompra);
             this.gbxDatos.Controls.Add(this.cbxProveedor);
             this.gbxDatos.Controls.Add(this.txtCategoria);
             this.gbxDatos.Controls.Add(this.dtpFechaVencimiento);
@@ -239,7 +234,6 @@
             this.gbxDatos.Controls.Add(this.nudPrecioUnitario);
             this.gbxDatos.Controls.Add(this.lblPrecioCompra);
             this.gbxDatos.Controls.Add(this.nudStock);
-            this.gbxDatos.Controls.Add(this.lblFechaUltimaCompra);
             this.gbxDatos.Controls.Add(this.cbxUnidadMedida);
             this.gbxDatos.Controls.Add(this.lblCategoria);
             this.gbxDatos.Controls.Add(this.txtNombreProducto);
@@ -297,29 +291,6 @@
             this.nudPrecioCompra.Name = "nudPrecioCompra";
             this.nudPrecioCompra.Size = new System.Drawing.Size(183, 31);
             this.nudPrecioCompra.TabIndex = 14;
-            // 
-            // btnCanelar
-            // 
-            this.btnCanelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCanelar.Image = global::cpProLimp.Properties.Resources.cancel;
-            this.btnCanelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCanelar.Location = new System.Drawing.Point(980, 87);
-            this.btnCanelar.Name = "btnCanelar";
-            this.btnCanelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCanelar.Size = new System.Drawing.Size(74, 62);
-            this.btnCanelar.TabIndex = 8;
-            this.btnCanelar.Text = "Cancelar";
-            this.btnCanelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCanelar.UseVisualStyleBackColor = true;
-            this.btnCanelar.Click += new System.EventHandler(this.btnCanelar_Click);
-            // 
-            // dtpFechaUltimaCompra
-            // 
-            this.dtpFechaUltimaCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaUltimaCompra.Location = new System.Drawing.Point(283, 201);
-            this.dtpFechaUltimaCompra.Name = "dtpFechaUltimaCompra";
-            this.dtpFechaUltimaCompra.Size = new System.Drawing.Size(183, 31);
-            this.dtpFechaUltimaCompra.TabIndex = 14;
             // 
             // cbxProveedor
             // 
@@ -389,16 +360,6 @@
             this.nudStock.Name = "nudStock";
             this.nudStock.Size = new System.Drawing.Size(183, 31);
             this.nudStock.TabIndex = 10;
-            // 
-            // lblFechaUltimaCompra
-            // 
-            this.lblFechaUltimaCompra.AutoSize = true;
-            this.lblFechaUltimaCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaUltimaCompra.Location = new System.Drawing.Point(3, 206);
-            this.lblFechaUltimaCompra.Name = "lblFechaUltimaCompra";
-            this.lblFechaUltimaCompra.Size = new System.Drawing.Size(245, 25);
-            this.lblFechaUltimaCompra.TabIndex = 15;
-            this.lblFechaUltimaCompra.Text = "Fecha Última Compra:";
             // 
             // cbxUnidadMedida
             // 
@@ -531,10 +492,6 @@
             // 
             this.erpCategoria.ContainerControl = this;
             // 
-            // erpFechaUltimaCompra
-            // 
-            this.erpFechaUltimaCompra.ContainerControl = this;
-            // 
             // erpPrecioCompra
             // 
             this.erpPrecioCompra.ContainerControl = this;
@@ -557,6 +514,21 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::cpProLimp.Properties.Resources.cancel;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelar.Location = new System.Drawing.Point(980, 110);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCancelar.Size = new System.Drawing.Size(74, 62);
+            this.btnCancelar.TabIndex = 19;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FrmProductos
             // 
@@ -597,7 +569,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpFechaVencimiento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpProveedor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCategoria)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erpFechaUltimaCompra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpPrecioCompra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCantidadMinimaStock)).EndInit();
             this.ResumeLayout(false);
@@ -630,9 +601,7 @@
         private System.Windows.Forms.NumericUpDown nudPrecioUnitario;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label lblPrecioCompra;
-        private System.Windows.Forms.Label lblFechaUltimaCompra;
         private System.Windows.Forms.Label lblCantidadMinimaStock;
-        private System.Windows.Forms.DateTimePicker dtpFechaUltimaCompra;
         private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.NumericUpDown nudCantidadMinimaStock;
         private System.Windows.Forms.NumericUpDown nudPrecioCompra;
@@ -641,7 +610,6 @@
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCanelar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ErrorProvider erpCodigo;
         private System.Windows.Forms.ErrorProvider erpDescripcion;
@@ -651,8 +619,8 @@
         private System.Windows.Forms.ErrorProvider erpFechaVencimiento;
         private System.Windows.Forms.ErrorProvider erpProveedor;
         private System.Windows.Forms.ErrorProvider erpCategoria;
-        private System.Windows.Forms.ErrorProvider erpFechaUltimaCompra;
         private System.Windows.Forms.ErrorProvider erpPrecioCompra;
         private System.Windows.Forms.ErrorProvider erpCantidadMinimaStock;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

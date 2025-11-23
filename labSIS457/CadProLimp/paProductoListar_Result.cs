@@ -23,7 +23,6 @@ namespace CadProLimp
         public int stock { get; set; }
         public decimal precioVenta { get; set; }
         public System.DateTime fechaVencimiento { get; set; }
-        public System.DateTime fechaUltimaCompra { get; set; }
         public decimal precioCompra { get; set; }
         public int cantidadMinimaStock { get; set; }
         public string proveedor { get; set; }

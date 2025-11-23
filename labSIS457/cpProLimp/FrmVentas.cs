@@ -88,7 +88,7 @@ namespace cpProLimp
 
             if (cliente != null)
             {
-                lblCliente.Text = $"{cliente.nombres} {cliente.primerApellido}";
+                lblCliente.Text = $"{cliente.razonSocial}";
                 return cliente.id;
             }
 
@@ -106,24 +106,16 @@ namespace cpProLimp
             dgvLista.Columns["estado"].Visible = false;
             dgvLista.Columns["unidadMedida"].Visible = false;
             dgvLista.Columns["fechaVencimiento"].Visible = false;
-            dgvLista.Columns["fechaUltimaCompra"].Visible = false;
-            dgvLista.Columns["precioCompra"].Visible = false;
             dgvLista.Columns["cantidadMinimaStock"].Visible = false;
             dgvLista.Columns["proveedor"].Visible = false;
             dgvLista.Columns["usuarioRegistro"].Visible = false;
             dgvLista.Columns["fechaRegistro"].Visible = false;
+            dgvLista.Columns["categoria"].Visible = false;
 
             dgvLista.Columns["codigo"].HeaderText = "Código";
             dgvLista.Columns["nombre"].HeaderText = "Nombre";
-            dgvLista.Columns["categoria"].HeaderText = "Categoría";
             dgvLista.Columns["stock"].HeaderText = "Stock";
             dgvLista.Columns["precioVenta"].HeaderText = "Precio Venta";
-
-            dgvLista.Columns["codigo"].DisplayIndex = 0;
-            dgvLista.Columns["nombre"].DisplayIndex = 1;
-            dgvLista.Columns["categoria"].DisplayIndex = 2;
-            dgvLista.Columns["stock"].DisplayIndex = 3;
-            dgvLista.Columns["precioVenta"].DisplayIndex = 4;
         }
 
         private void FrmVentas_Load(object sender, EventArgs e)

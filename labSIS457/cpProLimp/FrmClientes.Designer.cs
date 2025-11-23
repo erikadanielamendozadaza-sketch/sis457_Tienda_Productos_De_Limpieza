@@ -35,38 +35,26 @@
             this.gbxListado = new System.Windows.Forms.GroupBox();
             this.dgvLista = new System.Windows.Forms.DataGridView();
             this.pnlAcciones = new System.Windows.Forms.Panel();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtCedulaIdentidad = new System.Windows.Forms.TextBox();
-            this.txtSegundoApellido = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCanelar = new System.Windows.Forms.Button();
-            this.txtPrimerApellido = new System.Windows.Forms.TextBox();
-            this.txtNombres = new System.Windows.Forms.TextBox();
-            this.lblTelefono = new System.Windows.Forms.Label();
+            this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.lblCedulaIdentidad = new System.Windows.Forms.Label();
-            this.lblSegundoApellido = new System.Windows.Forms.Label();
-            this.lblPrimerApellido = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblrazonSocial = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.erpNombres = new System.Windows.Forms.ErrorProvider(this.components);
-            this.erpPrimerApellido = new System.Windows.Forms.ErrorProvider(this.components);
-            this.erpSegundoApellido = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpRazonSocial = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpCedulaIdentidad = new System.Windows.Forms.ErrorProvider(this.components);
-            this.erpTelefono = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.pnlAcciones.SuspendLayout();
             this.gbxDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.erpNombres)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erpPrimerApellido)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erpSegundoApellido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpRazonSocial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCedulaIdentidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erpTelefono)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -126,7 +114,7 @@
             // 
             // pnlAcciones
             // 
-            this.pnlAcciones.Controls.Add(this.btnCancelar);
+            this.pnlAcciones.Controls.Add(this.btnCerrar);
             this.pnlAcciones.Controls.Add(this.btnEditar);
             this.pnlAcciones.Controls.Add(this.btnBorrar);
             this.pnlAcciones.Controls.Add(this.btnCrear);
@@ -135,20 +123,20 @@
             this.pnlAcciones.Size = new System.Drawing.Size(836, 51);
             this.pnlAcciones.TabIndex = 6;
             // 
-            // btnCancelar
+            // btnCerrar
             // 
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Image = global::cpProLimp.Properties.Resources.close;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(603, 3);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCancelar.Size = new System.Drawing.Size(115, 45);
-            this.btnCancelar.TabIndex = 9;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Image = global::cpProLimp.Properties.Resources.close;
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrar.Location = new System.Drawing.Point(626, 3);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCerrar.Size = new System.Drawing.Size(100, 45);
+            this.btnCerrar.TabIndex = 10;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnEditar
             // 
@@ -197,18 +185,12 @@
             // 
             // gbxDatos
             // 
-            this.gbxDatos.Controls.Add(this.txtTelefono);
+            this.gbxDatos.Controls.Add(this.btnCancelar);
             this.gbxDatos.Controls.Add(this.txtCedulaIdentidad);
-            this.gbxDatos.Controls.Add(this.txtSegundoApellido);
             this.gbxDatos.Controls.Add(this.btnGuardar);
-            this.gbxDatos.Controls.Add(this.btnCanelar);
-            this.gbxDatos.Controls.Add(this.txtPrimerApellido);
-            this.gbxDatos.Controls.Add(this.txtNombres);
-            this.gbxDatos.Controls.Add(this.lblTelefono);
+            this.gbxDatos.Controls.Add(this.txtRazonSocial);
             this.gbxDatos.Controls.Add(this.lblCedulaIdentidad);
-            this.gbxDatos.Controls.Add(this.lblSegundoApellido);
-            this.gbxDatos.Controls.Add(this.lblPrimerApellido);
-            this.gbxDatos.Controls.Add(this.lblNombre);
+            this.gbxDatos.Controls.Add(this.lblrazonSocial);
             this.gbxDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxDatos.Location = new System.Drawing.Point(12, 327);
             this.gbxDatos.Name = "gbxDatos";
@@ -217,26 +199,12 @@
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Agregar / Modificar datos:";
             // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(645, 54);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(179, 26);
-            this.txtTelefono.TabIndex = 11;
-            // 
             // txtCedulaIdentidad
             // 
             this.txtCedulaIdentidad.Location = new System.Drawing.Point(645, 24);
             this.txtCedulaIdentidad.Name = "txtCedulaIdentidad";
             this.txtCedulaIdentidad.Size = new System.Drawing.Size(179, 26);
             this.txtCedulaIdentidad.TabIndex = 10;
-            // 
-            // txtSegundoApellido
-            // 
-            this.txtSegundoApellido.Location = new System.Drawing.Point(191, 83);
-            this.txtSegundoApellido.Name = "txtSegundoApellido";
-            this.txtSegundoApellido.Size = new System.Drawing.Size(183, 26);
-            this.txtSegundoApellido.TabIndex = 9;
             // 
             // btnGuardar
             // 
@@ -253,43 +221,12 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnCanelar
+            // txtRazonSocial
             // 
-            this.btnCanelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCanelar.Image = global::cpProLimp.Properties.Resources.cancel;
-            this.btnCanelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCanelar.Location = new System.Drawing.Point(645, 89);
-            this.btnCanelar.Name = "btnCanelar";
-            this.btnCanelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCanelar.Size = new System.Drawing.Size(73, 61);
-            this.btnCanelar.TabIndex = 8;
-            this.btnCanelar.Text = "Cancelar";
-            this.btnCanelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCanelar.UseVisualStyleBackColor = true;
-            this.btnCanelar.Click += new System.EventHandler(this.btnCanelar_Click);
-            // 
-            // txtPrimerApellido
-            // 
-            this.txtPrimerApellido.Location = new System.Drawing.Point(191, 54);
-            this.txtPrimerApellido.Name = "txtPrimerApellido";
-            this.txtPrimerApellido.Size = new System.Drawing.Size(183, 26);
-            this.txtPrimerApellido.TabIndex = 8;
-            // 
-            // txtNombres
-            // 
-            this.txtNombres.Location = new System.Drawing.Point(191, 24);
-            this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(183, 26);
-            this.txtNombres.TabIndex = 7;
-            // 
-            // lblTelefono
-            // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(462, 57);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(150, 20);
-            this.lblTelefono.TabIndex = 4;
-            this.lblTelefono.Text = "Teléfono / Celular";
+            this.txtRazonSocial.Location = new System.Drawing.Point(191, 24);
+            this.txtRazonSocial.Name = "txtRazonSocial";
+            this.txtRazonSocial.Size = new System.Drawing.Size(183, 26);
+            this.txtRazonSocial.TabIndex = 7;
             // 
             // lblCedulaIdentidad
             // 
@@ -300,33 +237,15 @@
             this.lblCedulaIdentidad.TabIndex = 3;
             this.lblCedulaIdentidad.Text = "Cedula de Identidad:";
             // 
-            // lblSegundoApellido
+            // lblrazonSocial
             // 
-            this.lblSegundoApellido.AutoSize = true;
-            this.lblSegundoApellido.Location = new System.Drawing.Point(3, 89);
-            this.lblSegundoApellido.Name = "lblSegundoApellido";
-            this.lblSegundoApellido.Size = new System.Drawing.Size(155, 20);
-            this.lblSegundoApellido.TabIndex = 2;
-            this.lblSegundoApellido.Text = "Segundo Apellido:";
-            // 
-            // lblPrimerApellido
-            // 
-            this.lblPrimerApellido.AutoSize = true;
-            this.lblPrimerApellido.Location = new System.Drawing.Point(3, 57);
-            this.lblPrimerApellido.Name = "lblPrimerApellido";
-            this.lblPrimerApellido.Size = new System.Drawing.Size(134, 20);
-            this.lblPrimerApellido.TabIndex = 1;
-            this.lblPrimerApellido.Text = "Primer Apellido:";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(3, 27);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(90, 20);
-            this.lblNombre.TabIndex = 0;
-            this.lblNombre.Text = "Nombres: ";
+            this.lblrazonSocial.AutoSize = true;
+            this.lblrazonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrazonSocial.Location = new System.Drawing.Point(3, 27);
+            this.lblrazonSocial.Name = "lblrazonSocial";
+            this.lblrazonSocial.Size = new System.Drawing.Size(125, 20);
+            this.lblrazonSocial.TabIndex = 0;
+            this.lblrazonSocial.Text = "Razon Social: ";
             // 
             // btnBuscar
             // 
@@ -343,25 +262,28 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // erpNombres
+            // erpRazonSocial
             // 
-            this.erpNombres.ContainerControl = this;
-            // 
-            // erpPrimerApellido
-            // 
-            this.erpPrimerApellido.ContainerControl = this;
-            // 
-            // erpSegundoApellido
-            // 
-            this.erpSegundoApellido.ContainerControl = this;
+            this.erpRazonSocial.ContainerControl = this;
             // 
             // erpCedulaIdentidad
             // 
             this.erpCedulaIdentidad.ContainerControl = this;
             // 
-            // erpTelefono
+            // btnCancelar
             // 
-            this.erpTelefono.ContainerControl = this;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::cpProLimp.Properties.Resources.cancel;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelar.Location = new System.Drawing.Point(645, 88);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCancelar.Size = new System.Drawing.Size(74, 62);
+            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
             // 
             // FrmClientes
             // 
@@ -389,11 +311,8 @@
             this.pnlAcciones.ResumeLayout(false);
             this.gbxDatos.ResumeLayout(false);
             this.gbxDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.erpNombres)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erpPrimerApellido)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erpSegundoApellido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpRazonSocial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCedulaIdentidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erpTelefono)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,27 +327,18 @@
         private System.Windows.Forms.GroupBox gbxListado;
         private System.Windows.Forms.DataGridView dgvLista;
         private System.Windows.Forms.Panel pnlAcciones;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnCrear;
         private System.Windows.Forms.GroupBox gbxDatos;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCanelar;
-        private System.Windows.Forms.TextBox txtPrimerApellido;
-        private System.Windows.Forms.TextBox txtNombres;
-        private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.TextBox txtRazonSocial;
         private System.Windows.Forms.Label lblCedulaIdentidad;
-        private System.Windows.Forms.Label lblSegundoApellido;
-        private System.Windows.Forms.Label lblPrimerApellido;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.Label lblrazonSocial;
         private System.Windows.Forms.TextBox txtCedulaIdentidad;
-        private System.Windows.Forms.TextBox txtSegundoApellido;
-        private System.Windows.Forms.ErrorProvider erpNombres;
-        private System.Windows.Forms.ErrorProvider erpPrimerApellido;
-        private System.Windows.Forms.ErrorProvider erpSegundoApellido;
+        private System.Windows.Forms.ErrorProvider erpRazonSocial;
         private System.Windows.Forms.ErrorProvider erpCedulaIdentidad;
-        private System.Windows.Forms.ErrorProvider erpTelefono;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

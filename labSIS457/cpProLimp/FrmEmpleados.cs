@@ -171,7 +171,7 @@ namespace cpProLimp
                     EmpleadoCln.actualizar(empleado);
                 }
                 listar();
-                btnCanelar.PerformClick();
+                btnCancelar.PerformClick();
                 MessageBox.Show("Empleado guardado correctamente", "::: Mensaje - ProLimp :::",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
