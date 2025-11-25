@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentas));
             this.label1 = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -59,6 +60,8 @@
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.btnMenos = new System.Windows.Forms.Button();
             this.lblCantidad = new System.Windows.Forms.Label();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.gbxListaVenta.SuspendLayout();
@@ -83,7 +86,7 @@
             // 
             this.lblCliente.AutoSize = true;
             this.lblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCliente.Location = new System.Drawing.Point(23, 78);
+            this.lblCliente.Location = new System.Drawing.Point(23, 92);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(70, 20);
             this.lblCliente.TabIndex = 6;
@@ -141,7 +144,7 @@
             // 
             this.lblEmplead.AutoSize = true;
             this.lblEmplead.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmplead.Location = new System.Drawing.Point(123, 117);
+            this.lblEmplead.Location = new System.Drawing.Point(123, 121);
             this.lblEmplead.Name = "lblEmplead";
             this.lblEmplead.Size = new System.Drawing.Size(92, 20);
             this.lblEmplead.TabIndex = 17;
@@ -151,7 +154,7 @@
             // 
             this.lblEmpleado.AutoSize = true;
             this.lblEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmpleado.Location = new System.Drawing.Point(23, 117);
+            this.lblEmpleado.Location = new System.Drawing.Point(23, 121);
             this.lblEmpleado.Name = "lblEmpleado";
             this.lblEmpleado.Size = new System.Drawing.Size(94, 20);
             this.lblEmpleado.TabIndex = 16;
@@ -179,7 +182,7 @@
             // 
             // txtParametro
             // 
-            this.txtParametro.Location = new System.Drawing.Point(175, 145);
+            this.txtParametro.Location = new System.Drawing.Point(175, 149);
             this.txtParametro.Multiline = true;
             this.txtParametro.Name = "txtParametro";
             this.txtParametro.Size = new System.Drawing.Size(191, 27);
@@ -189,7 +192,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(23, 147);
+            this.label6.Location = new System.Drawing.Point(23, 151);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(146, 20);
             this.label6.TabIndex = 20;
@@ -329,7 +332,7 @@
             // btnNuevoCliente
             // 
             this.btnNuevoCliente.Image = global::cpProLimp.Properties.Resources._new;
-            this.btnNuevoCliente.Location = new System.Drawing.Point(371, 66);
+            this.btnNuevoCliente.Location = new System.Drawing.Point(425, 80);
             this.btnNuevoCliente.Name = "btnNuevoCliente";
             this.btnNuevoCliente.Size = new System.Drawing.Size(49, 45);
             this.btnNuevoCliente.TabIndex = 27;
@@ -355,7 +358,7 @@
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = global::cpProLimp.Properties.Resources.lupa__2_;
-            this.btnBuscar.Location = new System.Drawing.Point(372, 134);
+            this.btnBuscar.Location = new System.Drawing.Point(372, 138);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnBuscar.Size = new System.Drawing.Size(48, 47);
@@ -367,11 +370,12 @@
             // 
             // txtCiCliente
             // 
-            this.txtCiCliente.Location = new System.Drawing.Point(175, 76);
+            this.txtCiCliente.Location = new System.Drawing.Point(175, 90);
             this.txtCiCliente.Multiline = true;
             this.txtCiCliente.Name = "txtCiCliente";
             this.txtCiCliente.Size = new System.Drawing.Size(191, 27);
             this.txtCiCliente.TabIndex = 30;
+            this.txtCiCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCiCliente_KeyPress);
             this.txtCiCliente.Leave += new System.EventHandler(this.txtCiCliente_Leave);
             // 
             // btnMas
@@ -418,12 +422,37 @@
             this.lblCantidad.TabIndex = 32;
             this.lblCantidad.Text = "Cantidad:";
             // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCliente.Image = global::cpProLimp.Properties.Resources.lupa__2_;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(371, 78);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnBuscarCliente.Size = new System.Drawing.Size(48, 47);
+            this.btnBuscarCliente.TabIndex = 33;
+            this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(23, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 20);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Cliente:";
+            // 
             // FrmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1507, 743);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnBuscarCliente);
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.btnMenos);
             this.Controls.Add(this.nudCantidad);
@@ -451,6 +480,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmVentas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -500,5 +530,7 @@
         private System.Windows.Forms.NumericUpDown nudCantidad;
         private System.Windows.Forms.Button btnMenos;
         private System.Windows.Forms.Label lblCantidad;
+        private System.Windows.Forms.Button btnBuscarCliente;
+        private System.Windows.Forms.Label label2;
     }
 }

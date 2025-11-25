@@ -97,7 +97,16 @@ namespace cpProLimp
             nudStock.Value = producto.stock;
             nudPrecioUnitario.Value = producto.precioUnitario;
             nudPrecioCompra.Value = producto.precioCompra;
-            dtpFechaVencimiento.Value = producto.fechaVencimiento;
+            if (producto.fechaVencimiento == null)
+            {
+                chkSinVencimiento.Checked = true;
+                dtpFechaVencimiento.Value = DateTime.Now;
+            }
+            else
+            {
+                chkSinVencimiento.Checked = false;
+                dtpFechaVencimiento.Value = producto.fechaVencimiento.Value;
+            }
             cbxProveedor.SelectedValue = producto.idproveedor;
             nudCantidadMinimaStock.Value = producto.cantidadMinimaStock;
             txtCategoria.Focus();
@@ -113,8 +122,9 @@ namespace cpProLimp
             nudStock.Value = 0;
             nudPrecioUnitario.Value = 0;
             nudPrecioCompra.Value = 0;
-            nudCantidadMinimaStock.Value = 5; 
-            dtpFechaVencimiento.Value = DateTime.Now; 
+            nudCantidadMinimaStock.Value = 5;
+            dtpFechaVencimiento.Value = DateTime.Now;
+            chkSinVencimiento.Checked = false;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -136,7 +146,6 @@ namespace cpProLimp
             erpUnidadMedida.Clear();
             erpStock.Clear();
             erpPrecioUnitario.Clear();
-            erpFechaVencimiento.Clear();
             erpProveedor.Clear();
             erpCategoria.Clear();
             erpPrecioCompra.Clear();
@@ -177,20 +186,6 @@ namespace cpProLimp
                     "El precio de venta debe ser mayor al precio de compra");
                 esValido = false;
             }
-            if (dtpFechaVencimiento.Value < DateTime.Today)
-            {
-                var result = MessageBox.Show(
-                    "La fecha de vencimiento es anterior a hoy. ¿Desea continuar?",
-                    "::: Advertencia - ProLimp :::",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                if (result == DialogResult.No)
-                {
-                    erpFechaVencimiento.SetError(dtpFechaVencimiento,
-                        "La fecha de vencimiento no puede ser anterior a hoy");
-                    esValido = false;
-                }
-            }
             if (cbxProveedor.SelectedIndex == -1)
             {
                 erpProveedor.SetError(cbxProveedor, "Seleccione un proveedor");
@@ -217,7 +212,10 @@ namespace cpProLimp
                 producto.stock = (int)nudStock.Value;
                 producto.precioUnitario = nudPrecioUnitario.Value;
                 producto.precioCompra = nudPrecioCompra.Value;
-                producto.fechaVencimiento = dtpFechaVencimiento.Value;
+                if (chkSinVencimiento.Checked)
+                    producto.fechaVencimiento = null;
+                else
+                    producto.fechaVencimiento = dtpFechaVencimiento.Value;
                 producto.idproveedor = (int)cbxProveedor.SelectedValue;
                 producto.cantidadMinimaStock = (int)nudCantidadMinimaStock.Value;
                 producto.usuarioRegistro = Util.empleado.usuario;
@@ -273,6 +271,11 @@ namespace cpProLimp
             Size = new Size(1143, 563);
             pnlAcciones.Enabled = true;
             limpiar();
+        }
+
+        private void chkSinVencimiento_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpFechaVencimiento.Enabled = !chkSinVencimiento.Checked;
         }
     }
 }

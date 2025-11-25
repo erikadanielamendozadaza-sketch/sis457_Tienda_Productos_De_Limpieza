@@ -32,6 +32,10 @@ namespace cpProLimp
 
             dtpFechaVenta.Value = DateTime.Now;
             dtpFechaVenta.Enabled = false;
+
+            ToolTip toolTip = new ToolTip();
+            toolTip.SetToolTip(btnBuscarCliente, "Buscar cliente por CI");
+            toolTip.SetToolTip(txtCiCliente, "Ingrese el CI del cliente y presione Buscar");
         }
 
         private void cargarClientesBuscadorPorCI()
@@ -88,10 +92,13 @@ namespace cpProLimp
 
             if (cliente != null)
             {
-                lblCliente.Text = $"{cliente.razonSocial}";
+                lblCliente.Text = cliente.razonSocial;
+                lblCliente.ForeColor = Color.Green;
                 return cliente.id;
             }
 
+            lblCliente.Text = "Cliente no encontrado";
+            lblCliente.ForeColor = Color.Red;
             return -1;
         }
 
@@ -401,14 +408,26 @@ namespace cpProLimp
             {
                 lblCliente.Text = "Cliente no seleccionado";
                 lblCliente.ForeColor = Color.Red;
+            }
+        }
+
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCiCliente.Text))
+            {
+                MessageBox.Show("Ingrese el CI del cliente primero.",
+                    "::: Mensaje - ProLimp :::",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCiCliente.Focus();
                 return;
             }
-
             int idCliente = obtenerIdClientePorCI(txtCiCliente.Text);
-
             if (idCliente == -1)
             {
-                lblCliente.Text = "CI no encontrado";
+                MessageBox.Show("Cliente no encontrado. Verifique el CI.",
+                    "::: Cliente no encontrado - ProLimp :::",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblCliente.Text = "Cliente no encontrado";
                 lblCliente.ForeColor = Color.Red;
                 txtCiCliente.Focus();
                 txtCiCliente.SelectAll();
@@ -416,6 +435,18 @@ namespace cpProLimp
             else
             {
                 lblCliente.ForeColor = Color.Green;
+                MessageBox.Show("Cliente encontrado correctamente.",
+                    "::: Cliente encontrado - ProLimp :::",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txtCiCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true; 
+                btnBuscarCliente.PerformClick(); 
             }
         }
     }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmpleados));
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtParametro = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,6 +42,8 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
+            this.txtCedulaIdentidad = new System.Windows.Forms.TextBox();
+            this.lblCedulaIdentidad = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -61,8 +64,6 @@
             this.erpUsuario = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpContraseña = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpTelefono = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtCedulaIdentidad = new System.Windows.Forms.TextBox();
-            this.lblCedulaIdentidad = new System.Windows.Forms.Label();
             this.erpCedulaIdentidad = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
@@ -245,6 +246,22 @@
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Agregar / Modificar datos:";
             // 
+            // txtCedulaIdentidad
+            // 
+            this.txtCedulaIdentidad.Location = new System.Drawing.Point(191, 116);
+            this.txtCedulaIdentidad.Name = "txtCedulaIdentidad";
+            this.txtCedulaIdentidad.Size = new System.Drawing.Size(183, 26);
+            this.txtCedulaIdentidad.TabIndex = 15;
+            // 
+            // lblCedulaIdentidad
+            // 
+            this.lblCedulaIdentidad.AutoSize = true;
+            this.lblCedulaIdentidad.Location = new System.Drawing.Point(3, 119);
+            this.lblCedulaIdentidad.Name = "lblCedulaIdentidad";
+            this.lblCedulaIdentidad.Size = new System.Drawing.Size(176, 20);
+            this.lblCedulaIdentidad.TabIndex = 14;
+            this.lblCedulaIdentidad.Text = "Cédula de Identidad:";
+            // 
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(538, 86);
@@ -396,22 +413,6 @@
             // 
             this.erpTelefono.ContainerControl = this;
             // 
-            // txtCedulaIdentidad
-            // 
-            this.txtCedulaIdentidad.Location = new System.Drawing.Point(191, 116);
-            this.txtCedulaIdentidad.Name = "txtCedulaIdentidad";
-            this.txtCedulaIdentidad.Size = new System.Drawing.Size(183, 26);
-            this.txtCedulaIdentidad.TabIndex = 15;
-            // 
-            // lblCedulaIdentidad
-            // 
-            this.lblCedulaIdentidad.AutoSize = true;
-            this.lblCedulaIdentidad.Location = new System.Drawing.Point(3, 119);
-            this.lblCedulaIdentidad.Name = "lblCedulaIdentidad";
-            this.lblCedulaIdentidad.Size = new System.Drawing.Size(176, 20);
-            this.lblCedulaIdentidad.TabIndex = 14;
-            this.lblCedulaIdentidad.Text = "Cédula de Identidad:";
-            // 
             // erpCedulaIdentidad
             // 
             this.erpCedulaIdentidad.ContainerControl = this;
@@ -431,6 +432,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

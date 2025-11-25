@@ -69,6 +69,8 @@ CREATE TABLE Proveedor(
 	CONSTRAINT fk_Producto_Proveedor FOREIGN KEY (idProveedor) REFERENCES Proveedor(id)
 );
 
+ALTER TABLE Producto ALTER COLUMN fechaVencimiento DATE NULL;
+
 CREATE TABLE Venta(
 	id INT NOT NULL PRIMARY KEY IDENTITY(1, 1),
 	idcliente INT NOT NULL,

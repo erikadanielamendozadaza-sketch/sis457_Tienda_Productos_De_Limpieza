@@ -41,6 +41,8 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnCrear = new System.Windows.Forms.Button();
             this.gbxDatos = new System.Windows.Forms.GroupBox();
+            this.chkSinVencimiento = new System.Windows.Forms.CheckBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.nudCantidadMinimaStock = new System.Windows.Forms.NumericUpDown();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.nudPrecioCompra = new System.Windows.Forms.NumericUpDown();
@@ -73,7 +75,6 @@
             this.erpPrecioCompra = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpCantidadMinimaStock = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.gbxListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.pnlAcciones.SuspendLayout();
@@ -223,6 +224,7 @@
             // 
             // gbxDatos
             // 
+            this.gbxDatos.Controls.Add(this.chkSinVencimiento);
             this.gbxDatos.Controls.Add(this.btnCancelar);
             this.gbxDatos.Controls.Add(this.nudCantidadMinimaStock);
             this.gbxDatos.Controls.Add(this.btnGuardar);
@@ -253,9 +255,36 @@
             this.gbxDatos.TabStop = false;
             this.gbxDatos.Text = "Agregar / Modificar datos:";
             // 
+            // chkSinVencimiento
+            // 
+            this.chkSinVencimiento.AutoSize = true;
+            this.chkSinVencimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkSinVencimiento.Location = new System.Drawing.Point(771, 95);
+            this.chkSinVencimiento.Name = "chkSinVencimiento";
+            this.chkSinVencimiento.Size = new System.Drawing.Size(229, 24);
+            this.chkSinVencimiento.TabIndex = 20;
+            this.chkSinVencimiento.Text = "Sin fecha de vencimiento";
+            this.chkSinVencimiento.UseVisualStyleBackColor = true;
+            this.chkSinVencimiento.CheckedChanged += new System.EventHandler(this.chkSinVencimiento_CheckedChanged);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Image = global::cpProLimp.Properties.Resources.cancel;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelar.Location = new System.Drawing.Point(1006, 119);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCancelar.Size = new System.Drawing.Size(74, 62);
+            this.btnCancelar.TabIndex = 19;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // nudCantidadMinimaStock
             // 
-            this.nudCantidadMinimaStock.Location = new System.Drawing.Point(771, 176);
+            this.nudCantidadMinimaStock.Location = new System.Drawing.Point(771, 199);
             this.nudCantidadMinimaStock.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -270,7 +299,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::cpProLimp.Properties.Resources.salvar;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnGuardar.Location = new System.Drawing.Point(980, 16);
+            this.btnGuardar.Location = new System.Drawing.Point(1005, 32);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnGuardar.Size = new System.Drawing.Size(74, 62);
@@ -282,7 +311,7 @@
             // 
             // nudPrecioCompra
             // 
-            this.nudPrecioCompra.Location = new System.Drawing.Point(771, 141);
+            this.nudPrecioCompra.Location = new System.Drawing.Point(771, 164);
             this.nudPrecioCompra.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -296,7 +325,7 @@
             // 
             this.cbxProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxProveedor.FormattingEnabled = true;
-            this.cbxProveedor.Location = new System.Drawing.Point(771, 96);
+            this.cbxProveedor.Location = new System.Drawing.Point(771, 119);
             this.cbxProveedor.Name = "cbxProveedor";
             this.cbxProveedor.Size = new System.Drawing.Size(183, 33);
             this.cbxProveedor.TabIndex = 13;
@@ -311,9 +340,11 @@
             // 
             // dtpFechaVencimiento
             // 
+            this.dtpFechaVencimiento.Checked = false;
             this.dtpFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaVencimiento.Location = new System.Drawing.Point(771, 62);
             this.dtpFechaVencimiento.Name = "dtpFechaVencimiento";
+            this.dtpFechaVencimiento.ShowCheckBox = true;
             this.dtpFechaVencimiento.Size = new System.Drawing.Size(183, 31);
             this.dtpFechaVencimiento.TabIndex = 12;
             // 
@@ -321,7 +352,7 @@
             // 
             this.lblCantidadMinimaStock.AutoSize = true;
             this.lblCantidadMinimaStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadMinimaStock.Location = new System.Drawing.Point(500, 181);
+            this.lblCantidadMinimaStock.Location = new System.Drawing.Point(500, 204);
             this.lblCantidadMinimaStock.Name = "lblCantidadMinimaStock";
             this.lblCantidadMinimaStock.Size = new System.Drawing.Size(261, 25);
             this.lblCantidadMinimaStock.TabIndex = 17;
@@ -343,7 +374,7 @@
             // 
             this.lblPrecioCompra.AutoSize = true;
             this.lblPrecioCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioCompra.Location = new System.Drawing.Point(500, 146);
+            this.lblPrecioCompra.Location = new System.Drawing.Point(500, 169);
             this.lblPrecioCompra.Name = "lblPrecioCompra";
             this.lblPrecioCompra.Size = new System.Drawing.Size(207, 25);
             this.lblPrecioCompra.TabIndex = 16;
@@ -399,7 +430,7 @@
             // lblProveedor
             // 
             this.lblProveedor.AutoSize = true;
-            this.lblProveedor.Location = new System.Drawing.Point(500, 95);
+            this.lblProveedor.Location = new System.Drawing.Point(500, 122);
             this.lblProveedor.Name = "lblProveedor";
             this.lblProveedor.Size = new System.Drawing.Size(127, 25);
             this.lblProveedor.TabIndex = 6;
@@ -515,21 +546,6 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Image = global::cpProLimp.Properties.Resources.cancel;
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelar.Location = new System.Drawing.Point(980, 110);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCancelar.Size = new System.Drawing.Size(74, 62);
-            this.btnCancelar.TabIndex = 19;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -622,5 +638,6 @@
         private System.Windows.Forms.ErrorProvider erpPrecioCompra;
         private System.Windows.Forms.ErrorProvider erpCantidadMinimaStock;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.CheckBox chkSinVencimiento;
     }
 }
