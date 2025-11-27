@@ -80,6 +80,12 @@ CREATE TABLE Proveedor(
 	CONSTRAINT fk_Producto_Proveedor FOREIGN KEY (idProveedor) REFERENCES Proveedor(id)
 );
 
+ALTER TABLE Producto ADD idcategoria INT NULL;
+ALTER TABLE Producto ADD idmarca INT NULL;
+
+ALTER TABLE Producto ADD CONSTRAINT fk_Producto_Categoria FOREIGN KEY (idcategoria) REFERENCES Categoria(id);
+ALTER TABLE Producto ADD CONSTRAINT fk_Producto_Marca FOREIGN KEY (idmarca) REFERENCES Marca(id);
+
 ALTER TABLE Producto ALTER COLUMN fechaVencimiento DATE NULL;
 
 CREATE TABLE Venta(
@@ -252,13 +258,39 @@ CREATE PROC paProductoListar @parametro VARCHAR(50)
 AS
 BEGIN
     SELECT 
-        p.id, p.idunidadMedida, p.idproveedor, p.codigo, p.nombre, p.categoria, um.descripcion AS unidadMedida, p.stock,  
-        p.precioUnitario AS precioVenta, p.fechaVencimiento, p.precioCompra, p.cantidadMinimaStock, pr.nombreEmpresa AS proveedor, p.usuarioRegistro, p.fechaRegistro, p.estado
+        p.id,
+        p.idunidadMedida,
+        p.idproveedor,
+        p.idmarca,
+        p.idcategoria,
+        p.codigo,
+        p.nombre,
+        ISNULL(c.nombre, '') AS categoria,       
+        um.descripcion AS unidadMedida,
+        ISNULL(m.nombre, '') AS marca,
+        p.stock,  
+        p.precioUnitario AS precioVenta,
+        p.fechaVencimiento,
+        p.precioCompra,
+        p.cantidadMinimaStock,
+        pr.nombreEmpresa AS proveedor,
+        p.usuarioRegistro,
+        p.fechaRegistro,
+        p.estado
     FROM Producto p
     INNER JOIN UnidadMedida um ON um.id = p.idunidadMedida
-	INNER JOIN Proveedor pr ON pr.id = p.idproveedor
+    INNER JOIN Proveedor pr ON pr.id = p.idproveedor
+    LEFT JOIN Categoria c ON c.id = p.idcategoria
+    LEFT JOIN Marca m ON m.id = p.idmarca
     WHERE p.estado > -1 
-      AND (p.codigo + ' ' + p.nombre + ' ' + p.categoria + ' ' + um.descripcion + ' ' + pr.nombreEmpresa) LIKE '%' + REPLACE(@parametro, ' ', '%') + '%' 
+      AND (
+            ISNULL(p.codigo,'') + ' ' + 
+            ISNULL(p.nombre,'') + ' ' + 
+            ISNULL(c.nombre,'') + ' ' + 
+            ISNULL(um.descripcion,'') + ' ' + 
+            ISNULL(pr.nombreEmpresa,'') + ' ' +
+            ISNULL(m.nombre,'')
+          ) LIKE '%' + REPLACE(@parametro, ' ', '%') + '%'
     ORDER BY p.estado DESC, p.nombre ASC;
 END;
 GO
@@ -301,7 +333,7 @@ EXEC paDetalleVentaListar '';
 
 
 INSERT INTO Empleado(nombres,primerApellido,segundoApellido,cedulaIdentidad,usuario,clave,telefono)
-VALUES ('Jorge','Romero','Perez','345678','admin','i0hcoO/nssY6WOs9pOp5Xw==','67629000'); --contra hola123 
+VALUES ('Jorge','Romero','Perez','345678','danielemp','i0hcoO/nssY6WOs9pOp5Xw==','67629000'); --contra hola123 
 
 SELECT * FROM Empleado
 

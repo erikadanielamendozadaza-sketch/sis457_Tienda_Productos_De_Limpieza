@@ -25,10 +25,13 @@ namespace cpProLimp
             dgvLista.Columns["id"].Visible = false;
             dgvLista.Columns["idunidadMedida"].Visible = false;
             dgvLista.Columns["idproveedor"].Visible = false;
+            dgvLista.Columns["idcategoria"].Visible = false;
+            dgvLista.Columns["idmarca"].Visible = false;
             dgvLista.Columns["estado"].Visible = false;
             dgvLista.Columns["codigo"].HeaderText = "Código";
             dgvLista.Columns["nombre"].HeaderText = "Nombre";
             dgvLista.Columns["categoria"].HeaderText = "Categoria";
+            dgvLista.Columns["marca"].HeaderText = "Marca";
             dgvLista.Columns["unidadMedida"].HeaderText = "Unidad de Medida";
             dgvLista.Columns["stock"].HeaderText = "Stock";
             dgvLista.Columns["precioVenta"].HeaderText = "Precio Venta";

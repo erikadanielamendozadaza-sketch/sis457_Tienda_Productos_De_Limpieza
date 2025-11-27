@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtParametro = new System.Windows.Forms.TextBox();
             this.gbxListado = new System.Windows.Forms.GroupBox();
-            this.dgvLista = new System.Windows.Forms.DataGridView();
             this.pnlAcciones = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -47,14 +46,12 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.nudPrecioCompra = new System.Windows.Forms.NumericUpDown();
             this.cbxProveedor = new System.Windows.Forms.ComboBox();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
             this.dtpFechaVencimiento = new System.Windows.Forms.DateTimePicker();
             this.lblCantidadMinimaStock = new System.Windows.Forms.Label();
             this.nudPrecioUnitario = new System.Windows.Forms.NumericUpDown();
             this.lblPrecioCompra = new System.Windows.Forms.Label();
             this.nudStock = new System.Windows.Forms.NumericUpDown();
             this.cbxUnidadMedida = new System.Windows.Forms.ComboBox();
-            this.lblCategoria = new System.Windows.Forms.Label();
             this.txtNombreProducto = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblProveedor = new System.Windows.Forms.Label();
@@ -71,12 +68,17 @@
             this.erpPrecioUnitario = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpFechaVencimiento = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpProveedor = new System.Windows.Forms.ErrorProvider(this.components);
-            this.erpCategoria = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpPrecioCompra = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpCantidadMinimaStock = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.cbxCategoria = new System.Windows.Forms.ComboBox();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.cbxMarca = new System.Windows.Forms.ComboBox();
+            this.lblMarca = new System.Windows.Forms.Label();
+            this.erpMarca = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erpCategoria = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dgvLista = new System.Windows.Forms.DataGridView();
             this.gbxListado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.pnlAcciones.SuspendLayout();
             this.gbxDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadMinimaStock)).BeginInit();
@@ -90,9 +92,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpPrecioUnitario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpFechaVencimiento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpProveedor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erpCategoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpPrecioCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCantidadMinimaStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpMarca)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpCategoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -136,20 +140,6 @@
             this.gbxListado.TabIndex = 4;
             this.gbxListado.TabStop = false;
             this.gbxListado.Text = "Lista de Productos";
-            // 
-            // dgvLista
-            // 
-            this.dgvLista.AllowUserToAddRows = false;
-            this.dgvLista.AllowUserToDeleteRows = false;
-            this.dgvLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLista.Location = new System.Drawing.Point(16, 25);
-            this.dgvLista.MultiSelect = false;
-            this.dgvLista.Name = "dgvLista";
-            this.dgvLista.ReadOnly = true;
-            this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLista.Size = new System.Drawing.Size(1086, 346);
-            this.dgvLista.TabIndex = 0;
             // 
             // pnlAcciones
             // 
@@ -224,20 +214,22 @@
             // 
             // gbxDatos
             // 
+            this.gbxDatos.Controls.Add(this.cbxMarca);
+            this.gbxDatos.Controls.Add(this.lblMarca);
+            this.gbxDatos.Controls.Add(this.cbxCategoria);
+            this.gbxDatos.Controls.Add(this.lblCategoria);
             this.gbxDatos.Controls.Add(this.chkSinVencimiento);
             this.gbxDatos.Controls.Add(this.btnCancelar);
             this.gbxDatos.Controls.Add(this.nudCantidadMinimaStock);
             this.gbxDatos.Controls.Add(this.btnGuardar);
             this.gbxDatos.Controls.Add(this.nudPrecioCompra);
             this.gbxDatos.Controls.Add(this.cbxProveedor);
-            this.gbxDatos.Controls.Add(this.txtCategoria);
             this.gbxDatos.Controls.Add(this.dtpFechaVencimiento);
             this.gbxDatos.Controls.Add(this.lblCantidadMinimaStock);
             this.gbxDatos.Controls.Add(this.nudPrecioUnitario);
             this.gbxDatos.Controls.Add(this.lblPrecioCompra);
             this.gbxDatos.Controls.Add(this.nudStock);
             this.gbxDatos.Controls.Add(this.cbxUnidadMedida);
-            this.gbxDatos.Controls.Add(this.lblCategoria);
             this.gbxDatos.Controls.Add(this.txtNombreProducto);
             this.gbxDatos.Controls.Add(this.txtCodigo);
             this.gbxDatos.Controls.Add(this.lblProveedor);
@@ -330,14 +322,6 @@
             this.cbxProveedor.Size = new System.Drawing.Size(183, 33);
             this.cbxProveedor.TabIndex = 13;
             // 
-            // txtCategoria
-            // 
-            this.txtCategoria.Location = new System.Drawing.Point(283, 169);
-            this.txtCategoria.MaxLength = 20;
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(183, 31);
-            this.txtCategoria.TabIndex = 14;
-            // 
             // dtpFechaVencimiento
             // 
             this.dtpFechaVencimiento.Checked = false;
@@ -382,7 +366,7 @@
             // 
             // nudStock
             // 
-            this.nudStock.Location = new System.Drawing.Point(283, 135);
+            this.nudStock.Location = new System.Drawing.Point(283, 202);
             this.nudStock.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -396,20 +380,10 @@
             // 
             this.cbxUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxUnidadMedida.FormattingEnabled = true;
-            this.cbxUnidadMedida.Location = new System.Drawing.Point(283, 92);
+            this.cbxUnidadMedida.Location = new System.Drawing.Point(283, 167);
             this.cbxUnidadMedida.Name = "cbxUnidadMedida";
             this.cbxUnidadMedida.Size = new System.Drawing.Size(183, 33);
             this.cbxUnidadMedida.TabIndex = 9;
-            // 
-            // lblCategoria
-            // 
-            this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoria.Location = new System.Drawing.Point(3, 172);
-            this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(128, 25);
-            this.lblCategoria.TabIndex = 14;
-            this.lblCategoria.Text = "Categoria: ";
             // 
             // txtNombreProducto
             // 
@@ -457,7 +431,7 @@
             // lblStock
             // 
             this.lblStock.AutoSize = true;
-            this.lblStock.Location = new System.Drawing.Point(6, 135);
+            this.lblStock.Location = new System.Drawing.Point(6, 202);
             this.lblStock.Name = "lblStock";
             this.lblStock.Size = new System.Drawing.Size(78, 25);
             this.lblStock.TabIndex = 3;
@@ -466,7 +440,7 @@
             // lblUnidadMedida
             // 
             this.lblUnidadMedida.AutoSize = true;
-            this.lblUnidadMedida.Location = new System.Drawing.Point(3, 95);
+            this.lblUnidadMedida.Location = new System.Drawing.Point(3, 170);
             this.lblUnidadMedida.Name = "lblUnidadMedida";
             this.lblUnidadMedida.Size = new System.Drawing.Size(210, 25);
             this.lblUnidadMedida.TabIndex = 2;
@@ -519,10 +493,6 @@
             // 
             this.erpProveedor.ContainerControl = this;
             // 
-            // erpCategoria
-            // 
-            this.erpCategoria.ContainerControl = this;
-            // 
             // erpPrecioCompra
             // 
             this.erpPrecioCompra.ContainerControl = this;
@@ -545,6 +515,64 @@
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // cbxCategoria
+            // 
+            this.cbxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCategoria.FormattingEnabled = true;
+            this.cbxCategoria.Location = new System.Drawing.Point(283, 127);
+            this.cbxCategoria.Name = "cbxCategoria";
+            this.cbxCategoria.Size = new System.Drawing.Size(183, 33);
+            this.cbxCategoria.TabIndex = 22;
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(6, 130);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(121, 25);
+            this.lblCategoria.TabIndex = 21;
+            this.lblCategoria.Text = "Categoría:";
+            // 
+            // cbxMarca
+            // 
+            this.cbxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMarca.FormattingEnabled = true;
+            this.cbxMarca.Location = new System.Drawing.Point(283, 92);
+            this.cbxMarca.Name = "cbxMarca";
+            this.cbxMarca.Size = new System.Drawing.Size(183, 33);
+            this.cbxMarca.TabIndex = 24;
+            // 
+            // lblMarca
+            // 
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Location = new System.Drawing.Point(6, 92);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(84, 25);
+            this.lblMarca.TabIndex = 23;
+            this.lblMarca.Text = "Marca:";
+            // 
+            // erpMarca
+            // 
+            this.erpMarca.ContainerControl = this;
+            // 
+            // erpCategoria
+            // 
+            this.erpCategoria.ContainerControl = this;
+            // 
+            // dgvLista
+            // 
+            this.dgvLista.AllowUserToAddRows = false;
+            this.dgvLista.AllowUserToDeleteRows = false;
+            this.dgvLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLista.Location = new System.Drawing.Point(7, 25);
+            this.dgvLista.MultiSelect = false;
+            this.dgvLista.Name = "dgvLista";
+            this.dgvLista.ReadOnly = true;
+            this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLista.Size = new System.Drawing.Size(1086, 346);
+            this.dgvLista.TabIndex = 1;
             // 
             // FrmProductos
             // 
@@ -569,7 +597,6 @@
             this.Text = "::: Productos - ProLimp :::";
             this.Load += new System.EventHandler(this.FrmProductos_Load);
             this.gbxListado.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.pnlAcciones.ResumeLayout(false);
             this.gbxDatos.ResumeLayout(false);
             this.gbxDatos.PerformLayout();
@@ -584,9 +611,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.erpPrecioUnitario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpFechaVencimiento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpProveedor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.erpCategoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpPrecioCompra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCantidadMinimaStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpMarca)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpCategoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -598,7 +627,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtParametro;
         private System.Windows.Forms.GroupBox gbxListado;
-        private System.Windows.Forms.DataGridView dgvLista;
         private System.Windows.Forms.Panel pnlAcciones;
         private System.Windows.Forms.GroupBox gbxDatos;
         private System.Windows.Forms.Label lblDescripcion;
@@ -615,10 +643,8 @@
         private System.Windows.Forms.ComboBox cbxProveedor;
         private System.Windows.Forms.DateTimePicker dtpFechaVencimiento;
         private System.Windows.Forms.NumericUpDown nudPrecioUnitario;
-        private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.Label lblPrecioCompra;
         private System.Windows.Forms.Label lblCantidadMinimaStock;
-        private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.NumericUpDown nudCantidadMinimaStock;
         private System.Windows.Forms.NumericUpDown nudPrecioCompra;
         private System.Windows.Forms.Button btnCerrar;
@@ -634,10 +660,16 @@
         private System.Windows.Forms.ErrorProvider erpPrecioUnitario;
         private System.Windows.Forms.ErrorProvider erpFechaVencimiento;
         private System.Windows.Forms.ErrorProvider erpProveedor;
-        private System.Windows.Forms.ErrorProvider erpCategoria;
         private System.Windows.Forms.ErrorProvider erpPrecioCompra;
         private System.Windows.Forms.ErrorProvider erpCantidadMinimaStock;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.CheckBox chkSinVencimiento;
+        private System.Windows.Forms.ComboBox cbxMarca;
+        private System.Windows.Forms.Label lblMarca;
+        private System.Windows.Forms.ComboBox cbxCategoria;
+        private System.Windows.Forms.Label lblCategoria;
+        private System.Windows.Forms.ErrorProvider erpMarca;
+        private System.Windows.Forms.ErrorProvider erpCategoria;
+        private System.Windows.Forms.DataGridView dgvLista;
     }
 }

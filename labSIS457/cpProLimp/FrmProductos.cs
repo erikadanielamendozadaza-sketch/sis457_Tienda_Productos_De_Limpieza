@@ -25,27 +25,29 @@ namespace cpProLimp
         {
             var lista = ProductoCln.listarPa(txtParametro.Text.Trim());
             dgvLista.DataSource = lista;
+
+            dgvLista.DataSource = lista;
             dgvLista.Columns["id"].Visible = false;
             dgvLista.Columns["idunidadMedida"].Visible = false;
             dgvLista.Columns["idproveedor"].Visible = false;
+            dgvLista.Columns["idcategoria"].Visible = false;
+            dgvLista.Columns["idmarca"].Visible = false;
             dgvLista.Columns["estado"].Visible = false;
             dgvLista.Columns["codigo"].HeaderText = "Código";
             dgvLista.Columns["nombre"].HeaderText = "Nombre";
             dgvLista.Columns["categoria"].HeaderText = "Categoria";
+            dgvLista.Columns["marca"].HeaderText = "Marca";
             dgvLista.Columns["unidadMedida"].HeaderText = "Unidad de Medida";
             dgvLista.Columns["stock"].HeaderText = "Stock";
             dgvLista.Columns["precioVenta"].HeaderText = "Precio Venta";
             dgvLista.Columns["fechaVencimiento"].HeaderText = "Fecha de Vencimiento";
-            dgvLista.Columns["precioCompra"].HeaderText = "Precio de Compra";
             dgvLista.Columns["cantidadMinimaStock"].HeaderText = "Cantidad Mínima Stock";
             dgvLista.Columns["proveedor"].HeaderText = "Proveedor";
             dgvLista.Columns["usuarioRegistro"].HeaderText = "Usuario Registro";
             dgvLista.Columns["fechaRegistro"].HeaderText = "Fecha Registro";
 
-
             if (lista.Count > 0) dgvLista.CurrentCell = dgvLista.Rows[0].Cells["codigo"];
             btnEditar.Enabled = lista.Count > 0;
-            btnBorrar.Enabled = lista.Count > 0;
         }
 
         private void cargarUnidadMedida()
@@ -65,12 +67,33 @@ namespace cpProLimp
             cbxProveedor.DisplayMember = "nombreEmpresa";
             cbxProveedor.SelectedIndex = -1;
         }
+
+        private void cargarCategoria()
+        {
+            var lista = CategoriaCln.listar();
+            cbxCategoria.DataSource = lista;
+            cbxCategoria.ValueMember = "id";
+            cbxCategoria.DisplayMember = "nombre";
+            cbxCategoria.SelectedIndex = -1;
+        }
+
+        private void cargarMarca()
+        {
+            var lista = MarcaCln.listar();
+            cbxMarca.DataSource = lista;
+            cbxMarca.ValueMember = "id";
+            cbxMarca.DisplayMember = "nombre";
+            cbxMarca.SelectedIndex = -1;
+        }
+
         private void FrmProductos_Load(object sender, EventArgs e)
         {
             Size = new Size(1143, 563);
             listar();
             cargarUnidadMedida();
             cargarProveedor();
+            cargarCategoria();
+            cargarMarca();
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
@@ -92,8 +115,9 @@ namespace cpProLimp
 
             txtCodigo.Text = producto.codigo;
             txtNombreProducto.Text = producto.nombre;
-            txtCategoria.Text = producto.categoria;
             cbxUnidadMedida.SelectedValue = producto.idunidadMedida;
+            cbxMarca.SelectedValue = producto.idmarca;
+            cbxCategoria.SelectedValue = producto.idcategoria;
             nudStock.Value = producto.stock;
             nudPrecioUnitario.Value = producto.precioUnitario;
             nudPrecioCompra.Value = producto.precioCompra;
@@ -109,16 +133,16 @@ namespace cpProLimp
             }
             cbxProveedor.SelectedValue = producto.idproveedor;
             nudCantidadMinimaStock.Value = producto.cantidadMinimaStock;
-            txtCategoria.Focus();
         }
 
         private void limpiar()
         {
             txtCodigo.Clear();
             txtNombreProducto.Clear();
-            txtCategoria.Clear();
             cbxUnidadMedida.SelectedIndex = -1;
             cbxProveedor.SelectedIndex = -1;
+            cbxCategoria.SelectedIndex = -1;
+            cbxMarca.SelectedIndex = -1;
             nudStock.Value = 0;
             nudPrecioUnitario.Value = 0;
             nudPrecioCompra.Value = 0;
@@ -144,10 +168,11 @@ namespace cpProLimp
             erpCodigo.Clear();
             erpDescripcion.Clear();
             erpUnidadMedida.Clear();
+            erpCategoria.Clear();
+            erpMarca.Clear();
             erpStock.Clear();
             erpPrecioUnitario.Clear();
             erpProveedor.Clear();
-            erpCategoria.Clear();
             erpPrecioCompra.Clear();
             erpCantidadMinimaStock.Clear();
 
@@ -161,14 +186,19 @@ namespace cpProLimp
                 erpDescripcion.SetError(txtNombreProducto, "El nombre del producto es obligatorio");
                 esValido = false;
             }
-            if (string.IsNullOrWhiteSpace(txtCategoria.Text))
-            {
-                erpCategoria.SetError(txtCategoria, "La categoría es obligatoria");
-                esValido = false;
-            }
             if (cbxUnidadMedida.SelectedIndex == -1)
             {
                 erpUnidadMedida.SetError(cbxUnidadMedida, "Seleccione una unidad de medida");
+                esValido = false;
+            }
+            if (cbxCategoria.SelectedIndex == -1)
+            {
+                erpCategoria.SetError(cbxCategoria, "Seleccione una categoría");
+                esValido = false;
+            }
+            if (cbxMarca.SelectedIndex == -1)
+            { 
+                erpMarca.SetError(cbxMarca, "Seleccione una marca");
                 esValido = false;
             }
             if (nudStock.Value < 0) 
@@ -207,8 +237,9 @@ namespace cpProLimp
                 var producto = new Producto();
                 producto.codigo = txtCodigo.Text.Trim();
                 producto.nombre = txtNombreProducto.Text.Trim();
-                producto.categoria = txtCategoria.Text.Trim();
                 producto.idunidadMedida = (int)cbxUnidadMedida.SelectedValue;
+                producto.idmarca = (int)cbxMarca.SelectedValue;
+                producto.idcategoria = (int)cbxCategoria.SelectedValue;
                 producto.stock = (int)nudStock.Value;
                 producto.precioUnitario = nudPrecioUnitario.Value;
                 producto.precioCompra = nudPrecioCompra.Value;
