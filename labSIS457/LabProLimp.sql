@@ -20,12 +20,24 @@ DROP TABLE IF EXISTS Producto;
 DROP TABLE IF EXISTS Empleado;
 DROP TABLE IF EXISTS Proveedor;
 DROP TABLE IF EXISTS Cliente;
+DROP TABLE IF EXISTS Marca;
+DROP TABLE IF EXISTS Categoria;
 DROP TABLE IF EXISTS UnidadMedida;
 
 
 CREATE TABLE UnidadMedida(
 	id INT NOT NULL PRIMARY KEY IDENTITY(1, 1),
 	descripcion VARCHAR(20) NOT NULL UNIQUE
+);
+
+CREATE TABLE Categoria(
+	id INT NOT NULL PRIMARY KEY IDENTITY(1, 1),
+	nombre VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Marca(
+	id INT NOT NULL PRIMARY KEY IDENTITY(1, 1),
+	nombre VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Cliente(
@@ -59,7 +71,6 @@ CREATE TABLE Proveedor(
 	idproveedor INT NOT NULL,
 	codigo VARCHAR (20) NOT NULL,
 	nombre VARCHAR (100)  NOT NULL,
-	categoria VARCHAR (20) NOT NULL,
 	precioUnitario DECIMAL NOT NULL CHECK (precioUnitario>0),
 	stock INT NOT NULL,
 	fechaVencimiento DATE NOT NULL,
@@ -93,9 +104,18 @@ CREATE TABLE DetalleVenta(
 );
 
 
+
 ALTER TABLE UnidadMedida ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
 ALTER TABLE UnidadMedida ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
 ALTER TABLE UnidadMedida ADD estado SMALLINT NOT NULL DEFAULT 1;
+
+ALTER TABLE Categoria ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Categoria ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE Categoria ADD estado SMALLINT NOT NULL DEFAULT 1;
+
+ALTER TABLE Marca ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
+ALTER TABLE Marca ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
+ALTER TABLE Marca ADD estado SMALLINT NOT NULL DEFAULT 1;
 
 ALTER TABLE Cliente ADD usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME();
 ALTER TABLE Cliente ADD fechaRegistro DATETIME NOT NULL DEFAULT GETDATE();
@@ -138,6 +158,40 @@ END;
 GO
 
 EXEC paUnidadMedidaListar '';
+
+GO
+DROP PROC IF EXISTS paCategoriaListar;
+GO
+CREATE PROC paCategoriaListar @parametro VARCHAR(50)
+AS
+BEGIN
+    SELECT 
+        c.id,c.nombre,c.usuarioRegistro,c.fechaRegistro,c.estado
+    FROM Categoria c
+    WHERE c.estado > -1
+      AND c.nombre LIKE '%' + REPLACE(@parametro, ' ', '%') + '%'
+    ORDER BY c.estado DESC, c.nombre ASC;
+END;
+GO
+
+EXEC paCategoriaListar '';
+
+
+GO
+DROP PROC IF EXISTS paMarcaListar;
+GO
+CREATE PROC paMarcaListar @parametro VARCHAR(50)
+AS
+BEGIN
+    SELECT m.id,m.nombre,m.usuarioRegistro,m.fechaRegistro,m.estado
+    FROM Marca m
+    WHERE m.estado > -1
+      AND m.nombre LIKE '%' + REPLACE(@parametro, ' ', '%') + '%'
+    ORDER BY m.estado DESC, m.nombre ASC;
+END;
+GO
+
+EXEC paMarcaListar '';
 
 GO
 DROP PROC IF EXISTS paClienteListar;
