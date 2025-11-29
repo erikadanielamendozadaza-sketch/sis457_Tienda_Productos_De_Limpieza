@@ -324,3 +324,4 @@ E:\Daniel dou\Mio\SIS 457 fundamentos\Clon lab v6 (AHORA SI ULTIMA)\Nueva carpet
 E:\Daniel dou\Mio\SIS 457 fundamentos\Clon lab v6 (AHORA SI ULTIMA)\Nueva carpeta\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\bin\Debug\EntityFramework.SqlServer.xml
 E:\Daniel dou\Mio\SIS 457 fundamentos\Clon lab v6 (AHORA SI ULTIMA)\Nueva carpeta\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\CpProLimp.csproj.Up2Date
 E:\Daniel dou\Mio\SIS 457 fundamentos\Clon lab v6 (AHORA SI ULTIMA)\Nueva carpeta\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.exe.config
+C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.exe.config

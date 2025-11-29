@@ -1,60 +1,31 @@
 ﻿@model IEnumerable<WebProLimp.Models.Producto>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Productos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Productos</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create"><i class="fa fa-plus-circle" aria-hidden="true"></i>Crear nuevo producto</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Codigo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrecioUnitario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stock)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaVencimiento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PrecioCompra)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CantidadMinimaStock)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UsuarioRegistro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaRegistro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdcategoriaNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdmarcaNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdproveedorNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdunidadMedidaNavigation)
-            </th>
+            <th>Código</th>
+            <th>Nombre del Producto</th>
+            <th>Marca </th>
+            <th>Categoría</th>
+            <th>Unidad de Medida</th>
+            <th>Fecha de Vencimiento</th>
+            <th>Precio Unitario</th>
+            <th>Stock</th>
+            <th>Precio de Compra</th>
+            <th>Cantidad Mínima de Stock</th>
+            <th>Proveedor</th>
+            <th>Usuario Registro</th>
+            <th>Fecha Registro</th>
             <th></th>
         </tr>
     </thead>
@@ -68,13 +39,22 @@
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.IdmarcaNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdcategoriaNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdunidadMedidaNavigation.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaVencimiento)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.PrecioUnitario)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Stock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaVencimiento)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PrecioCompra)
@@ -83,30 +63,18 @@
                 @Html.DisplayFor(modelItem => item.CantidadMinimaStock)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.IdproveedorNavigation.NombreEmpresa)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.UsuarioRegistro)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FechaRegistro)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdcategoriaNavigation.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdmarcaNavigation.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdproveedorNavigation.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdunidadMedidaNavigation.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" title="Detalle"><i class="fa fa-eye" aria-hidden="true"></i></a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></a>
             </td>
         </tr>
 }

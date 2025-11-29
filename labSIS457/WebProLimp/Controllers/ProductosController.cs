@@ -21,7 +21,14 @@ namespace WebProLimp.Controllers
         // GET: Productos
         public async Task<IActionResult> Index()
         {
-            var labProLimpContext = _context.Producto.Include(p => p.IdcategoriaNavigation).Include(p => p.IdmarcaNavigation).Include(p => p.IdproveedorNavigation).Include(p => p.IdunidadMedidaNavigation);
+            var labProLimpContext = _context.Producto
+                .Include(p => p.IdcategoriaNavigation)
+                .Include(p => p.IdmarcaNavigation)
+                .Include(p => p.IdproveedorNavigation)
+                .Include(p => p.IdunidadMedidaNavigation)
+                .Where(p => p.Estado == 1)
+                .OrderBy(p => p.Nombre);
+
             return View(await labProLimpContext.ToListAsync());
         }
 
@@ -50,11 +57,24 @@ namespace WebProLimp.Controllers
         // GET: Productos/Create
         public IActionResult Create()
         {
-            ViewData["Idcategoria"] = new SelectList(_context.Categoria, "Id", "Id");
-            ViewData["Idmarca"] = new SelectList(_context.Marca, "Id", "Id");
-            ViewData["Idproveedor"] = new SelectList(_context.Proveedor, "Id", "Id");
-            ViewData["IdunidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Id");
+            ViewData["Idcategoria"] = new SelectList(_context.Categoria, "Id", "Nombre");
+            ViewData["Idmarca"] = new SelectList(_context.Marca, "Id", "Nombre");
+            ViewData["Idproveedor"] = new SelectList(_context.Proveedor, "Id", "NombreEmpresa");
+            ViewData["IdunidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Descripcion");
             return View();
+        }
+
+        private bool validar(Producto producto)
+        {
+            return
+                !string.IsNullOrWhiteSpace(producto.Codigo) &&
+                !string.IsNullOrWhiteSpace(producto.Nombre) &&
+                producto.Idcategoria != 0 &&
+                producto.Idmarca != 0 &&
+                producto.Idproveedor != 0 &&
+                producto.IdunidadMedida != 0 &&
+                producto.PrecioUnitario > 0 &&
+                producto.Stock >= 0;
         }
 
         // POST: Productos/Create
@@ -64,16 +84,21 @@ namespace WebProLimp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,IdunidadMedida,Idproveedor,Idcategoria,Idmarca,Codigo,Nombre,PrecioUnitario,Stock,FechaVencimiento,PrecioCompra,CantidadMinimaStock,UsuarioRegistro,FechaRegistro,Estado")] Producto producto)
         {
-            if (ModelState.IsValid)
+            if (validar(producto))
             {
+                producto.FechaRegistro = DateTime.Now;
+                producto.Estado = 1;
+
                 _context.Add(producto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Idcategoria"] = new SelectList(_context.Categoria, "Id", "Id", producto.Idcategoria);
-            ViewData["Idmarca"] = new SelectList(_context.Marca, "Id", "Id", producto.Idmarca);
-            ViewData["Idproveedor"] = new SelectList(_context.Proveedor, "Id", "Id", producto.Idproveedor);
-            ViewData["IdunidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Id", producto.IdunidadMedida);
+
+            ViewData["Idcategoria"] = new SelectList(_context.Categoria, "Id", "Nombre", producto.Idcategoria);
+            ViewData["Idmarca"] = new SelectList(_context.Marca, "Id", "Nombre", producto.Idmarca);
+            ViewData["Idproveedor"] = new SelectList(_context.Proveedor, "Id", "NombreEmpresa", producto.Idproveedor);
+            ViewData["IdunidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Descripcion", producto.IdunidadMedida);
+
             return View(producto);
         }
 
@@ -90,10 +115,12 @@ namespace WebProLimp.Controllers
             {
                 return NotFound();
             }
-            ViewData["Idcategoria"] = new SelectList(_context.Categoria, "Id", "Id", producto.Idcategoria);
-            ViewData["Idmarca"] = new SelectList(_context.Marca, "Id", "Id", producto.Idmarca);
-            ViewData["Idproveedor"] = new SelectList(_context.Proveedor, "Id", "Id", producto.Idproveedor);
-            ViewData["IdunidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Id", producto.IdunidadMedida);
+
+            ViewData["Idcategoria"] = new SelectList(_context.Categoria, "Id", "Nombre", producto.Idcategoria);
+            ViewData["Idmarca"] = new SelectList(_context.Marca, "Id", "Nombre", producto.Idmarca);
+            ViewData["Idproveedor"] = new SelectList(_context.Proveedor, "Id", "NombreEmpresa", producto.Idproveedor);
+            ViewData["IdunidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Descripcion", producto.IdunidadMedida);
+
             return View(producto);
         }
 
@@ -109,7 +136,7 @@ namespace WebProLimp.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (validar(producto))
             {
                 try
                 {
@@ -129,10 +156,10 @@ namespace WebProLimp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Idcategoria"] = new SelectList(_context.Categoria, "Id", "Id", producto.Idcategoria);
-            ViewData["Idmarca"] = new SelectList(_context.Marca, "Id", "Id", producto.Idmarca);
-            ViewData["Idproveedor"] = new SelectList(_context.Proveedor, "Id", "Id", producto.Idproveedor);
-            ViewData["IdunidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Id", producto.IdunidadMedida);
+            ViewData["Idcategoria"] = new SelectList(_context.Categoria, "Id", "Nombre", producto.Idcategoria);
+            ViewData["Idmarca"] = new SelectList(_context.Marca, "Id", "Nombre", producto.Idmarca);
+            ViewData["Idproveedor"] = new SelectList(_context.Proveedor, "Id", "NombreEmpresa", producto.Idproveedor);
+            ViewData["IdunidadMedida"] = new SelectList(_context.UnidadMedida, "Id", "Descripcion", producto.IdunidadMedida);
             return View(producto);
         }
 
@@ -166,7 +193,8 @@ namespace WebProLimp.Controllers
             var producto = await _context.Producto.FindAsync(id);
             if (producto != null)
             {
-                _context.Producto.Remove(producto);
+                producto.Estado = -1;
+                _context.Update(producto);
             }
 
             await _context.SaveChangesAsync();

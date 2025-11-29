@@ -353,20 +353,34 @@ VALUES ('Carlos Lopez','45671345')
 SELECT * FROM Cliente
 
 INSERT INTO UnidadMedida(descripcion)
-VALUES ('Litro')
+VALUES ('Litro'),('Kilo'),('Gramo'),('Mililitro'),('Paquete')
 
 SELECT * FROM UnidadMedida
 
 INSERT INTO Proveedor(nombreEmpresa,telefono,direccion,email)
 VALUES ('Distribuidora Limpieza Total SRL', '76451234', 'Av. Blanco Galindo', 'contacto@limpiezatotal.com')
 
-SELECT * FROM Proveedor
+SELECT * FROM Categoria
 
 INSERT INTO Marca(nombre)
 VALUES ('Ola')
 
+INSERT INTO Marca(nombre)
+VALUES ('Omo'), ('Surf'), ('Skip'), ('Liz'), ('Dove'), ('Rexona'), ('Axe'), ('Sedal'), ('Pedsodent'), ('Colgate'), ('Adayo'), ('Muvel')
+
 INSERT INTO Categoria(nombre)
-VALUES ('Limpieza de baño')
+VALUES
+('Limpieza de baño'),
+('Limpieza capilar'),
+('Limpieza dental'),
+('Papel higiénico y servilletas'),
+('Limpieza de cocina'),
+('Detergentes y lavado de ropa'),
+('Jabón de manos y cuerpo'),
+('Desodorantes y cuidado personal'),
+('Desinfectantes y antibacteriales'),
+('Productos para pisos'),
+('Aromatizantes y ambientadores')
 
 
 INSERT INTO Producto(idunidadMedida,idproveedor,idmarca,idcategoria,codigo,nombre,precioUnitario,stock,fechaVencimiento,precioCompra,cantidadMinimaStock)
