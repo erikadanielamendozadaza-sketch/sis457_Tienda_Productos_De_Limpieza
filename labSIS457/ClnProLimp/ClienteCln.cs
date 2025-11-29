@@ -73,6 +73,27 @@ namespace ClnProLimp
             }
         }
 
-
+        public static bool ExisteCedula(string cedulaIdentidad, int? excluirId = null)
+        {
+            if (string.IsNullOrWhiteSpace(cedulaIdentidad)) return false; 
+            using (var context = new LabProLimpEntities())
+            {
+                return context.Cliente.Any(c =>
+                    c.estado > -1 &&
+                    c.cedulaIdentidad == cedulaIdentidad &&
+                    (!excluirId.HasValue || c.id != excluirId.Value));
+            }
+        }
+        public static bool ExisteRazonSocial(string razonSocial, int? excluirId = null)
+        {
+            if (string.IsNullOrWhiteSpace(razonSocial)) return false;
+            using (var context = new LabProLimpEntities())
+            {
+                return context.Cliente.Any(c =>
+                    c.estado > -1 &&
+                    c.razonSocial == razonSocial &&
+                    (!excluirId.HasValue || c.id != excluirId.Value));
+            }
+        }
     }
 }

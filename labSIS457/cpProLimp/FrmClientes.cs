@@ -83,7 +83,6 @@ namespace cpProLimp
         {
             erpRazonSocial.Clear();
             erpCedulaIdentidad.Clear();
-
             if (string.IsNullOrWhiteSpace(txtRazonSocial.Text) &&
                 string.IsNullOrWhiteSpace(txtCedulaIdentidad.Text))
             {
@@ -91,19 +90,27 @@ namespace cpProLimp
                 erpCedulaIdentidad.SetError(txtCedulaIdentidad, "Debe ingresar al menos un dato del cliente");
                 return false;
             }
-
+            int? idActual = esNuevo ? (int?)null : (int)dgvLista.CurrentRow.Cells["id"].Value;
+            var ced = txtCedulaIdentidad.Text.Trim();
+            if (!string.IsNullOrWhiteSpace(ced) && ClienteCln.ExisteCedula(ced, idActual))
+            {
+                erpCedulaIdentidad.SetError(txtCedulaIdentidad, "La cédula ya está registrada.");
+                return false;
+            }
             return true;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validar())
+            if (!validar()) return;
+            try
             {
-                var cliente = new Cliente();
-                cliente.razonSocial = txtRazonSocial.Text.Trim();
-                cliente.cedulaIdentidad = txtCedulaIdentidad.Text.Trim();
-                cliente.usuarioRegistro = Util.empleado.usuario;
-
+                var cliente = new Cliente
+                {
+                    razonSocial = txtRazonSocial.Text.Trim(),
+                    cedulaIdentidad = txtCedulaIdentidad.Text.Trim(),
+                    usuarioRegistro = Util.empleado.usuario
+                };
                 if (esNuevo)
                 {
                     cliente.fechaRegistro = DateTime.Now;
@@ -119,6 +126,15 @@ namespace cpProLimp
                 btnCancelar.PerformClick();
                 MessageBox.Show("Cliente guardado correctamente", "::: Mensaje - ProLimp :::",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (InvalidOperationException ex) 
+            {
+                MessageBox.Show(ex.Message, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al guardar: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

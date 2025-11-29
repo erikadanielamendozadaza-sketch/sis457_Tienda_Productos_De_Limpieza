@@ -3,16 +3,30 @@ USE master
 GO
 
 CREATE LOGIN usrprolimp WITH PASSWORD = '123456',
-	CHECK_POLICY = ON,
+	CHECK_POLICY = OFF,
 	CHECK_EXPIRATION = OFF,
 	DEFAULT_DATABASE = LabProLimp
 GO
 USE LabProLimp
 GO
+
+IF NOT EXISTS (SELECT 1 FROM sys.sql_logins WHERE name = 'usrprolimp')
+    CREATE LOGIN usrprolimp WITH PASSWORD = '123456',
+        CHECK_POLICY = OFF, CHECK_EXPIRATION = OFF,
+        DEFAULT_DATABASE = LabProLimp;
+ELSE
+BEGIN
+    ALTER LOGIN usrprolimp ENABLE;
+    ALTER LOGIN usrprolimp WITH DEFAULT_DATABASE = LabProLimp;
+END
+GO
+
 CREATE USER usrprolimp FOR LOGIN usrprolimp
 GO
 ALTER ROLE db_owner ADD MEMBER usrprolimp
 GO
+
+
 
 DROP TABLE IF EXISTS DetalleVenta;
 DROP TABLE IF EXISTS Venta;
@@ -69,24 +83,20 @@ CREATE TABLE Proveedor(
 	id INT NOT NULL PRIMARY KEY IDENTITY(1, 1),
 	idunidadMedida INT NOT NULL,
 	idproveedor INT NOT NULL,
+	idcategoria INT NULL,
+	idmarca INT NULL,
 	codigo VARCHAR (20) NOT NULL,
 	nombre VARCHAR (100)  NOT NULL,
 	precioUnitario DECIMAL NOT NULL CHECK (precioUnitario>0),
 	stock INT NOT NULL,
-	fechaVencimiento DATE NOT NULL,
+	fechaVencimiento DATE NULL,
 	precioCompra DECIMAL NOT NULL CHECK (precioCompra >= 0),
 	cantidadMinimaStock INT NOT NULL DEFAULT 5,
 	CONSTRAINT fk_Producto_UnidadMedida FOREIGN KEY (idunidadMedida) REFERENCES UnidadMedida(id),
-	CONSTRAINT fk_Producto_Proveedor FOREIGN KEY (idProveedor) REFERENCES Proveedor(id)
+	CONSTRAINT fk_Producto_Proveedor FOREIGN KEY (idProveedor) REFERENCES Proveedor(id),
+	CONSTRAINT fk_Producto_Categoria FOREIGN KEY (idcategoria) REFERENCES Categoria(id),
+	CONSTRAINT fk_Producto_Marca FOREIGN KEY (idmarca) REFERENCES Marca(id)
 );
-
-ALTER TABLE Producto ADD idcategoria INT NULL;
-ALTER TABLE Producto ADD idmarca INT NULL;
-
-ALTER TABLE Producto ADD CONSTRAINT fk_Producto_Categoria FOREIGN KEY (idcategoria) REFERENCES Categoria(id);
-ALTER TABLE Producto ADD CONSTRAINT fk_Producto_Marca FOREIGN KEY (idmarca) REFERENCES Marca(id);
-
-ALTER TABLE Producto ALTER COLUMN fechaVencimiento DATE NULL;
 
 CREATE TABLE Venta(
 	id INT NOT NULL PRIMARY KEY IDENTITY(1, 1),
@@ -352,9 +362,15 @@ VALUES ('Distribuidora Limpieza Total SRL', '76451234', 'Av. Blanco Galindo', 'c
 
 SELECT * FROM Proveedor
 
+INSERT INTO Marca(nombre)
+VALUES ('Ola')
 
-INSERT INTO Producto(idunidadMedida,idproveedor,codigo,nombre,categoria,precioUnitario,stock,fechaVencimiento,precioCompra,cantidadMinimaStock)
-VALUES ('1','1','PROD001','Detergente','Limpieza','25.50','100','2026-05-10','15.00','10')
+INSERT INTO Categoria(nombre)
+VALUES ('Limpieza de baño')
+
+
+INSERT INTO Producto(idunidadMedida,idproveedor,idmarca,idcategoria,codigo,nombre,precioUnitario,stock,fechaVencimiento,precioCompra,cantidadMinimaStock)
+VALUES ('1','1','1','1','PROD001','Limpia Baños','25.50','100','2026-05-10','15.00','10')
 
 SELECT * FROM Producto
 

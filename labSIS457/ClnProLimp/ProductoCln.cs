@@ -9,6 +9,18 @@ namespace ClnProLimp
 {
     public class ProductoCln
     {
+        public static bool ExisteCodigo(string codigo, int? excluirId = null)
+        {
+            if (string.IsNullOrWhiteSpace(codigo)) return false;
+            using (var context = new LabProLimpEntities())
+            {
+                return context.Producto.Any(p =>
+                    p.estado > -1 &&
+                    p.codigo == codigo &&
+                    (!excluirId.HasValue || p.id != excluirId.Value));
+            }
+        }
+
         public static int insertar(Producto producto)
         {
             using (var context = new LabProLimpEntities())

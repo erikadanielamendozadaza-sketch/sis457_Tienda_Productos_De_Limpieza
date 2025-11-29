@@ -204,6 +204,7 @@ namespace cpProLimp
             if (nudStock.Value < 0) 
             {
                 erpStock.SetError(nudStock, "El stock no puede ser negativo");
+                esValido = false;
             }
             if (nudPrecioCompra.Value <= 0)
             {
@@ -226,6 +227,17 @@ namespace cpProLimp
                 erpCantidadMinimaStock.SetError(nudCantidadMinimaStock,
                     "La cantidad mínima debe ser mayor a cero");
                 esValido = false;
+            }
+
+            if (esValido) 
+            {
+                int? idActual = esNuevo ? (int?)null : (int)dgvLista.CurrentRow.Cells["id"].Value;
+                var cod = txtCodigo.Text.Trim();
+                if (!string.IsNullOrWhiteSpace(cod) && ProductoCln.ExisteCodigo(cod, idActual))
+                {
+                    erpCodigo.SetError(txtCodigo, "El código ya está registrado.");
+                    esValido = false;
+                }
             }
 
             return esValido;

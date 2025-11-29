@@ -284,7 +284,6 @@ E:\Daniel dou\Mio\SIS 457 fundamentos\clon lab v3\sis457_Tienda_Productos_De_Lim
 E:\Daniel dou\Mio\SIS 457 fundamentos\clon lab v3\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.exe
 E:\Daniel dou\Mio\SIS 457 fundamentos\clon lab v3\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.pdb
 C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmFactura.resources
-C:\Users\TERABYTE10\Desktop\origlab\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.exe.config
 E:\Daniel dou\Mio\SIS 457 fundamentos\Clon lab v6 (AHORA SI ULTIMA)\Nueva carpeta\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\CpProLimp.csproj.AssemblyReference.cache
 E:\Daniel dou\Mio\SIS 457 fundamentos\Clon lab v6 (AHORA SI ULTIMA)\Nueva carpeta\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmAutenticacion.resources
 E:\Daniel dou\Mio\SIS 457 fundamentos\Clon lab v6 (AHORA SI ULTIMA)\Nueva carpeta\sis457_Tienda_Productos_De_Limpieza\labSIS457\cpProLimp\obj\Debug\cpProLimp.FrmClientes.resources

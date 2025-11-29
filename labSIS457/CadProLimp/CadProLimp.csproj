@@ -117,6 +117,12 @@
     <Compile Include="Proveedor.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="UnidadMedida.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
