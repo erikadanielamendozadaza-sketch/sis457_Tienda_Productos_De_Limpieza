@@ -1,106 +1,74 @@
 ﻿@model WebProLimp.Models.Producto
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Eliminar Producto";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Delete</h1>
+<h1>Eliminar Producto</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>¿Estás seguro que quiere borrar el producto?</h3>
 <div>
-    <h4>Producto</h4>
-    <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Codigo)
-        </dt>
-        <dd class = "col-sm-10">
+        <dt class="col-sm-2">Código</dt>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Codigo)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
+        <dt class="col-sm-2">Nombre</dt>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Nombre)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrecioUnitario)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrecioUnitario)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Stock)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Stock)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaVencimiento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FechaVencimiento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrecioCompra)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PrecioCompra)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CantidadMinimaStock)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CantidadMinimaStock)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UsuarioRegistro)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UsuarioRegistro)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaRegistro)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FechaRegistro)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdcategoriaNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdcategoriaNavigation.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdmarcaNavigation)
-        </dt>
-        <dd class = "col-sm-10">
+        <dt class="col-sm-2">Marca</dt>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.IdmarcaNavigation.Id)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdproveedorNavigation)
-        </dt>
-        <dd class = "col-sm-10">
+        <dt class="col-sm-2">Unidad de Medida</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdunidadMedidaNavigation.Id)
+        </dd>
+        <dt class="col-sm-2">Categoría</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdcategoriaNavigation.Id)
+        </dd>
+        <dt class="col-sm-2">Proveedor </dt>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.IdproveedorNavigation.Id)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdunidadMedidaNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdunidadMedidaNavigation.Id)
+        <dt class="col-sm-2">Precio Unitario</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PrecioUnitario)
+        </dd>
+        <dt class="col-sm-2">Stock</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+        <dt class="col-sm-2">Fecha de Vencimiento </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaVencimiento)
+        </dd>
+        <dt class="col-sm-2">Precio de Compra</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PrecioCompra)
+        </dd>
+        <dt class="col-sm-2">Cantidad Mínima Stock</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CantidadMinimaStock)
+        </dd>
+        <dt class="col-sm-2">Usuario Registro</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UsuarioRegistro)
+        </dd>
+        <dt class="col-sm-2">Fecha Registro</dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaRegistro)
         </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <button type="submit" class="btn btn-danger">
+            <i class="fa fa-trash" aria-hidden="true"></i> Eliminar
+        </button> |
+        <a asp-action="Index"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver a la lista</a>
     </form>
 </div>
