@@ -21,7 +21,11 @@ namespace WebProLimp.Controllers
         // GET: Clientes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Cliente.ToListAsync());
+            var labProLimpContext = _context.Cliente
+                .Where(c => c.Estado == 1)
+                .OrderBy(c => c.RazonSocial);
+
+            return View(await labProLimpContext.ToListAsync());
         }
 
         // GET: Clientes/Details/5
@@ -32,8 +36,7 @@ namespace WebProLimp.Controllers
                 return NotFound();
             }
 
-            var cliente = await _context.Cliente
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var cliente = await _context.Cliente.FindAsync(id);
             if (cliente == null)
             {
                 return NotFound();
@@ -48,6 +51,13 @@ namespace WebProLimp.Controllers
             return View();
         }
 
+        private bool validar(Cliente cliente)
+        {
+            return
+                !string.IsNullOrWhiteSpace(cliente.RazonSocial) &&
+                !string.IsNullOrWhiteSpace(cliente.CedulaIdentidad);
+        }
+
         // POST: Clientes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -55,17 +65,21 @@ namespace WebProLimp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,RazonSocial,CedulaIdentidad,UsuarioRegistro,FechaRegistro,Estado")] Cliente cliente)
         {
-            if (ModelState.IsValid)
+            if (validar(cliente))
             {
+                cliente.FechaRegistro = DateTime.Now;
+                cliente.Estado = 1;
+
                 _context.Add(cliente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(cliente);
         }
 
         // GET: Clientes/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+       public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -77,6 +91,7 @@ namespace WebProLimp.Controllers
             {
                 return NotFound();
             }
+
             return View(cliente);
         }
 
@@ -92,7 +107,7 @@ namespace WebProLimp.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (validar(cliente))
             {
                 try
                 {
@@ -141,7 +156,8 @@ namespace WebProLimp.Controllers
             var cliente = await _context.Cliente.FindAsync(id);
             if (cliente != null)
             {
-                _context.Cliente.Remove(cliente);
+                cliente.Estado = -1;
+                _context.Update(cliente);
             }
 
             await _context.SaveChangesAsync();
