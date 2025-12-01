@@ -26,8 +26,51 @@
     <link rel="stylesheet" href="~/WebProLimp.styles.css" asp-append-version="true" />
 </head>
 <body>
-    @if (!(ViewContext.RouteData.Values["controller"]?.ToString() == "Account" && ViewContext.RouteData.Values["action"]?.ToString() == "Login"))
+    <!-- Navbar Simple para Navegación Global -->
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-info" style="background-color: #87ceeb !important; border-bottom: 2px solid #4682b4;">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" asp-controller="Home" asp-action="Index" style="font-weight: bold; font-family: Arial, sans-serif; font-size: 24px;">ProLimp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item" style="padding: 10px;">
+                        <a class="nav-link text-white" asp-controller="Home" asp-action="Index" style="font-family: Arial, sans-serif; font-size: 18px; font-weight: bold;">Inicio</a>
+                    </li>
+                    <li class="nav-item" style="padding: 10px;">
+                        <a class="nav-link text-white" asp-controller="Home" asp-action="Privacy" style="font-family: Arial, sans-serif; font-size: 18px; font-weight: bold;">Privacidad</a>
+                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item" style="padding: 10px;">
+                            <a class="nav-link text-white" asp-controller="Productos" asp-action="Index" style="font-family: Arial, sans-serif; font-size: 18px; font-weight: bold;">Productos</a>
+                        </li>
+                        <li class="nav-item" style="padding: 10px;">
+                            <a class="nav-link text-white" asp-controller="Clientes" asp-action="Index" style="font-family: Arial, sans-serif; font-size: 18px; font-weight: bold;">Clientes</a>
+                        </li>
+                        <li class="nav-item" style="padding: 10px;">
+                            <a class="nav-link text-white" asp-controller="Ventas" asp-action="Index" style="font-family: Arial, sans-serif; font-size: 18px; font-weight: bold;">Ventas</a>
+                        </li>
+                        <li class="nav-item" style="padding: 10px;">
+                            <a asp-controller="Account" asp-action="Logout" class="btn btn-outline-light" style="font-family: Arial, sans-serif; font-size: 18px; font-weight: bold;">Cerrar Sesión</a>
+                        </li>
+                    }
+                    @if (User.Identity?.IsAuthenticated == false)
+                    {
+                        <li class="get-started" style="padding: 10px;">
+                            <a asp-controller="Account" asp-action="Login" class="text-white" style="font-family: Arial, sans-serif; font-size: 18px; font-weight: bold;">Iniciar Sesión</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
     {
+        <!-- Header del Template (solo en Home) -->
         <div class="header_section">
             <div class="container-fluid">
                 <div class="row">
@@ -46,14 +89,14 @@
                                             }
                                             else
                                             {
-                                                <span>Hola @User.Identity?.Name</span>
+                                                <span style="font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; color: #4682b4;">Hola @User.Identity?.Name</span>
                                                 @await Html.PartialAsync("_LogoutPartial")
                                             }
                                         </div>
                                     </div>
-                                    <div class="shoping_bag"><img src="images/search-icon.png"></div>
+                                    <!-- Lupa quitada -->
                                 </div>
-                                <div id="myNav" class="overlay">
+                                <div id="myNav" class="overlay" style="width: 0%; position: fixed; height: 100%; top: 0; left: 0; background-color: rgba(0,0,0,0.9); overflow-x: hidden; transition: 0.5s;">
                                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                                     <div class="overlay-content">
                                         <a asp-controller="Home" asp-action="Index">Home</a>
@@ -67,7 +110,6 @@
                                             <a asp-controller="Productos" asp-action="Index">Productos</a>
                                             <a asp-controller="Clientes" asp-action="Index">Clientes</a>
                                             <a asp-controller="Ventas" asp-action="Index">Ventas</a>
-                         
                                         }
                                     </div>
                                 </div>
@@ -85,7 +127,7 @@
                         <div class="col-sm-5">
                             <h1 class="banner_taital">Best YOUR</h1>
                             <h1 class="banner_taital_1">house CLEAN</h1>
-                            <p class="banner_text">S
+                            <p class="banner_text">
                                 Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                 Ut enim
                             </p>
@@ -108,7 +150,74 @@
             </div>
             <!-- banner section end -->
         </div>
+
+        <!-- Footer (solo en Home) -->
+        <div class="footer_section layout_padding">
+            <div class="container">
+                <div class="footer_main">
+                    <div class="footer_left">
+                        <h1 class="contact_taital"><span>Contact </span> <img src="images/icon-2.png"> <span>Us</span></h1>
+                    </div>
+                    <div class="footer_left">
+                        <div class="location_text">
+                            <a href="#">
+                                <img src="images/map-icon.png"><span class="padding_left_15">Locations</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_left">
+                        <div class="location_text">
+                            <a href="#">
+                                <img src="images/call-icon.png"><span class="padding_left_15">
+                                    +71
+                                    9876543210
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer_left">
+                        <div class="location_text">
+                            <a href="#">
+                                <img src="images/map-icon.png"><span class="padding_left_15">demo@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact_section">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mail_section">
+                                <input type="" class="email_text" placeholder="Name" name="Name">
+                                <input type="" class="email_text" placeholder="Email" name="Email">
+                                <input type="" class="email_text" placeholder="Phone Number" name="Phone Number">
+                                <textarea class="massage_text" placeholder="Message" rows="5" id="comment" name="Message"></textarea>
+                                <div class="send_bt"><a href="#">send</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="map_main">
+                                <div class="map-responsive">
+                                    <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France"
+                                            width="600" height="280" frameborder="0" style="border:0; width: 100%;" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <div class="social_icon">
+                                <ul>
+                                    <li><a href="#"><img src="images/fb-icon1.png"></a></li>
+                                    <li><a href="#"><img src="images/twitter-icon1.png"></a></li>
+                                    <li><a href="#"><img src="images/linkden-icon1.png"></a></li>
+                                    <li><a href="#"><img src="images/instagram-icon1.png"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer section end -->
     }
+
+    <!-- Contenido -->
     <div class="contenido-con-borde" style="
             border: 1px solid #ccc;
             padding: 20px;
@@ -118,74 +227,8 @@
         @RenderBody()
     </div>
 
-    <!-- footer section start -->
-    <div class="footer_section layout_padding">
-        <div class="container">
-            <div class="footer_main">
-                <div class="footer_left">
-                    <h1 class="contact_taital"><span>Contact </span> <img src="images/icon-2.png"> <span>Us</span></h1>
-                </div>
-                <div class="footer_left">
-                    <div class="location_text">
-                        <a href="#">
-                            <img src="images/map-icon.png"><span class="padding_left_15">Locations</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer_left">
-                    <div class="location_text">
-                        <a href="#">
-                            <img src="images/call-icon.png"><span class="padding_left_15">
-                                +71
-                                9876543210
-                            </span>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer_left">
-                    <div class="location_text">
-                        <a href="#">
-                            <img src="images/map-icon.png"><span class="padding_left_15">demo@gmail.com</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="contact_section">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="mail_section">
-                            <input type="" class="email_text" placeholder="Name" name="Name">
-                            <input type="" class="email_text" placeholder="Email" name="Email">
-                            <input type="" class="email_text" placeholder="Phone Number" name="Phone Number">
-                            <textarea class="massage_text" placeholder="Message" rows="5" id="comment" name="Message"></textarea>
-                            <div class="send_bt"><a href="#">send</a></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="map_main">
-                            <div class="map-responsive">
-                                <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France"
-                                        width="600" height="280" frameborder="0" style="border:0; width: 100%;" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                        <div class="social_icon">
-                            <ul>
-                                <li><a href="#"><img src="images/fb-icon1.png"></a></li>
-                                <li><a href="#"><img src="images/twitter-icon1.png"></a></li>
-                                <li><a href="#"><img src="images/linkden-icon1.png"></a></li>
-                                <li><a href="#"><img src="images/instagram-icon1.png"></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- footer section end -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js" integrity="sha512-6BTOlkauINO65nLhXhthZMtepgJSghyimIalb+crKRPhvhmsCdnIuGcVbR5/aQY2A+260iC1OPy1oCdB6pSSwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- copyright section end -->
     <!-- Javascript files-->
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/popper.min.js"></script>
@@ -216,7 +259,7 @@
     </script>
     <script>
         function openNav() {
-          document.getElementById("myNav").style.width = "100%";
+          document.getElementById("myNav").style.width = "25%";  // Cambiado a 25%
         }
         function closeNav() {
           document.getElementById("myNav").style.width = "0%";
