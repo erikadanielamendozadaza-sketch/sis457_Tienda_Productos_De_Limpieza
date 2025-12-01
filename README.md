@@ -19,8 +19,6 @@ id
 
 nombreEmpresa
 
-contacto
-
 telefono
 
 direccion
@@ -31,7 +29,7 @@ Relaciones:
 •	Un Proveedor puede tener muchos Productos (1–N)
 •	Un Proveedor puede realizar muchas Compras (1–N)
 
-4. Producto
+3. Producto
 Propósito: almacenar toda la información de los productos que maneja la tienda.
 
 id
@@ -40,64 +38,64 @@ idUnidadMedida
 
 idProveedor 
 
+idcategoria
+
+idmarca
+
+codigo
+
 nombre
 
-descripcion
-
-categoria
-
-precioCompra
-
-precioVenta
+precioUnitario
 
 stock
 
 fechaVencimiento
+
+precioCompra
+
+cantidadMinimaStock
 
 Relaciones:
 •	Pertenece a una Unidad de Medida (N–1)
 •	Pertenece a un Proveedor (N–1)
 •	Participa en muchos DetallesVenta(N–N mediante esas tablas)
 
-6. Empleado
+4. Empleado
 Propósito: registrar al personal que trabaja en la tienda (cajeros, encargados, etc.)
 
 id
 
-nombre
+nombres
 
-apellido
+primerApellido
+
+segundoApellido
+
+cedulaIdentidad
 
 usuario
 
-contraseña
+clave
 
 telefono
-
-rol 
 
 Relaciones:
 •	Puede registrar muchas Ventas(1–N)
 
-8. Cliente
+5. Cliente
 Propósito: registrar a los compradores frecuentes o que requieren facturación.
 
 id
 
-nombre
-
-apellido
+razonSocial
 
 cedulaIdentidad
-
-telefono
-
-direccion
 
 Relaciones:
 •	Un cliente puede tener muchas Ventas (1–N)
 
-10. Venta
+6. Venta
 Propósito: registrar la transacción de venta realizada al cliente.
 
 Id
@@ -115,7 +113,7 @@ Relaciones:
 •	Una Venta la realiza un Empleado
 •	Una Venta pertenece a un Cliente
 
-12. DetalleVenta
+7. DetalleVenta
 Propósito: registrar los productos vendidos dentro de cada venta.
 
 id
@@ -134,4 +132,23 @@ Relaciones:
 •	Pertenece a una Venta (N–1)
 •	Se refiere a un Producto (N–1)
 
+8.Marca
+Propósito: identificar la marca del producto (Unilever, Colgate, etc.)
+
+id
+
+nombre
+
+Relaciones:
+Una Marca puede tener muchos Productos (1–N)
+
+9.Categoría
+Propósito: clasificar los productos según su tipo (ej. detergentes, jabones, desinfectantes).
+
+id
+
+nombre
+
+Relaciones:
+Una Categoría puede contener muchos Productos (1–N)
 
