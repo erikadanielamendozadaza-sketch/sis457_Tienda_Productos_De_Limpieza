@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebProLimp</title>
     <script type="importmap"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap css -->
     <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css">
     <!-- style css -->
@@ -26,80 +26,97 @@
     <link rel="stylesheet" href="~/WebProLimp.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <div class="header_section">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
-                </div>
-                <div class="col-md-9">
-                    <div class="menu_text">
-                        <ul>
-                            <div class="togle_3">
-                                <div class="menu_main">
-                                    <div class="padding_left0">
-                                        <a href="#">Register</a>
-                                        <span class="padding_left0"><a href="#">Login</a></span>
+    @if (!(ViewContext.RouteData.Values["controller"]?.ToString() == "Account" && ViewContext.RouteData.Values["action"]?.ToString() == "Login"))
+    {
+        <div class="header_section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="menu_text">
+                            <ul>
+                                <div class="togle_3">
+                                    <div class="menu_main">
+                                        <div class="padding_left0">
+                                            @if (User.Identity?.IsAuthenticated == false)
+                                            {
+                                                <a asp-controller="Account" asp-action="Login">Iniciar Sesión</a>
+                                            }
+                                            else
+                                            {
+                                                <span>Hola @User.Identity?.Name</span>
+                                                @await Html.PartialAsync("_LogoutPartial")
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="shoping_bag"><img src="images/search-icon.png"></div>
+                                </div>
+                                <div id="myNav" class="overlay">
+                                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                                    <div class="overlay-content">
+                                        <a asp-controller="Home" asp-action="Index">Home</a>
+                                        <a href="services.html">Services</a>
+                                        <a href="about.html">About</a>
+                                        <a href="choose.html">Choose</a>
+                                        <a href="team.html">Team</a>
+                                        <a href="contact.html">Contact Us</a>
+                                        @if (User.Identity?.IsAuthenticated == true)
+                                        {
+                                            <a asp-controller="Productos" asp-action="Index">Productos</a>
+                                            <a asp-controller="Clientes" asp-action="Index">Clientes</a>
+                                            <a asp-controller="Ventas" asp-action="Index">Ventas</a>
+                         
+                                        }
                                     </div>
                                 </div>
-                                <div class="shoping_bag"><img src="images/search-icon.png"></div>
-                            </div>
-                            <div id="myNav" class="overlay">
-                                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                                <div class="overlay-content">
-                                    <a href="index.html">Home</a>
-                                    <a href="services.html">Services</a>
-                                    <a href="about.html">About</a>
-                                    <a href="choose.html">Choose</a>
-                                    <a href="team.html">Team</a>
-                                    <a href="contact.html">Contact Us</a>
-                                </div>
-                            </div>
-                            <span class="navbar-toggler-icon"></span>
-                            <span onclick="openNav()"><img src="images/toggle-icon.png" class="toggle_menu"></span>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- banner section start -->
-        <div class="banner_section layout_padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-5">
-                        <h1 class="banner_taital">Best YOUR</h1>
-                        <h1 class="banner_taital_1">house CLEAN</h1>
-                        <p class="banner_text">
-                            Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim
-                        </p>
-                        <div class="contact_bt">
-                            <a href="contact.html">
-                                CONTACT US<span class="contact_padding">
-                                    <img src="images/contact-icon.png">
-                                </span>
-                            </a>
+                                <span class="navbar-toggler-icon"></span>
+                                <span onclick="openNav()"><img src="images/toggle-icon.png" class="toggle_menu"></span>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-sm-2">
-                        <div class="play_icon"><a href="#"><img src="images/play-icon.png"></a></div>
-                    </div>
-                    <div class="col-sm-5">
-                        <div><img src="images/img-1.png" class="image_1"></div>
+                </div>
+            </div>
+            <!-- banner section start -->
+            <div class="banner_section layout_padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <h1 class="banner_taital">Best YOUR</h1>
+                            <h1 class="banner_taital_1">house CLEAN</h1>
+                            <p class="banner_text">S
+                                Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim
+                            </p>
+                            <div class="contact_bt">
+                                <a href="contact.html">
+                                    CONTACT US<span class="contact_padding">
+                                        <img src="images/contact-icon.png">
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="play_icon"><a href="#"><img src="images/play-icon.png"></a></div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div><img src="images/img-1.png" class="image_1"></div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- banner section end -->
         </div>
-        <!-- banner section end -->
-    </div>
-            <div class="contenido-con-borde" style="
+    }
+    <div class="contenido-con-borde" style="
             border: 1px solid #ccc;
             padding: 20px;
             margin: 10px;
             border-radius: 8px;
             background-color: #f9f9f9;">
-                @RenderBody()
-            </div>
+        @RenderBody()
+    </div>
 
     <!-- footer section start -->
     <div class="footer_section layout_padding">
@@ -167,7 +184,7 @@
     <!-- footer section end -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js" integrity="sha512-6BTOlkauINO65nLhXhthZMtepgJSghyimIalb+crKRPhvhmsCdnIuGcVbR5/aQY2A+260iC1OPy1oCdB6pSSwQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+
     <!-- copyright section end -->
     <!-- Javascript files-->
     <script src="~/js/jquery.min.js"></script>
