@@ -1,0 +1,200 @@
+﻿@model WebProLimp.Models.Venta
+
+@{
+    ViewData["Title"] = "Nueva Venta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Nueva Venta</h1>
+
+<div class="row">
+    <!-- Columna Izquierda: Cliente y Productos -->
+    <div class="col-md-6">
+        <h3>Cliente</h3>
+        <div class="form-group">
+            <label for="ciCliente">Cédula de Identidad</label>
+            <input type="text" id="ciCliente" class="form-control" placeholder="Ingrese CI del cliente" />
+            <button type="button" id="buscarCliente" class="btn btn-secondary mt-2">Buscar Cliente</button>
+        </div>
+        <p id="clienteInfo" class="text-success"></p>
+        <input type="hidden" id="idCliente" />
+
+        <h3>Productos</h3>
+        <div class="form-group">
+            <input type="text" id="buscarProducto" class="form-control" placeholder="Buscar producto por nombre o código" />
+        </div>
+        @if (ViewData["Productos"] != null)
+        {
+            <table id="productosTable" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio Unitario</th>
+                        <th>Stock</th>
+                        <th>Cantidad</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var producto in ViewData["Productos"] as IEnumerable<WebProLimp.Models.Producto>)
+                    {
+                        <tr>
+                            <td>@producto.Nombre</td>
+                            <td>@producto.PrecioUnitario.ToString("0.00")</td>
+                            <td>@producto.Stock</td>
+                            <td><input type="number" class="form-control cantidad" min="1" value="1" /></td>
+                            <td><button type="button" class="btn btn-primary addToCart" data-id="@producto.Id">Agregar</button></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No hay productos disponibles.</p>
+        }
+    </div>
+
+    <!-- Columna Derecha: Carrito -->
+    <div class="col-md-6">
+        <h3>Carrito de Compras</h3>
+        <p>Empleado: @ViewBag.Empleado</p>
+        <p>Fecha: @DateTime.Now.ToShortDateString()</p>
+        <table id="carritoTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unit.</th>
+                    <th>Subtotal</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Se llena dinámicamente con AJAX -->
+            </tbody>
+        </table>
+        <p>Total: <span id="total">0.00</span></p>
+        <button type="button" id="limpiarCarrito" class="btn btn-warning">Limpiar Carrito</button>
+
+        <!-- Formulario para registrar venta -->
+        <form id="ventaForm" asp-action="Create" method="post" class="mt-3">
+            <input type="hidden" name="idCliente" id="formIdCliente" />
+            <input type="hidden" name="Fecha" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-floppy-disk" aria-hidden="true"></i> Registrar Venta
+            </button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver a la Lista</a>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Función para actualizar el carrito en la vista
+        function actualizarCarrito() {
+            $.get('/Ventas/ObtenerCarrito', function(data) {
+                $('#carritoTable tbody').empty();
+                let total = 0;
+                data.forEach(item => {
+                    $('#carritoTable tbody').append(`
+                        <tr>
+                            <td>${item.productoNombre}</td>
+                            <td><input type="number" class="form-control updateCantidad" data-id="${item.idproducto}" value="${item.cantidad}" min="1" /></td>
+                            <td>${item.precioUnitario.toFixed(2)}</td>
+                            <td>${item.subtotal.toFixed(2)}</td>
+                            <td><button type="button" class="btn btn-danger removeFromCart" data-id="${item.idproducto}">Quitar</button></td>
+                        </tr>
+                    `);
+                    total += item.subtotal;
+                });
+                $('#total').text(total.toFixed(2));
+            });
+        }
+
+        // Buscar cliente por CI
+        $('#buscarCliente').click(function() {
+            const ci = $('#ciCliente').val();
+            $.get('/Ventas/BuscarCliente', { ci: ci }, function(data) {
+                if (data) {
+                    $('#clienteInfo').text(`Cliente: ${data.nombre}`);
+                    $('#idCliente').val(data.id);
+                    $('#formIdCliente').val(data.id);
+                } else {
+                    $('#clienteInfo').text('Cliente no encontrado').removeClass('text-success').addClass('text-danger');
+                }
+            });
+        });
+
+        // Buscar productos
+        $('#buscarProducto').keyup(function() {
+            const parametro = $(this).val();
+            $.get('/Ventas/BuscarProductos', { parametro: parametro }, function(data) {
+                $('#productosTable tbody').empty();
+                data.forEach(p => {
+                    $('#productosTable tbody').append(`
+                        <tr>
+                            <td>${p.nombre}</td>
+                            <td>${p.precioUnitario.toFixed(2)}</td>
+                            <td>${p.stock}</td>
+                            <td><input type="number" class="form-control cantidad" min="1" value="1" /></td>
+                            <td><button type="button" class="btn btn-primary addToCart" data-id="${p.id}">Agregar</button></td>
+                        </tr>
+                    `);
+                });
+            });
+        });
+
+        // Agregar al carrito
+        $(document).on('click', '.addToCart', function() {
+            const idProducto = $(this).data('id');
+            const cantidad = $(this).closest('tr').find('.cantidad').val();
+            $.post('/Ventas/AddToCart', { idProducto: idProducto, cantidad: parseFloat(cantidad) }, function(data) {
+                if (data.success) {
+                    actualizarCarrito();
+                } else {
+                    alert(data.message);
+                }
+            });
+        });
+
+        // Quitar del carrito
+        $(document).on('click', '.removeFromCart', function() {
+            const idProducto = $(this).data('id');
+            $.post('/Ventas/RemoveFromCart', { idProducto: idProducto }, function(data) {
+                if (data.success) {
+                    actualizarCarrito();
+                }
+            });
+        });
+
+        // Actualizar cantidad en carrito
+        $(document).on('change', '.updateCantidad', function() {
+            const idProducto = $(this).data('id');
+            const nuevaCantidad = parseFloat($(this).val());
+            $.post('/Ventas/UpdateCantidad', { idProducto: idProducto, nuevaCantidad: nuevaCantidad }, function(data) {
+                if (data.success) {
+                    actualizarCarrito();
+                } else {
+                    alert(data.message);
+                }
+            });
+        });
+
+        // Limpiar carrito
+        $('#limpiarCarrito').click(function() {
+            $.post('/Ventas/LimpiarCarrito', function() {
+                actualizarCarrito();
+            });
+        });
+
+        // Cargar carrito inicial
+        $(document).ready(function() {
+            actualizarCarrito();
+        });
+    </script>
+}

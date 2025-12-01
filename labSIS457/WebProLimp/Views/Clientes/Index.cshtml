@@ -35,9 +35,9 @@
                 @Html.DisplayFor(modelItem => item.FechaRegistro)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" title="Detalle"><i class="fa fa-eye" aria-hidden="true"></i></a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></a>
             </td>
         </tr>
 }
