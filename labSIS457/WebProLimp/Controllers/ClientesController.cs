@@ -67,6 +67,7 @@ namespace WebProLimp.Controllers
         {
             if (validar(cliente))
             {
+                cliente.UsuarioRegistro = User.Identity?.Name ?? "";
                 cliente.FechaRegistro = DateTime.Now;
                 cliente.Estado = 1;
 
@@ -111,6 +112,7 @@ namespace WebProLimp.Controllers
             {
                 try
                 {
+                    cliente.UsuarioRegistro = User.Identity?.Name ?? "";
                     _context.Update(cliente);
                     await _context.SaveChangesAsync();
                 }
@@ -156,6 +158,7 @@ namespace WebProLimp.Controllers
             var cliente = await _context.Cliente.FindAsync(id);
             if (cliente != null)
             {
+                cliente.UsuarioRegistro = User.Identity?.Name ?? "";
                 cliente.Estado = -1;
                 _context.Update(cliente);
             }

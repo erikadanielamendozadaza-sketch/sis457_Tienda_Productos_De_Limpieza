@@ -86,6 +86,7 @@ namespace WebProLimp.Controllers
         {
             if (validar(producto))
             {
+                producto.UsuarioRegistro = User.Identity?.Name ?? "";
                 producto.FechaRegistro = DateTime.Now;
                 producto.Estado = 1;
 
@@ -140,6 +141,7 @@ namespace WebProLimp.Controllers
             {
                 try
                 {
+                    producto.UsuarioRegistro = User.Identity?.Name ?? "";
                     _context.Update(producto);
                     await _context.SaveChangesAsync();
                 }
@@ -193,6 +195,7 @@ namespace WebProLimp.Controllers
             var producto = await _context.Producto.FindAsync(id);
             if (producto != null)
             {
+                producto.UsuarioRegistro = User.Identity?.Name ?? "";
                 producto.Estado = -1;
                 _context.Update(producto);
             }
