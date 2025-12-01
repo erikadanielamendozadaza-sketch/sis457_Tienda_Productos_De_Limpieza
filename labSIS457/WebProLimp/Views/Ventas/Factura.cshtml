@@ -1,28 +1,29 @@
 ﻿@model WebProLimp.Models.Venta
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Factura de Venta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Factura de Venta</h1>
 
-<div>
-    <h4>Venta</h4>
-    <hr />
+<div class="contenido-con-borde">
+    <h4>Detalles de la Venta</h4>
     <dl class="row">
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Id)</dt>
+        <dt class="col-sm-2">ID Venta</dt>
         <dd class="col-sm-10">@Html.DisplayFor(model => model.Id)</dd>
         <dt class="col-sm-2">Cliente</dt>
         <dd class="col-sm-10">@Html.DisplayFor(model => model.IdclienteNavigation.RazonSocial)</dd>
         <dt class="col-sm-2">Empleado</dt>
         <dd class="col-sm-10">@Html.DisplayFor(model => model.IdempleadoNavigation.Nombres)</dd>
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Fecha)</dt>
+        <dt class="col-sm-2">Fecha</dt>
         <dd class="col-sm-10">@Html.DisplayFor(model => model.Fecha)</dd>
-        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Total)</dt>
+        <dt class="col-sm-2">Total</dt>
         <dd class="col-sm-10">@Html.DisplayFor(model => model.Total)</dd>
     </dl>
-    <h5>Detalles de Productos</h5>
-    <table class="table">
+
+    <h5>Productos Vendidos</h5>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Producto</th>
@@ -37,14 +38,14 @@
                 <tr>
                     <td>@det.IdproductoNavigation.Nombre</td>
                     <td>@det.Cantidad</td>
-                    <td>@det.PrecioUnitario</td>
-                    <td>@det.Subtotal</td>
+                    <td>@det.PrecioUnitario.ToString("0.00")</td>
+                    <td>@det.Subtotal.ToString("0.00")</td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id"><i class="fa fa-edit" aria-hidden="true"></i> Editar</a> |
-    <a asp-action="Index"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver a la lista</a>
+    <a asp-action="Index"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver a la Lista</a>
 </div>

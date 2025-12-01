@@ -267,6 +267,7 @@ namespace WebProLimp.Controllers
         {
             var venta = await _context.Venta
                 .Include(v => v.IdclienteNavigation)
+                .Include(v => v.IdempleadoNavigation)
                 .Include(v => v.DetalleVenta).ThenInclude(d => d.IdproductoNavigation)
                 .FirstOrDefaultAsync(v => v.Id == idVenta);
             if (venta == null) return NotFound();
@@ -347,9 +348,14 @@ namespace WebProLimp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var venta = await _context.Venta.FindAsync(id);
+            var venta = await _context.Venta
+                .Include(v => v.DetalleVenta)  // Incluir detalles para eliminarlos primero
+                .FirstOrDefaultAsync(v => v.Id == id);
             if (venta != null)
             {
+                // Eliminar detalles relacionados primero
+                _context.DetalleVenta.RemoveRange(venta.DetalleVenta);
+                // Luego eliminar la venta
                 _context.Venta.Remove(venta);
             }
             await _context.SaveChangesAsync();
