@@ -1,6 +1,6 @@
 # sis457_Tienda_Productos_De_Limpieza
 Tienda de Productos de Limpieza "ProLimp"
-Esta es una tienda que vende productos de limpieza de la linea Unilever, Muvel, Colgate y demás, esta tiene una amplia variedad de productos.
+Esta es una tienda que vende productos de limpieza de la linea Unilever, Muvel, Colgate y demás, todo para el cuidado del cliente y el hogar.
 Entidades finales:
 1. UnidadMedida
 Propósito: definir cómo se mide cada producto.
@@ -51,8 +51,6 @@ precioUnitario
 stock
 
 fechaVencimiento
-
-precioCompra
 
 cantidadMinimaStock
 
@@ -150,5 +148,7 @@ id
 nombre
 
 Relaciones:
+
 Una Categoría puede contener muchos Productos (1–N)
 
+Un producto tiene una categoria (N-1)
